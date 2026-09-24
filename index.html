@@ -1,12 +1,381 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Zhenghui Lu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zhenghui Lu | Academic Website</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f9fc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0b1f3a;
+      color: white;
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav .name {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: white;
+      padding: 70px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .profile-card {
+      text-align: center;
+    }
+
+    .profile-card img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #e5eaf0;
+      background: #eee;
+    }
+
+    .profile-card h1 {
+      margin-bottom: 5px;
+      font-size: 34px;
+    }
+
+    .profile-card p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .intro h2 {
+      font-size: 30px;
+      margin-top: 0;
+      color: #0b1f3a;
+    }
+
+    .intro p {
+      font-size: 17px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 14px;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #1f5fa8;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 55px 0;
+    }
+
+    section:nth-child(even) {
+      background: white;
+    }
+
+    h2.section-title {
+      color: #0b1f3a;
+      font-size: 30px;
+      margin-bottom: 25px;
+      border-bottom: 3px solid #d9e2ef;
+      padding-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e1e5ea;
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #123d6a;
+    }
+
+    .publication {
+      margin-bottom: 20px;
+    }
+
+    .publication strong {
+      color: #0b1f3a;
+    }
+
+    footer {
+      background: #0b1f3a;
+      color: white;
+      text-align: center;
+      padding: 28px 0;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 800px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav div:last-child {
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Zhenghui Lu</h1>
-  <p>Postdoctoral Fellow at UBC</p>
-  <p>Welcome to my personal academic website.</p>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="name">Zhenghui Lu</div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="about">
+  <div class="container hero-content">
+
+    <div class="profile-card">
+      <img src="profile.jpg" alt="Zhenghui Lu">
+      <h1>Zhenghui Lu, PhD</h1>
+      <p>Postdoctoral Fellow</p>
+      <p>University of British Columbia</p>
+      <p>Department of Physical Therapy</p>
+    </div>
+
+    <div class="intro">
+      <h2>About Me</h2>
+
+      <p>
+        I am a Postdoctoral Fellow at the University of British Columbia.
+        My research focuses on human biomechanics, musculoskeletal modeling,
+        finite element analysis, artificial intelligence, and additive manufacturing.
+      </p>
+
+      <p>
+        My long-term research goal is to develop individualized digital biomechanics
+        and precision musculoskeletal rehabilitation approaches for predicting
+        patient-specific biomechanical responses and supporting personalized
+        intervention design.
+      </p>
+
+      <div class="links">
+        <a href="#" target="_blank">Google Scholar</a>
+        <a href="#" target="_blank">ORCID</a>
+        <a href="#" target="_blank">GitHub</a>
+        <a href="mailto:your-email@example.com">Email</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="research">
+  <div class="container">
+
+    <h2 class="section-title">Research Interests</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Human Biomechanics</h3>
+        <p>
+          Gait analysis, joint loading, movement assessment,
+          muscle activation, and lower-limb biomechanics.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Musculoskeletal Modeling</h3>
+        <p>
+          OpenSim-based musculoskeletal simulation and subject-specific
+          biomechanical modeling.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Finite Element Modeling</h3>
+        <p>
+          Patient-specific finite element analysis of musculoskeletal
+          structures and biomechanical loading.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>AI & Personalized Rehabilitation</h3>
+        <p>
+          Machine learning, surrogate modeling, digital biomechanics,
+          and personalized intervention optimization.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="container">
+
+    <h2 class="section-title">Selected Publications</h2>
+
+    <div class="publication">
+      <strong>Lu Z, et al.</strong>
+      A Finite Element and Surrogate-Assisted Design Optimization Framework for
+      Subject-Specific Lattice Structures Under Biomechanical Loading.
+      <em>Journal of Biomechanics</em>.
+    </div>
+
+    <div class="publication">
+      <strong>Lu Z, et al.</strong>
+      Accuracy and Efficiency in the Simplification of Musculoskeletal Finite
+      Element Models: A Systematic Review.
+    </div>
+
+    <p>
+      More publications will be added here.
+    </p>
+
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+
+    <h2 class="section-title">Research Projects</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Personalized Knee OA Biomechanics</h3>
+        <p>
+          Integrating gait analysis, musculoskeletal modeling, finite element
+          simulation, and AI to predict individualized biomechanical responses.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Smart 3D-Printed Footwear</h3>
+        <p>
+          Development of personalized lattice footwear and adaptive smart
+          footwear using finite element analysis, optimization, and additive manufacturing.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="cv">
+  <div class="container">
+    <h2 class="section-title">Curriculum Vitae</h2>
+
+    <p>
+      You can download my CV here:
+    </p>
+
+    <p>
+      <a href="cv.pdf" target="_blank">Download CV (PDF)</a>
+    </p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+
+    <h2 class="section-title">Contact</h2>
+
+    <p>
+      Department of Physical Therapy<br>
+      Faculty of Medicine<br>
+      University of British Columbia<br>
+      Vancouver, Canada
+    </p>
+
+    <p>
+      Email:
+      <a href="mailto:your-email@example.com">
+        your-email@example.com
+      </a>
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Zhenghui Lu. All rights reserved.
+  </div>
+</footer>
+
 </body>
 </html>
