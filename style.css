@@ -40,7 +40,9 @@ a:hover {
   margin: 0 auto;
 }
 
-/* Header */
+/* =========================
+   Header
+========================= */
 
 .site-header {
   position: sticky;
@@ -119,7 +121,9 @@ a:hover {
   font-weight: 700;
 }
 
-/* General sections */
+/* =========================
+   General sections
+========================= */
 
 .section {
   padding: 64px 0;
@@ -144,7 +148,9 @@ a:hover {
   margin-bottom: 30px;
 }
 
-/* Hero */
+/* =========================
+   Hero
+========================= */
 
 .hero {
   padding: 72px 0;
@@ -222,7 +228,9 @@ a:hover {
   background: #f2f6fb;
 }
 
-/* Cards */
+/* =========================
+   Cards
+========================= */
 
 .card-grid {
   display: grid;
@@ -253,7 +261,9 @@ a:hover {
   margin-bottom: 0;
 }
 
-/* Publications */
+/* =========================
+   Publications
+========================= */
 
 .publication-list {
   display: flex;
@@ -279,7 +289,9 @@ a:hover {
   font-size: 14px;
 }
 
-/* Project blocks */
+/* =========================
+   Project blocks
+========================= */
 
 .project-card {
   background: white;
@@ -305,7 +317,9 @@ a:hover {
   color: var(--primary-light);
 }
 
-/* Contact */
+/* =========================
+   Contact
+========================= */
 
 .contact-box {
   background: white;
@@ -316,7 +330,9 @@ a:hover {
   box-shadow: var(--shadow);
 }
 
-/* Buttons */
+/* =========================
+   Buttons
+========================= */
 
 .button {
   display: inline-block;
@@ -342,7 +358,9 @@ a:hover {
   background: #f3f6fa;
 }
 
-/* Footer */
+/* =========================
+   Footer
+========================= */
 
 .site-footer {
   background: var(--primary);
@@ -353,13 +371,56 @@ a:hover {
   font-size: 14px;
 }
 
-/* Language display */
+/* =========================
+   Language switching
+========================= */
 
-.lang-zh {
-  display: none;
+/* English mode */
+body.lang-en-mode .lang-en {
+  display: initial;
 }
 
-/* Mobile */
+body.lang-en-mode .lang-zh {
+  display: none !important;
+}
+
+/* Chinese mode */
+body.lang-zh-mode .lang-en {
+  display: none !important;
+}
+
+body.lang-zh-mode .lang-zh {
+  display: initial;
+}
+
+/* Preserve correct display types */
+body.lang-en-mode div.lang-en {
+  display: block;
+}
+
+body.lang-en-mode p.lang-en {
+  display: block;
+}
+
+body.lang-en-mode span.lang-en {
+  display: inline;
+}
+
+body.lang-zh-mode div.lang-zh {
+  display: block;
+}
+
+body.lang-zh-mode p.lang-zh {
+  display: block;
+}
+
+body.lang-zh-mode span.lang-zh {
+  display: inline;
+}
+
+/* =========================
+   Mobile
+========================= */
 
 @media (max-width: 900px) {
   .navbar {
