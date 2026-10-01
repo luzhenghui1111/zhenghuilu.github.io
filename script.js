@@ -1,37 +1,26 @@
 function setLanguage(lang) {
-  const englishElements = document.querySelectorAll(".lang-en");
-  const chineseElements = document.querySelectorAll(".lang-zh");
+  const body = document.body;
+
+  body.classList.remove("lang-en-mode", "lang-zh-mode");
+
+  if (lang === "zh") {
+    body.classList.add("lang-zh-mode");
+    document.documentElement.lang = "zh-CN";
+  } else {
+    body.classList.add("lang-en-mode");
+    document.documentElement.lang = "en";
+  }
 
   const enButtons = document.querySelectorAll('[data-lang="en"]');
   const zhButtons = document.querySelectorAll('[data-lang="zh"]');
 
-  if (lang === "zh") {
-    englishElements.forEach((el) => {
-      el.style.display = "none";
-    });
+  enButtons.forEach((button) => {
+    button.classList.toggle("active", lang === "en");
+  });
 
-    chineseElements.forEach((el) => {
-      el.style.display = "";
-    });
-
-    enButtons.forEach((btn) => btn.classList.remove("active"));
-    zhButtons.forEach((btn) => btn.classList.add("active"));
-
-    document.documentElement.lang = "zh-CN";
-  } else {
-    chineseElements.forEach((el) => {
-      el.style.display = "none";
-    });
-
-    englishElements.forEach((el) => {
-      el.style.display = "";
-    });
-
-    zhButtons.forEach((btn) => btn.classList.remove("active"));
-    enButtons.forEach((btn) => btn.classList.add("active"));
-
-    document.documentElement.lang = "en";
-  }
+  zhButtons.forEach((button) => {
+    button.classList.toggle("active", lang === "zh");
+  });
 
   localStorage.setItem("preferredLanguage", lang);
 }
@@ -42,14 +31,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setLanguage(savedLanguage);
 
-  const languageButtons = document.querySelectorAll(
-    "[data-lang]"
-  );
+  const languageButtons = document.querySelectorAll("[data-lang]");
 
   languageButtons.forEach((button) => {
     button.addEventListener("click", function () {
-      const lang = this.getAttribute("data-lang");
-      setLanguage(lang);
+      const selectedLanguage = this.getAttribute("data-lang");
+
+      setLanguage(selectedLanguage);
     });
   });
 });
