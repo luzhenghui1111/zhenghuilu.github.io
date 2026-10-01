@@ -1,55 +1,719 @@
-function setLanguage(lang) {
-  const englishElements = document.querySelectorAll(".lang-en");
-  const chineseElements = document.querySelectorAll(".lang-zh");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  const enButtons = document.querySelectorAll('[data-lang="en"]');
-  const zhButtons = document.querySelectorAll('[data-lang="zh"]');
+  <title>Zhenghui Lu | Academic Website</title>
 
-  if (lang === "zh") {
-    englishElements.forEach((el) => {
-      el.style.display = "none";
-    });
+  <meta
+    name="description"
+    content="Academic website of Zhenghui Lu, Postdoctoral Fellow at the University of British Columbia."
+  >
 
-    chineseElements.forEach((el) => {
-      el.style.display = "";
-    });
+  <link rel="stylesheet" href="style.css">
+</head>
 
-    enButtons.forEach((btn) => btn.classList.remove("active"));
-    zhButtons.forEach((btn) => btn.classList.add("active"));
+<body>
 
-    document.documentElement.lang = "zh-CN";
-  } else {
-    chineseElements.forEach((el) => {
-      el.style.display = "none";
-    });
+  <!-- =========================
+       Header / Navigation
+  ========================== -->
 
-    englishElements.forEach((el) => {
-      el.style.display = "";
-    });
+  <header class="site-header">
+    <div class="container">
 
-    zhButtons.forEach((btn) => btn.classList.remove("active"));
-    enButtons.forEach((btn) => btn.classList.add("active"));
+      <nav class="navbar">
 
-    document.documentElement.lang = "en";
-  }
+        <a class="site-name" href="index.html">
+          Zhenghui Lu
+        </a>
 
-  localStorage.setItem("preferredLanguage", lang);
-}
+        <div class="nav-right">
 
-document.addEventListener("DOMContentLoaded", function () {
-  const savedLanguage =
-    localStorage.getItem("preferredLanguage") || "en";
+          <div class="nav-links">
 
-  setLanguage(savedLanguage);
+            <a href="index.html" class="active">
+              <span class="lang-en">Home</span>
+              <span class="lang-zh">主页</span>
+            </a>
 
-  const languageButtons = document.querySelectorAll(
-    "[data-lang]"
-  );
+            <a href="research.html">
+              <span class="lang-en">Research</span>
+              <span class="lang-zh">研究</span>
+            </a>
 
-  languageButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const lang = this.getAttribute("data-lang");
-      setLanguage(lang);
-    });
-  });
-});
+            <a href="publications.html">
+              <span class="lang-en">Publications</span>
+              <span class="lang-zh">论文</span>
+            </a>
+
+            <a href="projects.html">
+              <span class="lang-en">Projects</span>
+              <span class="lang-zh">项目</span>
+            </a>
+
+            <a href="contact.html">
+              <span class="lang-en">Contact</span>
+              <span class="lang-zh">联系</span>
+            </a>
+
+          </div>
+
+          <div class="language-switcher">
+            <button type="button" data-lang="en">
+              EN
+            </button>
+
+            <span>|</span>
+
+            <button type="button" data-lang="zh">
+              中文
+            </button>
+          </div>
+
+        </div>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       Main Content
+  ========================== -->
+
+  <main>
+
+
+    <!-- =========================
+         Hero / About
+    ========================== -->
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+
+        <!-- Profile -->
+
+        <div class="profile-panel">
+
+          <img
+            src="profile.jpg"
+            alt="Zhenghui Lu"
+            class="profile-photo"
+          >
+
+          <h1 class="profile-name">
+            Zhenghui Lu, PhD
+          </h1>
+
+          <p class="profile-role">
+
+            <span class="lang-en">
+              Postdoctoral Fellow
+            </span>
+
+            <span class="lang-zh">
+              博士后研究员
+            </span>
+
+          </p>
+
+          <p class="profile-role">
+            University of British Columbia
+          </p>
+
+          <p class="profile-role">
+
+            <span class="lang-en">
+              Department of Physical Therapy
+            </span>
+
+            <span class="lang-zh">
+              物理治疗系
+            </span>
+
+          </p>
+
+        </div>
+
+
+        <!-- Introduction -->
+
+        <div class="hero-content">
+
+          <h2>
+
+            <span class="lang-en">
+              About Me
+            </span>
+
+            <span class="lang-zh">
+              关于我
+            </span>
+
+          </h2>
+
+
+          <!-- English introduction -->
+
+          <div class="lang-en">
+
+            <p>
+              I am a Postdoctoral Fellow in the Department of Physical Therapy,
+              Faculty of Medicine, at the University of British Columbia.
+            </p>
+
+            <p>
+              My research focuses on human biomechanics, musculoskeletal modeling,
+              finite element analysis, artificial intelligence, and additive manufacturing.
+              I am particularly interested in integrating experimental biomechanics,
+              computational modeling, and data-driven approaches to better understand
+              musculoskeletal loading and develop personalized interventions.
+            </p>
+
+            <p>
+              My long-term research goal is to develop individualized digital biomechanics
+              and precision musculoskeletal rehabilitation approaches that can support
+              patient-specific prediction, intervention design, and clinical decision-making.
+            </p>
+
+          </div>
+
+
+          <!-- Chinese introduction -->
+
+          <div class="lang-zh">
+
+            <p>
+              我目前是加拿大英属哥伦比亚大学医学部物理治疗系的博士后研究员。
+            </p>
+
+            <p>
+              我的研究主要聚焦于人体生物力学、肌肉骨骼建模、有限元分析、
+              人工智能以及增材制造。我尤其关注如何将实验生物力学、
+              计算建模与数据驱动方法相结合，以更好地理解肌肉骨骼系统负荷，
+              并开发个体化干预方案。
+            </p>
+
+            <p>
+              我的长期研究目标是发展个体化数字生物力学与精准肌肉骨骼康复方法，
+              用于支持患者特异性预测、干预设计以及临床决策。
+            </p>
+
+          </div>
+
+
+          <!-- External links -->
+
+          <div class="social-links">
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Scholar
+            </a>
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ORCID
+            </a>
+
+            <a
+              href="https://github.com/luzhenghui1111"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="cv.pdf"
+              target="_blank"
+            >
+              CV
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Research Interests
+    ========================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <h2 class="section-title">
+
+          <span class="lang-en">
+            Research Interests
+          </span>
+
+          <span class="lang-zh">
+            研究方向
+          </span>
+
+        </h2>
+
+
+        <div class="card-grid">
+
+
+          <!-- Human Biomechanics -->
+
+          <article class="card">
+
+            <h3>
+
+              <span class="lang-en">
+                Human Biomechanics
+              </span>
+
+              <span class="lang-zh">
+                人体生物力学
+              </span>
+
+            </h3>
+
+            <p class="lang-en">
+              Gait analysis, joint loading, movement assessment,
+              neuromuscular function, and lower-limb biomechanics.
+            </p>
+
+            <p class="lang-zh">
+              步态分析、关节负荷、运动评估、神经肌肉功能以及下肢生物力学。
+            </p>
+
+          </article>
+
+
+          <!-- Musculoskeletal Modeling -->
+
+          <article class="card">
+
+            <h3>
+
+              <span class="lang-en">
+                Musculoskeletal Modeling
+              </span>
+
+              <span class="lang-zh">
+                肌肉骨骼建模
+              </span>
+
+            </h3>
+
+            <p class="lang-en">
+              OpenSim-based simulation, subject-specific modeling,
+              joint contact force estimation, and biomechanical analysis.
+            </p>
+
+            <p class="lang-zh">
+              基于 OpenSim 的肌肉骨骼仿真、个体化建模、
+              关节接触力估计以及生物力学分析。
+            </p>
+
+          </article>
+
+
+          <!-- FEA -->
+
+          <article class="card">
+
+            <h3>
+
+              <span class="lang-en">
+                Finite Element Modeling
+              </span>
+
+              <span class="lang-zh">
+                有限元建模
+              </span>
+
+            </h3>
+
+            <p class="lang-en">
+              Subject-specific finite element modeling of musculoskeletal structures,
+              tissue stress and strain analysis, and model simplification.
+            </p>
+
+            <p class="lang-zh">
+              肌肉骨骼结构个体化有限元建模、组织应力与应变分析，
+              以及有限元模型简化与优化。
+            </p>
+
+          </article>
+
+
+          <!-- AI -->
+
+          <article class="card">
+
+            <h3>
+
+              <span class="lang-en">
+                AI &amp; Personalized Rehabilitation
+              </span>
+
+              <span class="lang-zh">
+                人工智能与个体化康复
+              </span>
+
+            </h3>
+
+            <p class="lang-en">
+              Machine learning, surrogate modeling, digital biomechanics,
+              personalized intervention prediction, and optimization.
+            </p>
+
+            <p class="lang-zh">
+              机器学习、代理模型、数字生物力学、
+              个体化干预效果预测以及优化设计。
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <p style="margin-top: 28px;">
+
+          <a
+            class="button"
+            href="research.html"
+          >
+
+            <span class="lang-en">
+              Explore My Research
+            </span>
+
+            <span class="lang-zh">
+              查看研究方向
+            </span>
+
+          </a>
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Selected Publications
+    ========================== -->
+
+    <section class="section section-white">
+
+      <div class="container">
+
+        <h2 class="section-title">
+
+          <span class="lang-en">
+            Selected Publications
+          </span>
+
+          <span class="lang-zh">
+            代表性论文
+          </span>
+
+        </h2>
+
+
+        <div class="publication-list">
+
+
+          <!-- Publication placeholder -->
+
+          <div class="publication-item">
+
+            <div class="publication-title">
+
+              <span class="lang-en">
+                Selected publication information will be added here.
+              </span>
+
+              <span class="lang-zh">
+                这里将展示代表性论文信息。
+              </span>
+
+            </div>
+
+            <div class="publication-meta">
+
+              <span class="lang-en">
+                Full publication details can be added later.
+              </span>
+
+              <span class="lang-zh">
+                后续可以补充完整的论文题目、作者、期刊和链接。
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- Systematic review -->
+
+          <div class="publication-item">
+
+            <div class="publication-title">
+              Accuracy and Efficiency in the Simplification of
+              Musculoskeletal Finite Element Models:
+              A Systematic Review
+            </div>
+
+            <div class="publication-meta">
+
+              <span class="lang-en">
+                Systematic review on accuracy-efficiency trade-offs
+                in musculoskeletal finite element model simplification.
+              </span>
+
+              <span class="lang-zh">
+                关于肌肉骨骼有限元模型简化过程中准确性与计算效率权衡的系统综述。
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <p style="margin-top: 28px;">
+
+          <a
+            class="button button-secondary"
+            href="publications.html"
+          >
+
+            <span class="lang-en">
+              View All Publications
+            </span>
+
+            <span class="lang-zh">
+              查看全部论文
+            </span>
+
+          </a>
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Selected Projects
+    ========================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <h2 class="section-title">
+
+          <span class="lang-en">
+            Selected Projects
+          </span>
+
+          <span class="lang-zh">
+            主要研究项目
+          </span>
+
+        </h2>
+
+
+        <div class="card-grid">
+
+
+          <!-- Knee OA -->
+
+          <article class="card">
+
+            <h3>
+
+              <span class="lang-en">
+                Personalized Knee OA Biomechanics
+              </span>
+
+              <span class="lang-zh">
+                膝骨关节炎个体化生物力学
+              </span>
+
+            </h3>
+
+            <p class="lang-en">
+              Integrating gait analysis, musculoskeletal modeling,
+              finite element simulation, and AI to investigate
+              individualized biomechanical responses in knee osteoarthritis.
+            </p>
+
+            <p class="lang-zh">
+              融合步态分析、肌肉骨骼建模、有限元仿真与人工智能，
+              研究膝骨关节炎患者的个体化生物力学响应。
+            </p>
+
+          </article>
+
+
+          <!-- Footwear -->
+
+          <article class="card">
+
+            <h3>
+
+              <span class="lang-en">
+                Personalized 3D-Printed Footwear
+              </span>
+
+              <span class="lang-zh">
+                个体化 3D 打印鞋具
+              </span>
+
+            </h3>
+
+            <p class="lang-en">
+              Developing data-driven approaches for optimizing
+              personalized lattice structures and footwear interventions
+              using finite element modeling, machine learning,
+              and additive manufacturing.
+            </p>
+
+            <p class="lang-zh">
+              基于有限元建模、机器学习和增材制造，
+              开发数据驱动的个体化晶格结构与鞋具干预优化方法。
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <p style="margin-top: 28px;">
+
+          <a
+            class="button"
+            href="projects.html"
+          >
+
+            <span class="lang-en">
+              View Projects
+            </span>
+
+            <span class="lang-zh">
+              查看项目
+            </span>
+
+          </a>
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Contact Preview
+    ========================== -->
+
+    <section class="section section-white">
+
+      <div class="container">
+
+        <h2 class="section-title">
+
+          <span class="lang-en">
+            Contact
+          </span>
+
+          <span class="lang-zh">
+            联系方式
+          </span>
+
+        </h2>
+
+
+        <div class="contact-box">
+
+          <p>
+            Department of Physical Therapy<br>
+            Faculty of Medicine<br>
+            University of British Columbia<br>
+            Vancouver, BC, Canada
+          </p>
+
+          <p>
+
+            <a href="contact.html">
+
+              <span class="lang-en">
+                Contact information →
+              </span>
+
+              <span class="lang-zh">
+                查看联系方式 →
+              </span>
+
+            </a>
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       Footer
+  ========================== -->
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      © 2026 Zhenghui Lu.
+
+      <span class="lang-en">
+        All rights reserved.
+      </span>
+
+      <span class="lang-zh">
+        保留所有权利。
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
