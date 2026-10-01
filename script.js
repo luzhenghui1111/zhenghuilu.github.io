@@ -1,43 +1,37 @@
-function setLanguage(lang) {
-  const body = document.body;
+function applyLanguage(lang) {
+  const isChinese = lang === "zh";
 
-  body.classList.remove("lang-en-mode", "lang-zh-mode");
+  document.documentElement.lang = isChinese ? "zh-CN" : "en";
 
-  if (lang === "zh") {
-    body.classList.add("lang-zh-mode");
-    document.documentElement.lang = "zh-CN";
-  } else {
-    body.classList.add("lang-en-mode");
-    document.documentElement.lang = "en";
-  }
-
-  const enButtons = document.querySelectorAll('[data-lang="en"]');
-  const zhButtons = document.querySelectorAll('[data-lang="zh"]');
-
-  enButtons.forEach((button) => {
-    button.classList.toggle("active", lang === "en");
+  document.querySelectorAll(".lang-en").forEach((el) => {
+    el.hidden = isChinese;
   });
 
-  zhButtons.forEach((button) => {
-    button.classList.toggle("active", lang === "zh");
+  document.querySelectorAll(".lang-zh").forEach((el) => {
+    el.hidden = !isChinese;
   });
 
-  localStorage.setItem("preferredLanguage", lang);
+  document.querySelectorAll('[data-lang="en"]').forEach((button) => {
+    button.classList.toggle("active", !isChinese);
+    button.setAttribute("aria-pressed", String(!isChinese));
+  });
+
+  document.querySelectorAll('[data-lang="zh"]').forEach((button) => {
+    button.classList.toggle("active", isChinese);
+    button.setAttribute("aria-pressed", String(isChinese));
+  });
+
+  localStorage.setItem("preferredLanguage", isChinese ? "zh" : "en");
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const savedLanguage =
-    localStorage.getItem("preferredLanguage") || "en";
+  const savedLanguage = localStorage.getItem("preferredLanguage") || "en";
 
-  setLanguage(savedLanguage);
+  applyLanguage(savedLanguage);
 
-  const languageButtons = document.querySelectorAll("[data-lang]");
-
-  languageButtons.forEach((button) => {
+  document.querySelectorAll("[data-lang]").forEach((button) => {
     button.addEventListener("click", function () {
-      const selectedLanguage = this.getAttribute("data-lang");
-
-      setLanguage(selectedLanguage);
+      applyLanguage(this.getAttribute("data-lang"));
     });
   });
 });
