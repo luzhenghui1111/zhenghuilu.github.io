@@ -17,5 +17,13 @@
 .about-carousel-dot{width:8px;height:8px;border:0;border-radius:50%;background:#b8aa82;padding:0;cursor:pointer;transition:transform .2s ease,background .2s ease}
 .about-carousel-dot.is-active{background:var(--orange);transform:scale(1.35)}
 .about-carousel-counter{text-align:center;margin-top:8px;font-family:"Arial Narrow",Arial,sans-serif;font-size:10px;letter-spacing:.12em;color:var(--olive);text-transform:uppercase}
-@media(max-width:900px){.v-about-grid{grid-template-columns:1fr!important}.v-about-gallery{max-width:470px;margin-bottom:12px}}
+
+/* Stable homepage research layout: keep all three featured papers on one row. */
+.home-vintage #research .v-research-grid{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:flex-start!important;justify-content:space-between!important;gap:30px!important;width:100%!important}
+.home-vintage #research .v-research-card{display:flex!important;flex:1 1 0!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;width:0!important;min-width:0!important;max-width:none!important;margin:0!important;grid-column:auto!important;grid-row:auto!important;position:relative!important;transform:none!important}
+.home-vintage #research .v-round-visual{flex:0 0 auto!important;width:min(100%,320px)!important;max-width:320px!important}
+.home-vintage #research .v-research-card h3,.home-vintage #research .v-research-meta,.home-vintage #research .v-research-summary{width:100%!important;max-width:330px!important}
+
+@media(max-width:900px){.v-about-grid{grid-template-columns:1fr!important}.v-about-gallery{max-width:470px;margin-bottom:12px}.home-vintage #research .v-research-grid{gap:16px!important}.home-vintage #research .v-round-visual{max-width:230px!important}}
+@media(max-width:700px){.home-vintage #research .v-research-grid{display:flex!important;flex-direction:column!important;align-items:center!important}.home-vintage #research .v-research-card{width:100%!important;max-width:360px!important;flex:0 0 auto!important}.home-vintage #research .v-round-visual{max-width:300px!important}}
 @media(max-width:640px){.v-about-gallery{max-width:100%}.about-carousel-btn{width:34px;height:34px;font-size:22px}}
