@@ -46,9 +46,9 @@ document.addEventListener("DOMContentLoaded",()=>{
   }
 
   const figures=[
-    [".v-round-visual.pressure","assets/research-featured-1.jpg","Finite element foot model and radiographic reference from the featured study"],
-    [".v-round-visual.lattice","assets/research-featured-2.jpg","Footwear lattice structure and unit-cell design from the featured study"],
-    [".v-round-visual.printing","assets/research-featured-3.jpg","Graphical abstract of the 3D-printing footwear biomechanics review"]
+    [".v-round-visual.pressure","assets/research-featured-1.png","Finite element foot model and radiographic reference from the featured study"],
+    [".v-round-visual.lattice","assets/research-featured-2.png","Footwear lattice structure and unit-cell design from the featured study"],
+    [".v-round-visual.printing","assets/research-featured-3.png","Graphical abstract of the 3D-printing footwear biomechanics review"]
   ];
   figures.forEach(([selector,src,alt])=>{
     const frame=document.querySelector(selector);
