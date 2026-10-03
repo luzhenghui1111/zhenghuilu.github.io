@@ -79,10 +79,10 @@ async function setupBilibiliMedia(){
     .v-media-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 38px}.v-media-divider:before,.v-media-divider:after{content:"";width:54px;height:1px;background:var(--orange)}.v-media-divider i{width:8px;height:8px;background:var(--orange);transform:rotate(45deg)}
     .v-media-stage{position:relative;max-width:1040px;margin:0 auto;border:1px solid rgba(53,68,47,.25);background:#171717;box-shadow:0 18px 45px rgba(53,68,47,.12)}
     .v-media-player{position:relative;width:100%;aspect-ratio:16/9;background:#111;overflow:hidden}
-    .v-media-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#111}
+    .v-media-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#111;pointer-events:auto}
     .v-media-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:52px;height:64px;border:0;background:rgba(20,20,20,.62);color:#fff;font-size:38px;line-height:1;cursor:pointer;transition:.18s ease}.v-media-arrow:hover{background:rgba(228,154,51,.88);color:var(--charcoal)}.v-media-arrow.prev{left:0}.v-media-arrow.next{right:0}.v-media-arrow[disabled]{opacity:.25;cursor:default}
-    .v-media-caption{position:absolute;left:26px;bottom:24px;z-index:3;max-width:min(620px,72%);padding:16px 19px;background:rgba(23,23,23,.76);color:white;backdrop-filter:blur(4px)}
-    .v-media-caption h3{margin:0 0 7px;font-size:19px;line-height:1.35;color:white}.v-media-caption-meta{font-family:"Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:#eadfc7}.v-media-caption a{color:var(--orange);font-size:12px}
+    .v-media-caption{position:absolute;left:26px;bottom:24px;z-index:3;max-width:min(620px,72%);padding:16px 19px;background:rgba(23,23,23,.76);color:white;backdrop-filter:blur(4px);pointer-events:none}
+    .v-media-caption h3{margin:0 0 7px;font-size:19px;line-height:1.35;color:white}.v-media-caption-meta{font-family:"Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:#eadfc7}.v-media-caption a{color:var(--orange);font-size:12px;pointer-events:auto}
     .v-media-dots{display:flex;justify-content:center;gap:8px;margin-top:18px}.v-media-dot{width:8px;height:8px;border-radius:50%;border:0;background:#b9a980;padding:0;cursor:pointer}.v-media-dot.active{background:var(--orange);transform:scale(1.25)}
     .v-media-note{text-align:center;margin:14px auto 0;max-width:760px;font-size:12px;color:#777264}
     @media(max-width:700px){.v-social-media{padding:70px 0 78px}.v-media-caption{left:12px;bottom:12px;max-width:78%;padding:11px 13px}.v-media-caption h3{font-size:14px}.v-media-arrow{width:38px;height:52px;font-size:28px}.v-media-heading{font-size:36px}}
@@ -97,7 +97,7 @@ async function setupBilibiliMedia(){
       <h2 class="v-media-heading"><span class="lang-en">On Social Media</span><span class="lang-zh">我在社交媒体</span></h2>
       <div class="v-media-divider"><i></i></div>
       <div class="v-media-stage" tabindex="0" aria-label="Bilibili video carousel">
-        <div class="v-media-player"><iframe title="Bilibili video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen scrolling="no"></iframe></div>
+        <div class="v-media-player"><iframe title="Bilibili video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen scrolling="no" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
         <button class="v-media-arrow prev" type="button" aria-label="Previous video">‹</button>
         <button class="v-media-arrow next" type="button" aria-label="Next video">›</button>
         <div class="v-media-caption"><h3 class="v-media-title">Bilibili</h3><div class="v-media-caption-meta"></div><a class="v-media-link" target="_blank" rel="noopener noreferrer"><span class="lang-en">Open on Bilibili ↗</span><span class="lang-zh">在哔哩哔哩打开 ↗</span></a></div>
@@ -154,7 +154,7 @@ async function setupBilibiliMedia(){
   function show(i){
     index=(i+videos.length)%videos.length;
     const v=videos[index];
-    iframe.src=`https://player.bilibili.com/player.html?bvid=${encodeURIComponent(v.bvid)}&page=1&high_quality=1&danmaku=0&autoplay=0`;
+    iframe.src=`https://www.bilibili.com/blackboard/html5mobileplayer.html?isOutside=true&bvid=${encodeURIComponent(v.bvid)}&p=1&autoplay=0&danmaku=0&hideCoverInfo=1`;
     iframe.title=v.title||"Bilibili video";
     title.textContent=v.title||"Bilibili video";
     meta.textContent=[v.date?formatDate(v.date):"",`${String(index+1).padStart(2,"0")} / ${String(videos.length).padStart(2,"0")}`].filter(Boolean).join(" · ");
