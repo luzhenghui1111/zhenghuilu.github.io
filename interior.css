@@ -1,3 +1,4 @@
+@import url("scale.css?v=20261003-1");
 /* Vintage scientific interior-page theme matching the homepage */
 :root{--paper:#efe4c7;--paper2:#f6edda;--olive:#7f8854;--forest:#35442f;--orange:#e49a33;--brick:#b94435;--charcoal:#282622;--ink:#37362f;--line:#b9a980;--cream:#fff7e8}
 body:not(.home-vintage){background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman","Songti SC",serif}
