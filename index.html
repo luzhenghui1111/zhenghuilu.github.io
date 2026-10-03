@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Zhenghui Lu | Personal Academic Website</title>
   <meta name="description" content="Personal academic website of Zhenghui Lu, Postdoctoral Fellow at the University of British Columbia working on biomechanics, musculoskeletal modeling, finite element analysis, AI, footwear, and rehabilitation.">
-  <link rel="stylesheet" href="style.css?v=20261002-5">
-  <link rel="stylesheet" href="home-vintage.css?v=20261002-1">
+  <link rel="stylesheet" href="style.css?v=20261003-2">
+  <link rel="stylesheet" href="home-vintage.css?v=20261003-2">
+  <link rel="stylesheet" href="about-carousel.css?v=20261003-1">
 </head>
 <body class="home-vintage lang-en-mode">
 <header class="site-header">
@@ -52,7 +53,21 @@
 
   <section class="v-section" id="about">
     <div class="v-container v-about-grid">
-      <div class="v-portrait-wrap"><img src="profile.jpg" alt="Zhenghui Lu" class="v-portrait"></div>
+      <div class="v-about-gallery" data-about-carousel tabindex="0" aria-label="Zhenghui Lu photo gallery">
+        <div class="about-carousel-frame">
+          <div class="about-carousel-track">
+            <figure class="about-carousel-slide profile is-active"><img src="profile.jpg" alt="Portrait of Zhenghui Lu"></figure>
+            <figure class="about-carousel-slide ubc"><img src="assets/about-ubc.jpg" alt="Zhenghui Lu at the University of British Columbia"></figure>
+            <figure class="about-carousel-slide coast"><img src="assets/about-coast.jpg" alt="Zhenghui Lu outdoors by the coast"></figure>
+            <figure class="about-carousel-slide industry"><img src="assets/about-industry.jpg" alt="Footwear industry collaboration"></figure>
+            <figure class="about-carousel-slide fbs"><img src="assets/about-fbs.jpg" alt="Zhenghui Lu at the Footwear Biomechanics Symposium"></figure>
+          </div>
+          <button class="about-carousel-btn prev" type="button" aria-label="Previous photo">‹</button>
+          <button class="about-carousel-btn next" type="button" aria-label="Next photo">›</button>
+        </div>
+        <div class="about-carousel-dots" aria-label="Photo selector"></div>
+        <div class="about-carousel-counter" aria-live="polite">01 / 05</div>
+      </div>
       <div class="v-about-copy">
         <h2 class="v-section-title"><span class="lang-en">About Me</span><span class="lang-zh">关于我</span></h2>
         <div class="v-divider"><i></i></div>
@@ -148,6 +163,7 @@
     </div>
   </section>
 </main>
-<script src="script.js?v=20261002-5"></script>
+<script src="script.js?v=20261003-2"></script>
+<script src="about-carousel.js?v=20261003-1"></script>
 </body>
 </html>
