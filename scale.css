@@ -1,0 +1,125 @@
+/* Global desktop viewing scale
+   Designed to approximate the visual comfort of ~175% browser zoom
+   without breaking mobile layouts or creating horizontal overflow. */
+
+@media (min-width: 1280px) {
+  html { font-size: 112%; }
+
+  .container,
+  .v-container {
+    width: min(1040px, 88%) !important;
+  }
+
+  .navbar {
+    min-height: 84px !important;
+  }
+
+  .site-name {
+    font-size: 23px !important;
+  }
+
+  .nav-links a,
+  .language-switcher {
+    font-size: 15px !important;
+  }
+
+  .home-vintage .v-section,
+  body:not(.home-vintage) .section {
+    padding-top: 118px !important;
+    padding-bottom: 118px !important;
+  }
+
+  .home-vintage .v-section-title {
+    font-size: clamp(54px, 5.6vw, 82px) !important;
+  }
+
+  .home-vintage .v-about-copy p {
+    font-size: 21px !important;
+    line-height: 1.82 !important;
+  }
+
+  .home-vintage .v-research-card h3 {
+    font-size: 20px !important;
+  }
+
+  .home-vintage .v-research-meta {
+    font-size: 14px !important;
+  }
+
+  .home-vintage .v-research-summary {
+    font-size: 15px !important;
+    line-height: 1.72 !important;
+  }
+
+  .home-vintage .v-round-visual {
+    max-width: 360px !important;
+  }
+
+  .home-vintage .v-project-card h3 {
+    font-size: 24px !important;
+  }
+
+  .home-vintage .v-project-card p {
+    font-size: 16px !important;
+  }
+
+  .home-vintage .v-contact h2 {
+    font-size: 56px !important;
+  }
+
+  body:not(.home-vintage) .page-hero h1 {
+    font-size: 58px !important;
+  }
+
+  body:not(.home-vintage) .page-lead,
+  body:not(.home-vintage) .section-intro {
+    font-size: 18px !important;
+    line-height: 1.75 !important;
+  }
+
+  body:not(.home-vintage) .section-title {
+    font-size: 38px !important;
+  }
+
+  body:not(.home-vintage) .publication-toggle,
+  body:not(.home-vintage) .publication-title {
+    font-size: 17px !important;
+  }
+
+  body:not(.home-vintage) .publication-meta,
+  body:not(.home-vintage) .publication-authors {
+    font-size: 14px !important;
+  }
+
+  body:not(.home-vintage) .publication-detail .detail-copy p {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+  }
+
+  body:not(.home-vintage) .project-card h3,
+  body:not(.home-vintage) .card h3,
+  body:not(.home-vintage) .contact-box h3 {
+    font-size: 21px !important;
+  }
+
+  body:not(.home-vintage) .project-card p,
+  body:not(.home-vintage) .card p,
+  body:not(.home-vintage) .contact-box p {
+    font-size: 16px !important;
+  }
+
+  .button,
+  .v-dark-button,
+  .v-cta,
+  .scholar-link,
+  .chip-link {
+    transform: scale(1.08);
+    transform-origin: left center;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1279px) {
+  html { font-size: 106%; }
+  .container,
+  .v-container { width: min(1040px, 90%) !important; }
+}
