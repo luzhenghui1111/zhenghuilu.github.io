@@ -123,3 +123,23 @@
   .container,
   .v-container { width: min(1040px, 90%) !important; }
 }
+
+/* Research page: use the same three featured-paper PNGs as the homepage. */
+body:not(.home-vintage) .highlight-grid .highlight-card:nth-child(1) .paper-thumb {
+  background-image: url("assets/research-featured-1.png") !important;
+}
+body:not(.home-vintage) .highlight-grid .highlight-card:nth-child(2) .paper-thumb {
+  background-image: url("assets/research-featured-2.png") !important;
+}
+body:not(.home-vintage) .highlight-grid .highlight-card:nth-child(3) .paper-thumb {
+  background-image: url("assets/research-featured-3.png") !important;
+}
+body:not(.home-vintage) .highlight-grid .paper-thumb {
+  background-color: #f6edda !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: contain !important;
+}
+body:not(.home-vintage) .highlight-grid .paper-thumb span {
+  display: none !important;
+}
