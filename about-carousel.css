@@ -18,13 +18,13 @@
 .about-carousel-dot.is-active{background:var(--orange);transform:scale(1.35)}
 .about-carousel-counter{text-align:center;margin-top:8px;font-family:"Arial Narrow",Arial,sans-serif;font-size:10px;letter-spacing:.12em;color:var(--olive);text-transform:uppercase}
 
-/* Original article figures in the three circular featured-research frames. */
+/* Transparent PNG article figures in the circular featured-research frames. */
 .home-vintage .v-round-visual.paper-figure{
   display:flex!important;
   align-items:center!important;
   justify-content:center!important;
-  padding:10px!important;
-  background:#f8f1df!important;
+  padding:8px!important;
+  background:transparent!important;
 }
 .home-vintage .v-round-visual.paper-figure:before,
 .home-vintage .v-round-visual.paper-figure:after{display:none!important}
@@ -35,6 +35,8 @@
   object-fit:contain!important;
   object-position:center center!important;
   border-radius:0!important;
+  mix-blend-mode:normal!important;
+  filter:none!important;
 }
 
 /* Keep the homepage featured-research row stable even when browser translation
