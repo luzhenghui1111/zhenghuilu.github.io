@@ -1,263 +1,48 @@
-const paperDetails={
-  "Computationally tuned dual-layer lattice pads adapted to gait-induced pressure distribution":{
-    en:"Combining finite element simulation, Gaussian-process surrogate modeling and Bayesian optimization, this study tuned a dual-layer lattice pad to gait-induced forefoot loading and reduced simulated peak plantar pressure by 51.36%.",
-    zh:"该研究结合有限元、高斯过程代理模型和贝叶斯优化，根据步态前足压力优化双层晶格垫，并在模拟中将峰值足底压力降低 51.36%。",
-    image:"https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs44334-025-00055-8/MediaObjects/44334_2025_55_Fig3_HTML.png",
-    imageAlt:"Dual-layer lattice pad design and validation figure"
-  },
-  "Parametric cushioning lattice insole based on finite element method and machine learning: A preliminary computational analysis":{
-    en:"This study coupled a controllable parametric lattice insole with finite element simulation and machine learning, identifying an optimized design that reduced plantar pressure by up to 44.45%.",
-    zh:"该研究将可控参数化晶格鞋垫与有限元和机器学习结合，筛选出最优结构组合，使足底压力最高降低约 44.45%。"
-  },
-  "Will this be the next step? A systematic review of 3D printing in footwear biomechanics":{
-    en:"This systematic review maps how 3D-printed footwear has been studied for injury prevention, comfort and athletic performance, and highlights key needs for future personalized design.",
-    zh:"该系统综述梳理 3D 打印鞋具在损伤预防、舒适性和运动表现中的研究证据，并总结未来个体化设计仍需解决的关键问题。",
-    image:"https://www.tandfonline.com/action/showGraphicalAbstractImage?doi=10.1080%2F19424280.2025.2472251&id=tfws_a_2472251_uf0001_c.jpg",
-    imageAlt:"Graphical abstract for the 3D-printing footwear systematic review"
-  },
-  "Pregnancy-related transverse arch deformation: A subject-specific finite element analysis of the contributions of body weight and tissue stiffness":{
-    en:"Subject-specific finite element modeling was used to separate the effects of increased body weight and tissue softening on pregnancy-related transverse-arch deformation and plantar loading.",
-    zh:"该研究利用个体化有限元模型分离体重增加与组织软化对妊娠相关足横弓变形和足底负荷的贡献。"
-  },
-  "Foot progression angle modulates knee loading during walking in individuals with flexible flatfoot":{
-    en:"Combining musculoskeletal and finite element modeling, this study shows that foot-progression-angle changes redistribute tibiofemoral and medial-meniscus loading, supporting individualized gait modification in flexible flatfoot.",
-    zh:"该研究结合肌肉骨骼与有限元建模，发现足进展角调整会重新分配胫股关节和内侧半月板负荷，提示柔性扁平足的步态干预应个体化。"
-  },
-  "Speed-related increases in plantar tissue stress without affected-side laterality in individuals with unilateral shoulder dislocation":{
-    en:"Faster walking increased forefoot and plantar-tissue stresses, but loading remained symmetric relative to the affected shoulder, indicating that speed rather than shoulder-side laterality drove the observed foot mechanics.",
-    zh:"该研究发现步行速度增加会提高前足和足底组织应力，但与患侧肩并无明显侧别对应，说明足部力学变化主要由速度而非肩部患侧驱动。"
-  },
-  "Heterogeneous Neuromuscular Control Strategies in the Soccer Instep Kick: A Cross-Sectional Study of Synergy Structure Mapping Across Skill Levels":{
-    en:"Muscle-synergy analysis revealed three shared coordination patterns across skill levels, while more skilled soccer players showed more concentrated and differentiated neuromuscular control during instep kicking.",
-    zh:"肌肉协同分析显示不同技能水平共享三类基本协调模式，但高水平足球运动员在脚背踢球中表现出更集中、更分化的神经肌肉控制策略。"
-  },
-  "Foot progression angle modulates three-dimensional lower-limb biomechanics in flexible flatfoot: Kinematic–kinetic patterns and clinical implications":{
-    en:"Changing foot progression angle systematically altered ankle and knee kinematics and kinetics in flexible flatfoot, indicating that toe-in and toe-out strategies create distinct lower-limb loading patterns.",
-    zh:"该研究发现足进展角调整会系统改变柔性扁平足人群的踝膝三维运动学与动力学，说明内八和外八步态会形成不同的下肢负荷模式。"
-  },
-  "The effects of different carbon-fiber plate shapes in shoes on lower limb biomechanics following running-induced fatigue":{
-    en:"Curved carbon-fiber plates changed forefoot bending and reduced selected hip and knee joint angles and hip flexion moment after running-induced fatigue.",
-    zh:"该研究表明弯曲碳板会改变前足弯曲特征，并在跑步疲劳后降低部分髋膝关节角度及髋屈曲力矩。"
-  },
-  "Biomechanical effects of asymmetric backpack shoulder straps on the unilateral flatfoot: A finite element analysis":{
-    en:"Finite element analysis showed that equal-length backpack straps minimized plantar-fascia and Achilles-tendon stress, whereas asymmetric strap length altered arch mechanics at the cost of higher soft-tissue loading.",
-    zh:"有限元结果表明等长肩带可降低足底筋膜和跟腱负荷，而不对称肩带长度虽会改变足弓力学，却增加软组织受力。"
-  },
-  "Integrating footwear features into fatigue prediction models for marathon runners: A hybrid CNN-LSTM approach":{
-    en:"Adding footwear features to a hybrid CNN-LSTM improved marathon fatigue-state prediction from 69% to 85%, while curved carbon plates delayed the onset of semi-fatigue.",
-    zh:"将鞋具特征加入 CNN-LSTM 后，马拉松疲劳状态预测准确率由 69% 提升至 85%，同时弯曲碳板可延缓半疲劳状态出现。"
-  },
-  "Impact of Becker muscular dystrophy on gait patterns: Insights from biomechanical analysis":{
-    en:"Biomechanical analysis showed that Becker muscular dystrophy was associated with longer stance, shorter swing, increased rearfoot pressure and reduced forefoot pressure, highlighting distinct compensatory gait patterns.",
-    zh:"生物力学分析显示 Becker 肌营养不良与支撑期延长、摆动期缩短、后足压力升高及前足压力降低有关，反映出特征性的代偿步态模式。"
-  }
+const paperData={
+"Pregnancy-related transverse arch deformation: A subject-specific finite element analysis of the contributions of body weight and tissue stiffness":{authors:"X. Li; Zhenghui Lu; Y. Fang; G. Fekete; D. Sun; Y. Gu",en:"Pregnancy changes both body mass and the mechanical properties of foot tissues, making it difficult to determine which factors drive transverse-arch deformation. This study used a subject-specific finite element model to separate the effects of increased body weight from tissue softening and to examine their influence on plantar loading. The results show that both mechanisms contribute to pregnancy-related changes in foot mechanics and help clarify how structural deformation develops during pregnancy.",zh:"妊娠过程中体重和足部组织力学性质都会发生变化，因此很难单独判断哪些因素导致足横弓变形。本研究建立个体化有限元模型，将体重增加与组织软化的作用分开分析，并观察它们对足部结构和足底负荷的影响。结果表明，两类因素都会参与妊娠相关的足部力学变化，有助于理解妊娠期足横弓变形的形成机制。"},
+"Foot progression angle modulates knee loading during walking in individuals with flexible flatfoot":{authors:"L. Shen; Zhenghui Lu; X. Li; Z. Xia; Y. Xu; C. Zhu; Y. Song; X. Cen; D. Sun; G. Fekete; Y. Gu",en:"Flexible flatfoot can alter lower-limb alignment and may influence how load is transmitted through the knee during walking. Gait data from different foot-progression-angle conditions were combined with musculoskeletal modeling and a knee finite element model to examine tibiofemoral and meniscal loading. Changing foot progression angle redistributed internal knee loading, indicating that gait modification should be selected according to individual mechanical characteristics rather than applied uniformly.",zh:"柔性扁平足会改变下肢排列，并可能影响步行时膝关节内部负荷的传递。本研究采集不同足进展角条件下的步态数据，并结合肌肉骨骼建模和膝关节有限元模型分析胫股关节及半月板负荷。结果显示，足进展角调整会重新分配膝关节内部受力，提示步态干预需要结合个体的力学特征进行选择。"},
+"Speed-related increases in plantar tissue stress without affected-side laterality in individuals with unilateral shoulder dislocation":{authors:"Zhenghui Lu; L. Xiao; P. Liang; M. Chen; L. Guo; L. Ma; D. Li",en:"Unilateral shoulder injury may change trunk and upper-limb control during gait, but whether those changes create side-specific foot loading is unclear. Participants walked at different speeds while plantar loading was assessed and a finite element model was used to estimate internal tissue stress. Faster walking increased forefoot and plantar-tissue loading, whereas the feet remained broadly symmetric relative to the injured shoulder side.",zh:"单侧肩关节损伤可能改变步行时的躯干和上肢控制，但这种变化是否会进一步造成足部左右侧负荷差异并不明确。本研究比较不同步行速度下的足底外部负荷，并利用有限元模型估计足部内部组织应力。结果显示，速度增加会提高前足和足底组织负荷，但相对于肩部患侧并未出现明显的足部侧别差异。"},
+"Region-specific Plantar Fascia Stress Responses to Carbon-fiber Plate Stiffness During Running: A Dynamic Explicit Finite Element Analysis":{authors:"Y. Qian; Z. Xia; Y. Song; X. Cen; C. Zhu; Zhenghui Lu; Y. Xu; Z. Zheng; Q. Zeng; D. Sun; J. Sárosi; I. Bíró; Y. Gu",en:"Carbon-fiber plates alter shoe bending stiffness and therefore change how load is transferred through the foot during running. This study used dynamic explicit finite element modeling to compare plantar-fascia stress patterns under plates with different stiffness levels. Plate stiffness changed the regional distribution of plantar-fascia stress, showing that footwear stiffness can influence different portions of the tissue in different ways.",zh:"碳纤维板会改变鞋具的弯曲刚度，从而影响跑步过程中足部负荷的传递。本研究采用动态显式有限元方法，对比不同碳板刚度条件下足底筋膜各区域的应力响应。结果显示，碳板刚度会改变足底筋膜应力的区域分布，说明鞋具刚度对不同组织区域的作用并不一致。"},
+"Heterogeneous Neuromuscular Control Strategies in the Soccer Instep Kick: A Cross-Sectional Study of Synergy Structure Mapping Across Skill Levels":{authors:"D. Wang; D. Sun; F. Li; D. Chen; Z. Zhou; R. Zhao; Zhenghui Lu; Y. Li; Z. Gao; M. Jemni; X. Cen; Y. Song; Y. Gu",en:"The soccer instep kick requires coordinated activation of many lower-limb muscles, and that coordination may differ with skill level. Surface EMG and muscle-synergy analysis were used to map common and skill-specific neuromuscular patterns during kicking. The study identified shared basic synergies across groups while showing that more skilled players organized muscle contributions in a more concentrated and differentiated manner.",zh:"足球脚背踢球需要多块下肢肌肉进行高度协调，而不同技能水平运动员可能采用不同的神经肌肉控制策略。本研究结合表面肌电与肌肉协同分析，对踢球动作中的共同和技能特异性协同模式进行映射。结果显示，各组存在共享的基本协同结构，但高水平运动员的肌肉贡献更加集中和分化。"},
+"Foot progression angle modulates three-dimensional lower-limb biomechanics in flexible flatfoot: Kinematic–kinetic patterns and clinical implications":{authors:"L. Shen; D. Sun; Y. Fang; Zhenghui Lu; X. Li; Y. Xu; Y. Song; C. Zhu; X. Cen; G. Fekete; M. Jemni",en:"Foot progression angle is a simple gait parameter that can influence lower-limb alignment and loading in people with flexible flatfoot. Participants walked with different progression-angle strategies while three-dimensional kinematics and kinetics were analyzed. Toe-in, neutral and toe-out strategies produced distinct ankle and knee mechanical patterns, supporting individualized rather than one-size-fits-all gait modification.",zh:"足进展角是一个容易调整的步态参数，但它会影响柔性扁平足人群的下肢排列和负荷。本研究比较不同足进展角条件下的三维运动学与动力学。结果显示，内八、中性和外八步态会形成不同的踝膝力学特征，因此步态调整更适合采用个体化策略。"},
+"Computationally tuned dual-layer lattice pads adapted to gait-induced pressure distribution":{authors:"Zhenghui Lu; X. Li; D. Sun; Y. Song; G. Fekete; A. Kovács; Z. Gao; J. Zheng; L. Xiang; Y. Gu",en:"Localized forefoot overload is difficult to manage with conventional uniform-stiffness cushioning because plantar pressure patterns vary between individuals. This study combined finite element simulation, Gaussian-process surrogate modeling and Bayesian optimization to tune a dual-layer lattice pad to gait-induced pressure distribution. The optimized architecture redistributed plantar load more effectively and demonstrated how personalized pressure data can be converted into a manufacturable lattice design.",zh:"传统均匀刚度缓冲结构难以适应不同个体的局部前足高负荷。本研究将有限元仿真、高斯过程代理模型和贝叶斯优化结合，根据步态产生的足底压力分布对双层晶格垫进行参数优化。优化后的结构能够更有效地重新分配足底负荷，并展示了如何将个体压力数据转化为可制造的个性化晶格设计。",image:"https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs44334-025-00055-8/MediaObjects/44334_2025_55_Fig3_HTML.png"},
+"The effects of different carbon-fiber plate shapes in shoes on lower limb biomechanics following running-induced fatigue":{authors:"Y. Xu; C. Zhu; Y. Fang; Zhenghui Lu; Y. Song; C. Hu; D. Sun; Y. Gu",en:"Carbon-fiber plates are increasingly used in running shoes, but their geometry may interact with fatigue-related changes in running mechanics. Runners were tested before and after a fatigue protocol while wearing shoes with different plate shapes, with joint mechanics and muscle activity analyzed. Curved and flat plates produced different forefoot and proximal-joint responses, showing that plate geometry can meaningfully modify biomechanics after fatigue.",zh:"碳纤维板已广泛用于跑鞋，但板形可能与疲劳后的跑步力学变化产生相互作用。本研究让跑者在疲劳前后穿着不同碳板形状的鞋，并分析关节运动学、动力学及肌肉活动。结果显示，弯曲板和平板会产生不同的前足和近端关节力学响应，说明碳板几何形态能够影响疲劳后的跑步生物力学。"},
+"Biomechanical effects of asymmetric backpack shoulder straps on the unilateral flatfoot: A finite element analysis":{authors:"C. Hu; X. Cen; D. Sun; Zhenghui Lu; Y. Xu; C. Zhu; Y. Xu; Y. Gu",en:"Asymmetric backpack loading may change whole-body posture and alter the mechanical environment of an already asymmetric foot. A finite element model of unilateral flatfoot was used to compare plantar-fascia, Achilles-tendon and arch mechanics under different shoulder-strap configurations. Symmetric straps generally produced a more balanced soft-tissue loading pattern, whereas strap asymmetry shifted arch mechanics and increased local tissue demand.",zh:"不对称背包负荷可能改变整体姿势，并进一步影响本身已经存在左右差异的足部力学环境。本研究利用单侧扁平足有限元模型，对不同肩带长度条件下的足底筋膜、跟腱和足弓力学进行比较。结果显示，对称肩带总体上形成更均衡的软组织负荷，而肩带不对称会改变足弓力学并增加局部组织负担。"},
+"Advances and future directions of foetal finite element modelling in childbirth: From biomechanical interactions to clinical implications":{authors:"L. Shen; Zhenghui Lu; X. Li; D. Sun; Y. Song; G. Fekete; A. Kovács; F. Li; X. Cen",en:"Finite element models are increasingly used to study fetal and maternal mechanics during childbirth, but modeling assumptions and validation approaches vary widely. This review summarizes current geometric, material, contact and boundary-condition strategies and considers how these models can support clinically relevant interpretation. It highlights the need for stronger validation, more standardized reporting and closer links between simulation outputs and clinical decision-making.",zh:"有限元方法正越来越多地用于研究分娩过程中胎儿与母体之间的力学相互作用，但不同研究在几何、材料、接触和边界条件方面差异较大。本综述系统梳理现有建模策略及其临床解释价值，并讨论模型如何用于理解分娩力学。文章同时指出，未来需要加强模型验证、规范报告方式，并进一步建立仿真结果与临床决策之间的联系。"},
+"Will this be the next step? A systematic review of 3D printing in footwear biomechanics":{authors:"Zhenghui Lu; X. Li; D. Sun; Y. Song; G. Fekete; A. Kovács; Y. Gu",en:"Additive manufacturing offers new freedom for tailoring footwear geometry and mechanical properties, but its biomechanical evidence base remains fragmented. This systematic review synthesizes studies of 3D-printed footwear for injury prevention, comfort and athletic performance, with attention to design methods and evaluation approaches. The literature shows strong potential for personalization while also revealing methodological heterogeneity and a need for better validation and user-specific design frameworks.",zh:"增材制造为鞋具几何形态和力学性能的个体化设计提供了更高自由度，但相关生物力学证据仍较分散。本系统综述整合了 3D 打印鞋具在损伤预防、舒适性和运动表现方面的研究，并比较不同设计与评价方法。现有证据显示个体化应用具有明显潜力，同时也暴露出方法差异较大、验证不足以及需要建立用户特异性设计框架等问题。",image:"https://www.tandfonline.com/action/showGraphicalAbstractImage?doi=10.1080%2F19424280.2025.2472251&id=tfws_a_2472251_uf0001_c.jpg"},
+"Integrating footwear features into fatigue prediction models for marathon runners: A hybrid CNN-LSTM approach":{authors:"C. Zhu; D. Sun; Y. Xu; Zhenghui Lu; C. Hu; X. Cen; Y. Song; Z. Gao; Y. Gu",en:"Fatigue develops dynamically during prolonged running and may be influenced by footwear characteristics as well as movement patterns. This study combined time-series biomechanical information with footwear features in a hybrid CNN-LSTM model to classify fatigue states in marathon runners. Incorporating shoe-related information improved the model's ability to distinguish fatigue progression and suggested that footwear design can contribute useful information to fatigue prediction.",zh:"长时间跑步中的疲劳是一个动态过程，除运动模式外也可能受到鞋具特征影响。本研究将时序生物力学信息与鞋具特征共同输入 CNN-LSTM 混合模型，用于识别马拉松跑者的疲劳状态。结果表明，加入鞋具信息后模型能够更好地区分疲劳进程，也说明鞋具设计特征可以成为疲劳预测中的有效信息来源。"},
+"Parametric cushioning lattice insole based on finite element method and machine learning: A preliminary computational analysis":{authors:"Zhenghui Lu; X. Li; D. Sun; Y. Song; G. Fekete; A. Kovács; A. Kámán; Y. Gu",en:"Personalized lattice insoles require a controllable way to connect structural parameters with cushioning performance. This study created a parameterized lattice insole, generated finite element simulations across different structural combinations and trained machine-learning models to rapidly predict mechanical behavior. The resulting workflow identified promising parameter combinations for pressure reduction and demonstrates a practical route from computational sampling to intelligent footwear optimization.",zh:"个体化晶格鞋垫需要建立一种可控的方法，将结构参数与缓冲性能直接联系起来。本研究构建参数化晶格鞋垫，通过有限元生成不同结构组合的力学数据，并训练机器学习模型进行快速性能预测。该流程能够筛选出更有利于缓冲和减压的参数组合，展示了从计算仿真到智能鞋具优化的可行路径。"},
+"Sedentary duration and systemic health burden: Nonlinear associations with muscle, fat, and vascular phenotypes in a US population-based study":{authors:"C. Hu; Y. Song; D. Sun; Zhenghui Lu; H. Chen; X. Cen; D. Janícijevíc; Z. Radák; Z. Gao; J. S. Baker; Y. Gu",en:"Sedentary behavior may affect several physiological systems simultaneously rather than producing a single isolated outcome. Using population-level data, this study examined nonlinear relationships between sedentary duration and muscle, adipose and vascular phenotypes. The findings indicate that longer sedentary exposure is associated with a broader systemic health burden and that these relationships are not necessarily linear across the full exposure range.",zh:"久坐行为可能同时影响多个生理系统，而不是只产生单一健康结果。本研究基于人群数据分析久坐时间与肌肉、脂肪和血管表型之间的非线性关系。结果显示，较长久坐暴露与更广泛的系统性健康负担相关，而且这种关系并不一定在整个暴露范围内保持线性。"},
+"Impact of Becker muscular dystrophy on gait patterns: Insights from biomechanical analysis":{authors:"S. Gao; Y. Song; D. Sun; X. Cen; M. Wang; Zhenghui Lu; Y. Gu",en:"Becker muscular dystrophy can progressively alter muscle function and may lead to characteristic compensatory gait strategies. This study used gait and plantar-loading measurements to characterize how affected individuals redistribute time and pressure across the stance phase. The results indicate a distinct compensatory pattern with altered temporal gait organization and a shift in plantar loading between rearfoot and forefoot regions.",zh:"Becker 肌营养不良会逐渐影响肌肉功能，并可能形成特征性的代偿步态。本研究利用步态和足底负荷测量分析患者在支撑期内如何重新分配时间和压力。结果显示，该人群具有明显的代偿性步态模式，同时足底负荷在后足和前足之间发生重新分配。"},
+"The effect of simulated basketball game load on patellar tendon load during stop-jump movement":{authors:"D. Wang; F. Li; J. S. Baker; P. Zhang; Zhenghui Lu; J. Yu; M. Liang",en:"Repeated high-intensity actions in basketball may change landing and take-off mechanics and thereby alter patellar-tendon demand. This study used a simulated basketball-game load followed by stop-jump testing to compare tendon loading before and after accumulated exercise. The findings show that game-like fatigue changes the mechanical strategy of the stop-jump and can modify how load is transferred through the patellar tendon.",zh:"篮球比赛中的重复高强度动作会改变起跳和落地策略，并可能进一步影响髌腱负荷。本研究通过模拟篮球比赛负荷，并在运动前后进行急停跳测试，对髌腱受力进行比较。结果表明，比赛样疲劳会改变急停跳的力学策略，并影响负荷通过髌腱传递的方式。"},
+"Mixed comparison of intervention with eccentric, isometric, and heavy slow resistance for Victorian Institute of Sport Assessment Patella Questionnaire in adults with patellar tendinopathy: A systematic review and network meta-analysis":{authors:"Y. Li; D. Sun; Y. Fang; Zhenghui Lu; F. Shi; G. Liu; Y. Gu",en:"Exercise therapy is central to patellar-tendinopathy rehabilitation, but several loading approaches are used in practice and their relative effects are difficult to compare directly. This systematic review and network meta-analysis compared eccentric, isometric and heavy slow resistance programs using patient-reported patellar-tendon outcomes. The synthesis shows that different loading strategies can improve symptoms and function, while their relative performance depends on the intervention context and available evidence.",zh:"运动训练是髌腱病康复的重要手段，但临床常用的离心、等长和重慢阻力训练之间并不容易直接比较。本系统综述和网络 Meta 分析以患者报告的髌腱功能结局为基础，对不同负荷训练策略进行综合比较。结果显示，多种训练方式均可改善症状和功能，而不同方案之间的相对表现仍受到干预设计和现有证据质量的影响。"},
+"Pregnancy-induced gait alterations: Meta-regression evidence of spatiotemporal adjustments":{authors:"X. Li; Zhenghui Lu; Y. Song; M. Liang; Y. Yuan; G. Fekete; A. Kovács; D. Sun; Y. Gu",en:"Pregnancy produces progressive anatomical and physiological changes that can affect walking strategy, but individual studies have reported different magnitudes of adaptation. This work synthesized the available literature and used meta-regression to examine changes in spatiotemporal gait variables across pregnancy. The results describe a consistent pattern of gait adaptation and show how those adjustments evolve with pregnancy-related factors.",zh:"妊娠带来的解剖和生理变化会逐渐影响步行策略，但不同研究报告的变化幅度并不一致。本研究通过系统整合既往研究并进行 Meta 回归，分析妊娠期时空步态参数的变化。结果总结出较为一致的步态适应模式，并进一步描述这些调整如何随妊娠相关因素发生变化。"},
+"Effect of pregnancy on female gait characteristics: A pilot study based on portable gait analyzer and induced acceleration analysis":{authors:"X. Li; Zhenghui Lu; X. Cen; Y. Zhou; R. Xuan; D. Sun; Y. Gu",en:"Pregnancy-related changes in body mass distribution and balance may alter gait in ways that are difficult to capture outside the laboratory. This pilot study used a portable gait analyzer together with induced-acceleration analysis to characterize gait mechanics during pregnancy. The results identified pregnancy-related adaptations in walking patterns and demonstrated the value of portable measurement for monitoring those changes.",zh:"妊娠期间体重分布和平衡能力的变化可能改变步态，而这些变化在实验室外并不容易持续监测。本试点研究结合便携式步态分析仪与诱导加速度分析，对妊娠期步行力学进行描述。结果识别出一系列妊娠相关的步态适应，同时说明便携式测量可用于跟踪这些变化。"},
+"Case study: The influence of Achilles tendon rupture on knee joint stress during counter-movement jump—Combining musculoskeletal modeling and finite element analysis":{authors:"Zhenghui Lu; D. Sun; B. Kovács; Z. Radák; Y. Gu",en:"Achilles-tendon rupture can change ankle push-off and may shift mechanical demand toward more proximal joints during explosive movement. This case study combined musculoskeletal modeling with finite element analysis to estimate how altered lower-limb loading affects knee stress during a countermovement jump. The model suggests that changes associated with Achilles-tendon rupture can redistribute joint loading and modify the internal mechanical environment of the knee.",zh:"跟腱断裂会改变踝关节蹬伸功能，并可能在爆发性动作中将更多机械需求转移到近端关节。本病例研究将肌肉骨骼建模与有限元分析结合，估计反向纵跳过程中下肢负荷变化对膝关节应力的影响。模型结果提示，跟腱损伤相关的代偿会重新分配关节负荷，并改变膝关节内部的力学环境。"},
+"The effects of ankle dorsiflexor fatigue on lower limb biomechanics during badminton forward forehand and backhand lunge":{authors:"J. Tong; Zhenghui Lu; X. Cen; C. Chen; U. C. Ugbolue; Y. Gu",en:"Badminton lunges require rapid deceleration and precise foot placement, and fatigue of the ankle dorsiflexors may alter those mechanics. Participants performed forward forehand and backhand lunges before and after a dorsiflexor-fatigue protocol while lower-limb biomechanics were measured. Fatigue changed joint motion and loading strategies during the lunge, suggesting that local muscular fatigue can influence movement control in badminton-specific tasks.",zh:"羽毛球弓步需要快速减速和精确落脚，踝背屈肌疲劳可能改变这一过程的动作控制。本研究在踝背屈肌疲劳前后比较正手和反手前向弓步，并测量下肢运动学和动力学。结果显示，局部肌肉疲劳会改变弓步中的关节运动和负荷策略，从而影响羽毛球专项动作控制。"},
+"Comparative efficacy of vibration foam rolling and cold water immersion in amateur basketball players after a simulated load of basketball game":{authors:"F. Li; Y. Song; X. Cen; D. Sun; Zhenghui Lu; I. Bíró; Y. Gu",en:"Recovery strategies are widely used after basketball activity, but their effects may differ depending on the physiological and performance outcome of interest. This study compared vibration foam rolling and cold-water immersion after a simulated basketball-game load. Both interventions influenced post-exercise recovery profiles, providing practical information on how different recovery modalities may be selected after demanding court activity.",zh:"篮球运动后常采用多种恢复手段，但不同方法对生理和运动表现的影响可能并不相同。本研究在模拟篮球比赛负荷后比较振动泡沫轴与冷水浸泡两种恢复方式。结果显示，两种干预会形成不同的恢复反应，为高强度场地运动后的恢复方式选择提供了参考。"},
+"The effect of fatigue on lower limb joint stiffness at different walking speeds":{authors:"E. Shao; Zhenghui Lu; X. Cen; Z. Zheng; D. Sun; Y. Gu",en:"Joint stiffness reflects how the lower limb regulates movement and absorbs load, and both fatigue and walking speed can influence this control strategy. This study quantified lower-limb joint stiffness at several walking speeds before and after a fatigue protocol. The findings show that fatigue-related stiffness changes depend on walking speed, indicating that movement speed is an important context when interpreting fatigue effects.",zh:"关节刚度反映下肢调节运动和吸收负荷的方式，而疲劳和步行速度都可能改变这一控制策略。本研究在疲劳前后比较不同步行速度下的下肢关节刚度。结果表明，疲劳引起的刚度变化具有速度依赖性，因此评价疲劳效应时需要同时考虑运动速度。"},
+"Effect of heel lift insoles on lower extremity muscle activation and joint work during barbell squats":{authors:"Zhenghui Lu; X. Li; R. Xuan; Y. Song; I. Bíró; M. Liang; Y. Gu",en:"Heel-lift insoles are commonly used to change squat posture and ankle mobility demands, but they may also redistribute work across the lower limb. This study compared barbell squats with different heel-lift conditions while examining muscle activation and joint work. Heel elevation changed how mechanical work and muscular demand were shared among the ankle, knee and hip, illustrating how a simple footwear modification can alter squat strategy.",zh:"垫高鞋跟常用于改变深蹲姿势并降低踝关节活动度需求，但同时也可能重新分配下肢做功。本研究比较不同后跟垫高条件下的杠铃深蹲，并分析肌肉激活和关节做功。结果显示，后跟高度会改变踝、膝和髋之间的机械做功及肌肉需求分配，说明简单的鞋垫调整即可影响深蹲策略。"},
+"A mixed comparisons of aerobic training with different volumes and intensities of physical exercise in patients with hypertension: A systematic review and network meta-analysis":{authors:"Zhenghui Lu; Y. Song; H. Chen; S. Li; E. C. Teo; Y. Gu",en:"Aerobic exercise is widely prescribed for hypertension, yet training volume and intensity vary substantially across programs. This systematic review and network meta-analysis compared different aerobic-exercise prescriptions across clinical outcomes. The evidence supports aerobic training as an effective management strategy while showing that the response can vary according to how exercise dose is structured.",zh:"有氧运动是高血压管理中的常见干预方式，但不同方案在训练量和强度方面差异很大。本系统综述和网络 Meta 分析比较不同有氧运动处方的临床效果。结果支持有氧训练在高血压管理中的作用，同时说明运动反应会受到训练剂量组织方式的影响。"},
+"The influence of a shoe’s heel-toe drop on gait parameters during the third trimester of pregnancy":{authors:"X. Li; Zhenghui Lu; D. Sun; R. Xuan; Z. Zheng; Y. Gu",en:"Changes in balance and lower-limb mechanics during late pregnancy may make footwear geometry particularly important for walking comfort and stability. This study compared gait parameters in third-trimester participants while varying shoe heel-to-toe drop. Different drop conditions altered walking characteristics, indicating that shoe geometry can influence gait adaptation during pregnancy.",zh:"孕晚期平衡能力和下肢力学都会发生变化，因此鞋具几何设计可能对步行舒适性和稳定性产生更明显的影响。本研究比较不同鞋跟前后落差条件下孕晚期女性的步态参数。结果显示，不同落差会改变步行特征，说明鞋具几何可以影响妊娠期的步态适应。"},
+"The influence of different rope jumping methods on adolescents’ lower limb biomechanics during the ground-contact phase":{authors:"Y. Lin; Zhenghui Lu; X. Cen; A. Thirupathi; D. Sun; Y. Gu",en:"Rope jumping is widely used in youth exercise, but different techniques can place different demands on the lower limb during landing and take-off. This study compared lower-limb biomechanics during the ground-contact phase of several rope-jumping methods. The movement technique changed joint loading and control strategies, providing information for selecting jumping styles according to training goals and loading tolerance.",zh:"跳绳广泛用于青少年运动训练，但不同跳法在落地和起跳阶段可能形成不同的下肢负荷。本研究比较多种跳绳方式在触地阶段的下肢生物力学。结果显示，跳法会改变关节负荷和动作控制策略，可为不同训练目的和负荷耐受水平下的跳绳方式选择提供参考。"},
+"Influence of different load conditions on lower extremity biomechanics during the lunge squat in novice men":{authors:"L. Gao; Zhenghui Lu; M. Liang; J. S. Baker; Y. Gu",en:"The lunge squat is commonly used in strength training, yet novice lifters may alter technique as external load increases. This study compared lower-limb biomechanics across several loading conditions during the lunge squat. Increasing load changed joint motion and mechanical demand, showing how external resistance influences movement strategy in inexperienced participants.",zh:"弓步蹲是常见的力量训练动作，但初学者可能随着外部负荷增加而改变动作策略。本研究比较不同负荷条件下男性初学者弓步蹲的下肢生物力学。结果显示，负荷增加会改变关节运动和机械需求，反映出外部阻力对初学者动作策略的影响。"},
+"Effect of rearfoot valgus on biomechanics during barbell squatting: A study based on OpenSim musculoskeletal modeling":{authors:"Zhenghui Lu; X. Li; M. Rong; J. S. Baker; Y. Gu",en:"Rearfoot valgus can influence lower-limb alignment and may change how forces are distributed during loaded squatting. This study used OpenSim musculoskeletal modeling to compare barbell-squat mechanics under different rearfoot alignment conditions. The model indicated that rearfoot valgus changes muscle and joint loading patterns, linking foot posture with more proximal mechanics during the squat.",zh:"后足外翻会影响下肢排列，并可能改变负重深蹲过程中的力学传递。本研究利用 OpenSim 肌肉骨骼模型比较不同后足姿态条件下的杠铃深蹲。结果显示，后足外翻会改变肌肉和关节负荷模式，说明足部姿态能够进一步影响深蹲中的近端关节力学。"},
+"A mixed comparisons of different intensities and types of physical exercise in patients with diseases related to oxidative stress: A systematic review and network meta-analysis":{authors:"Zhenghui Lu; Y. Xu; Y. Song; I. Bíró; Y. Gu",en:"Exercise is often recommended for chronic conditions associated with oxidative stress, but studies use a wide range of exercise types and intensities. This systematic review and network meta-analysis compared different exercise prescriptions across oxidative-stress-related disease populations. The synthesis supports exercise as a useful intervention while indicating that outcomes can vary with exercise modality and intensity.",zh:"运动常被用于与氧化应激相关的慢性疾病管理，但既往研究采用的运动类型和强度差异较大。本系统综述和网络 Meta 分析比较不同运动处方在相关疾病人群中的效果。综合结果支持运动干预的价值，同时表明运动方式和强度会影响最终反应。"},
+"Gait characteristics and fatigue profiles when standing on surfaces with different hardness: Gait analysis and machine learning algorithms":{authors:"Zhenghui Lu; D. Sun; D. Xu; X. Li; J. S. Baker; Y. Gu",en:"Prolonged standing can induce lower-limb fatigue, and floor hardness may influence how that fatigue develops and appears in subsequent walking. This study examined gait after standing on surfaces of different hardness and applied machine-learning algorithms to characterize fatigue-related patterns. Surface condition affected the subsequent gait response, and data-driven models were able to distinguish features associated with fatigue.",zh:"长时间站立会引起下肢疲劳，而地面硬度可能影响疲劳的形成以及之后的步态表现。本研究比较在不同硬度表面长时间站立后的步态，并利用机器学习算法识别疲劳相关特征。结果显示，站立表面会影响后续步态反应，同时数据驱动模型能够从步态信息中识别疲劳模式。"},
+"A comparative biomechanical analysis during planned and unplanned gait termination in individuals with different arch stiffnesses":{authors:"X. Cen; Zhenghui Lu; J. S. Baker; I. Bíró; Y. Gu",en:"Stopping unexpectedly requires rapid reorganization of lower-limb mechanics, and foot-arch stiffness may influence how that task is performed. This study compared planned and unplanned gait termination in participants with different arch stiffness characteristics. Both stopping condition and arch stiffness influenced lower-limb biomechanics, suggesting that foot structure is relevant to balance and deceleration strategies.",zh:"意外停止需要下肢快速重新组织动作和负荷，而足弓刚度可能影响这一过程。本研究比较不同足弓刚度人群在计划性和非计划性步态终止中的生物力学表现。结果显示，停止方式与足弓特征都会影响下肢力学，说明足部结构与减速和平衡控制策略密切相关。"},
+"The differences in lower extremity joints energy dissipation strategy during landing between athletes with symptomatic patellar tendinopathy and without patellar tendinopathy":{authors:"D. Xu; Zhenghui Lu; S. Shen; G. Fekete; U. C. Ugbolue; Y. Gu",en:"Landing requires coordinated energy absorption across the ankle, knee and hip, and patellar-tendon symptoms may alter this distribution. This study compared lower-extremity joint energy-dissipation strategies between athletes with symptomatic patellar tendinopathy and those without symptoms. The groups used different joint-level absorption patterns, indicating that patellar tendinopathy is associated with a redistribution of landing mechanics rather than a change isolated to the knee alone.",zh:"落地过程中踝、膝和髋需要共同吸收机械能，而髌腱症状可能改变这种关节间分配。本研究比较有症状髌腱病运动员与无髌腱病运动员的下肢关节能量耗散策略。结果显示，两组采用了不同的关节吸收模式，说明髌腱病相关的落地变化并非只发生在膝关节，而是涉及整个下肢的力学重新分配。"}
 };
 
-if(/\/research\.html$/.test(location.pathname)){
-  location.replace("publications.html");
-}
-
-function applyLanguage(lang){
-  const zh=lang==="zh";
-  document.documentElement.lang=zh?"zh-CN":"en";
-  document.body.classList.toggle("lang-zh-mode",zh);
-  document.body.classList.toggle("lang-en-mode",!zh);
-  document.querySelectorAll(".lang-en").forEach(el=>el.hidden=zh);
-  document.querySelectorAll(".lang-zh").forEach(el=>el.hidden=!zh);
-  document.querySelectorAll('[data-lang="en"]').forEach(b=>{b.classList.toggle("active",!zh);b.setAttribute("aria-pressed",String(!zh))});
-  document.querySelectorAll('[data-lang="zh"]').forEach(b=>{b.classList.toggle("active",zh);b.setAttribute("aria-pressed",String(zh))});
-  localStorage.setItem("preferredLanguage",zh?"zh":"en");
-}
-
-function scholarUrlFor(title,existing){
-  if(existing&&existing.includes("scholar.google"))return existing;
-  return "https://scholar.google.com/scholar?q="+encodeURIComponent(title);
-}
-
-function injectPublicationDetailStyles(){
-  if(document.getElementById("publication-detail-runtime-styles"))return;
-  const style=document.createElement("style");
-  style.id="publication-detail-runtime-styles";
-  style.textContent=`
-    .publication-detail.has-image{grid-template-columns:minmax(190px,260px) 1fr!important;align-items:start}
-    .publication-detail.no-image{grid-template-columns:1fr!important}
-    .publication-figure{background:#fff7e8;border:1px solid #b9a980;padding:7px;min-height:120px;display:flex;align-items:center;justify-content:center}
-    .publication-figure img{display:block;width:100%;max-height:220px;object-fit:contain;background:#fff}
-    .publication-detail .detail-copy p{font-size:14px;line-height:1.75;color:#4e4b41;margin:0 0 10px}
-    @media(max-width:640px){.publication-detail.has-image{grid-template-columns:1fr!important}}
-  `;
-  document.head.appendChild(style);
-}
-
-function injectSitePolishStyles(){
-  if(document.getElementById("site-polish-runtime-styles"))return;
-  const style=document.createElement("style");
-  style.id="site-polish-runtime-styles";
-  style.textContent=`
-    body:not(.home-vintage) .container{width:min(1180px,92%)}
-    body:not(.home-vintage) .navbar{min-height:72px}
-    body:not(.home-vintage) .site-name{font-family:Georgia,"Times New Roman","Songti SC",serif!important;font-size:20px!important;font-weight:800!important;letter-spacing:.06em!important}
-    body:not(.home-vintage) .nav-links a{font-family:"Arial Narrow",Arial,sans-serif!important;text-transform:uppercase;letter-spacing:.08em;font-size:13px!important;font-weight:600}
-    body:not(.home-vintage) .language-switcher{font-family:"Arial Narrow",Arial,sans-serif!important;font-size:13px;font-weight:700}
-
-    body:not(.home-vintage) .contact-box .chip-link{
-      background:rgba(255,247,232,.35)!important;
-      border:1px solid #7f8854!important;
-      border-radius:0!important;
-      color:#35442f!important;
-      font-family:"Arial Narrow",Arial,sans-serif!important;
-      text-transform:uppercase;
-      letter-spacing:.05em;
-      padding:8px 12px!important;
-      box-shadow:none!important;
-    }
-    body:not(.home-vintage) .contact-box .chip-link:hover{
-      background:#35442f!important;
-      border-color:#35442f!important;
-      color:#fff7e8!important;
-    }
-
-    .home-vintage .v-projects{position:relative;overflow:visible}
-    .home-vintage .v-projects:before{
-      content:"";position:absolute;left:0;right:0;top:-11px;height:12px;z-index:4;pointer-events:none;
-      background:linear-gradient(135deg,transparent 74%,#282622 75%) 0 0/16px 12px repeat-x,
-                 linear-gradient(225deg,transparent 74%,#282622 75%) 8px 0/16px 12px repeat-x;
-    }
-    body:not(.home-vintage) .site-footer{position:relative;margin-top:10px}
-    body:not(.home-vintage) .site-footer:before{
-      content:"";position:absolute;left:0;right:0;top:-10px;height:11px;pointer-events:none;
-      background:linear-gradient(135deg,transparent 74%,#282622 75%) 0 0/16px 11px repeat-x,
-                 linear-gradient(225deg,transparent 74%,#282622 75%) 8px 0/16px 11px repeat-x;
-    }
-    .selected-presentations-section{position:relative}
-    .selected-presentations-section .timeline{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .selected-presentations-section .timeline-item{min-height:190px}
-    @media(max-width:920px){.selected-presentations-section .timeline{grid-template-columns:1fr 1fr}}
-    @media(max-width:640px){.selected-presentations-section .timeline{grid-template-columns:1fr}}
-  `;
-  document.head.appendChild(style);
-}
-
-function enhancePublicationItem(item){
-  if(item.dataset.enhanced)return;
-  const titleWrap=item.querySelector(".publication-title");
-  if(!titleWrap)return;
-  const oldLink=titleWrap.querySelector("a");
-  const title=(oldLink?oldLink.textContent:titleWrap.textContent).trim();
-  if(!title)return;
-  const existingHref=oldLink?oldLink.href:"";
-  const scholar=scholarUrlFor(title,existingHref);
-  const summaryEn=item.querySelector(".publication-summary.lang-en")?.textContent.trim()||"This study contributes to my broader work in biomechanics, computational modeling, rehabilitation, or data-driven design.";
-  const summaryZh=item.querySelector(".publication-summary.lang-zh")?.textContent.trim()||"该研究属于我在生物力学、计算建模、康复或数据驱动设计方向的工作。";
-  const d=paperDetails[title];
-
-  titleWrap.innerHTML="";
-  const head=document.createElement("div");
-  head.className="publication-head";
-  const btn=document.createElement("button");
-  btn.type="button";
-  btn.className="publication-toggle";
-  btn.textContent=title;
-  btn.setAttribute("aria-expanded","false");
-  const sl=document.createElement("a");
-  sl.className="scholar-link";
-  sl.href=scholar;
-  sl.target="_blank";
-  sl.rel="noopener noreferrer";
-  sl.textContent="Google Scholar";
-  head.append(btn,sl);
-  titleWrap.appendChild(head);
-
-  const detail=document.createElement("div");
-  detail.className=`publication-detail ${d?.image?"has-image":"no-image"}`;
-  detail.hidden=true;
-  const figureHtml=d?.image?`<div class="publication-figure"><img src="${d.image}" alt="${d.imageAlt||title}" loading="lazy"></div>`:"";
-  const publisherHtml=existingHref&&!existingHref.includes("scholar.google")?`<p><a href="${existingHref}" target="_blank" rel="noopener noreferrer"><span class="lang-en">Publisher / article page →</span><span class="lang-zh">期刊 / 论文页面 →</span></a></p>`:"";
-  detail.innerHTML=`${figureHtml}<div class="detail-copy"><p class="lang-en">${d?.en||summaryEn}</p><p class="lang-zh">${d?.zh||summaryZh}</p>${publisherHtml}</div>`;
-  item.appendChild(detail);
-
-  const img=detail.querySelector("img");
-  if(img){
-    img.addEventListener("error",()=>{
-      img.closest(".publication-figure")?.remove();
-      detail.classList.remove("has-image");
-      detail.classList.add("no-image");
-    });
-  }
-  btn.addEventListener("click",()=>{
-    detail.hidden=!detail.hidden;
-    btn.setAttribute("aria-expanded",String(!detail.hidden));
-  });
-  item.dataset.enhanced="1";
-}
-
-function customizeHomeLinks(){
-  if(!location.pathname.endsWith("/")&&!location.pathname.endsWith("index.html"))return;
-  const links=[...document.querySelectorAll(".hero .social-links a")];
-  const email=links.find(a=>a.textContent.trim()==="Email");
-  if(email){email.href="https://space.bilibili.com/49579977?spm_id_from=333.1007.0.0";email.target="_blank";email.rel="noopener noreferrer";email.textContent="Bilibili";}
-}
-
-function loadInteriorTheme(){
-  const isHome=document.body.classList.contains("home-vintage")||location.pathname.endsWith("/")||location.pathname.endsWith("index.html");
-  if(isHome)return;
-  const link=document.createElement("link");
-  link.rel="stylesheet";
-  link.href="interior.css?v=20261003-1";
-  document.head.appendChild(link);
-}
-
-function normalizeSiteNavigation(){
-  document.querySelectorAll(".site-name").forEach(a=>a.textContent="ZHENGHUI LU");
-  document.querySelectorAll(".nav-links").forEach(nav=>{
-    const oldResearch=[...nav.querySelectorAll('a[href="research.html"]')][0];
-    const publications=[...nav.querySelectorAll('a[href="publications.html"]')][0];
-    const researchLink=publications||oldResearch;
-    if(oldResearch&&publications&&oldResearch!==publications)oldResearch.remove();
-    if(researchLink){
-      researchLink.href="publications.html";
-      const en=researchLink.querySelector(".lang-en");
-      const zh=researchLink.querySelector(".lang-zh");
-      if(en)en.textContent="Research";
-      if(zh)zh.textContent="研究";
-      const onResearch=/\/(publications|research)\.html$/.test(location.pathname);
-      researchLink.classList.toggle("active",onResearch);
-    }
-  });
-  document.querySelectorAll('[data-lang="zh"]').forEach(b=>b.textContent="中");
-}
-
-function conferenceSectionMarkup(){
-  return `<section class="section section-soft selected-presentations-section"><div class="container"><h2 class="section-title"><span><span class="lang-en">Selected Presentations</span><span class="lang-zh">代表性会议报告</span></span></h2><div class="timeline"><div class="timeline-item"><div class="time">2025 · Norway</div><h3>Personalised Footwear Design Method Based on Machine Learning and Finite Element Analysis</h3><p>The 17th Biennial Footwear Biomechanics Symposium · Oral presentation</p></div><div class="timeline-item"><div class="time">2025 · Budapest</div><h3>Research Status and Development Trends of 3D-Printed Footwear</h3><p>The 3rd Biomechanics in Sport and Ageing Symposium · Invited presentation</p></div><div class="timeline-item"><div class="time">2024 · Glasgow</div><h3>Stepping into the Future: Unveiling Biomechanical Innovations in 3D-Printed Footwear Design</h3><p>29th Annual Congress of the European College of Sport Science · Oral presentation</p></div><div class="timeline-item"><div class="time">2024 · Győr</div><h3>Customized 3D-Printed Insoles for Diabetic Foot Care: Finite Element Analysis and Machine Learning Approach</h3><p>7th International Conference on Material Strength and Applied Mechanics · Oral presentation</p></div></div></div></section>`;
-}
-
-function moveConferencePresentations(){
-  const path=location.pathname;
-  const sections=[...document.querySelectorAll("main > section")];
-  const existingConference=sections.find(sec=>{
-    const t=sec.querySelector("h2")?.textContent||"";
-    return t.includes("Selected Presentations")||t.includes("代表性会议报告");
-  });
-  if(path.endsWith("projects.html")){
-    existingConference?.remove();
-    return;
-  }
-  if(path.endsWith("publications.html")){
-    existingConference?.remove();
-    const main=document.querySelector("main");
-    if(main)main.insertAdjacentHTML("beforeend",conferenceSectionMarkup());
-  }
-}
-
-document.addEventListener("DOMContentLoaded",()=>{
-  loadInteriorTheme();
-  injectPublicationDetailStyles();
-  injectSitePolishStyles();
-  normalizeSiteNavigation();
-  moveConferencePresentations();
-  customizeHomeLinks();
-  document.querySelectorAll(".publication-item").forEach(enhancePublicationItem);
-  const lang=localStorage.getItem("preferredLanguage")||"en";
-  applyLanguage(lang);
-  document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>applyLanguage(b.getAttribute("data-lang"))));
-});
+if(/\/research\.html$/.test(location.pathname)) location.replace("publications.html");
+function applyLanguage(lang){const zh=lang==="zh";document.documentElement.lang=zh?"zh-CN":"en";document.body.classList.toggle("lang-zh-mode",zh);document.body.classList.toggle("lang-en-mode",!zh);document.querySelectorAll(".lang-en").forEach(el=>el.hidden=zh);document.querySelectorAll(".lang-zh").forEach(el=>el.hidden=!zh);document.querySelectorAll('[data-lang="en"]').forEach(b=>b.classList.toggle("active",!zh));document.querySelectorAll('[data-lang="zh"]').forEach(b=>b.classList.toggle("active",zh));localStorage.setItem("preferredLanguage",zh?"zh":"en")}
+function scholarUrlFor(title,existing){return existing&&existing.includes("scholar.google")?existing:"https://scholar.google.com/scholar?q="+encodeURIComponent(title)}
+function boldLu(authors){return(authors||"Zhenghui Lu et al.").replace(/Zhenghui Lu/g,"<strong>Zhenghui Lu</strong>")}
+function injectRuntimeStyles(){if(document.getElementById("runtime-site-styles"))return;const s=document.createElement("style");s.id="runtime-site-styles";s.textContent=`.publication-authors{margin-top:7px;font-size:13px;line-height:1.6;color:#4e4b41;max-width:940px}.publication-authors strong{color:#35442f;font-weight:800}.publication-summary{display:none!important}.publication-detail.has-image{grid-template-columns:minmax(190px,260px) 1fr!important;align-items:start}.publication-detail.no-image{grid-template-columns:1fr!important}.publication-figure{background:#fff7e8;border:1px solid #b9a980;padding:7px;min-height:120px;display:flex;align-items:center;justify-content:center}.publication-figure img{display:block;width:100%;max-height:240px;object-fit:contain;background:#fff}.publication-detail .detail-copy p{font-size:14px;line-height:1.82;color:#4e4b41;margin:0 0 10px}body:not(.home-vintage) .container{width:min(1180px,92%)}body:not(.home-vintage) .navbar{min-height:72px}body:not(.home-vintage) .site-name{font-family:Georgia,"Times New Roman","Songti SC",serif!important;font-size:20px!important;font-weight:800!important;letter-spacing:.06em!important}body:not(.home-vintage) .nav-links a{font-family:"Arial Narrow",Arial,sans-serif!important;text-transform:uppercase;letter-spacing:.08em;font-size:13px!important;font-weight:600}body:not(.home-vintage) .contact-box .chip-link{background:rgba(255,247,232,.35)!important;border:1px solid #7f8854!important;border-radius:0!important;color:#35442f!important;font-family:"Arial Narrow",Arial,sans-serif!important;text-transform:uppercase;letter-spacing:.05em;padding:8px 12px!important;box-shadow:none!important}body:not(.home-vintage) .contact-box .chip-link:hover{background:#35442f!important;color:#fff7e8!important}.home-vintage .v-projects{position:relative;overflow:visible}.home-vintage .v-projects:before,body:not(.home-vintage) .site-footer:before{content:"";position:absolute;left:0;right:0;top:-10px;height:11px;pointer-events:none;background:linear-gradient(135deg,transparent 74%,#282622 75%) 0 0/16px 11px repeat-x,linear-gradient(225deg,transparent 74%,#282622 75%) 8px 0/16px 11px repeat-x}body:not(.home-vintage) .site-footer{position:relative;margin-top:10px}.selected-presentations-section .timeline{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:920px){.selected-presentations-section .timeline{grid-template-columns:1fr 1fr}}@media(max-width:640px){.publication-detail.has-image{grid-template-columns:1fr!important}.selected-presentations-section .timeline{grid-template-columns:1fr}}`;document.head.appendChild(s)}
+function enhancePublicationItem(item){if(item.dataset.enhanced)return;const titleWrap=item.querySelector(".publication-title");if(!titleWrap)return;const oldLink=titleWrap.querySelector("a");const title=(oldLink?oldLink.textContent:titleWrap.textContent).trim();const href=oldLink?oldLink.href:"";const data=paperData[title]||{};const fallbackEn=item.querySelector(".publication-summary.lang-en")?.textContent.trim()||"This study contributes to my broader work in biomechanics and computational modeling.";const fallbackZh=item.querySelector(".publication-summary.lang-zh")?.textContent.trim()||"该研究属于我在生物力学和计算建模方向的工作。";titleWrap.innerHTML="";const head=document.createElement("div");head.className="publication-head";const btn=document.createElement("button");btn.type="button";btn.className="publication-toggle";btn.textContent=title;btn.setAttribute("aria-expanded","false");const sl=document.createElement("a");sl.className="scholar-link";sl.href=scholarUrlFor(title,href);sl.target="_blank";sl.rel="noopener noreferrer";sl.textContent="Google Scholar";head.append(btn,sl);titleWrap.appendChild(head);const authors=document.createElement("div");authors.className="publication-authors";authors.innerHTML=boldLu(data.authors);item.querySelector(".publication-meta")?.after(authors);const detail=document.createElement("div");detail.className=`publication-detail ${data.image?"has-image":"no-image"}`;detail.hidden=true;const fig=data.image?`<div class="publication-figure"><img src="${data.image}" alt="Figure from ${title}" loading="lazy"></div>`:"";const pub=href&&!href.includes("scholar.google")?`<p><a href="${href}" target="_blank" rel="noopener noreferrer"><span class="lang-en">Publisher / article page →</span><span class="lang-zh">期刊 / 论文页面 →</span></a></p>`:"";detail.innerHTML=`${fig}<div class="detail-copy"><p class="lang-en">${data.en||fallbackEn}</p><p class="lang-zh">${data.zh||fallbackZh}</p>${pub}</div>`;item.appendChild(detail);detail.querySelector("img")?.addEventListener("error",e=>{e.target.closest(".publication-figure")?.remove();detail.className="publication-detail no-image"});btn.addEventListener("click",()=>{detail.hidden=!detail.hidden;btn.setAttribute("aria-expanded",String(!detail.hidden));applyLanguage(localStorage.getItem("preferredLanguage")||"en")});item.dataset.enhanced="1"}
+function loadInteriorTheme(){const home=document.body.classList.contains("home-vintage")||location.pathname.endsWith("/")||location.pathname.endsWith("index.html");if(home)return;const l=document.createElement("link");l.rel="stylesheet";l.href="interior.css?v=20261003-5";document.head.appendChild(l)}
+function normalizeNavigation(){document.querySelectorAll('.nav-links a[href="research.html"]').forEach(a=>a.href="publications.html");document.querySelectorAll('.nav-links a[href="publications.html"]').forEach((a,i,all)=>{if(all.length>1&&i>0)a.remove()});document.querySelectorAll('[data-lang="zh"]').forEach(b=>{if(b.tagName==="BUTTON")b.textContent="中"});document.querySelectorAll('.site-name').forEach(a=>a.textContent="ZHENGHUI LU")}
+async function movePresentations(){if(location.pathname.endsWith("projects.html"))document.querySelectorAll(".section-title").forEach(h=>{if(/Selected Presentations|代表性会议报告/.test(h.textContent))h.closest("section")?.remove()});if(!location.pathname.endsWith("publications.html"))return;try{const html=await fetch("projects.html").then(r=>r.text());const doc=new DOMParser().parseFromString(html,"text/html");const h=[...doc.querySelectorAll(".section-title")].find(x=>/Selected Presentations|代表性会议报告/.test(x.textContent));const sec=h?.closest("section");if(sec){sec.classList.add("selected-presentations-section");document.querySelector("main")?.append(sec)}}catch(e){}}
+async function decodeB64Image(img,path){try{const txt=(await fetch(path,{cache:"no-store"}).then(r=>r.text())).trim();if(txt)img.src="data:image/jpeg;base64,"+txt}catch(e){}}
+function setupAboutCarousel(){const root=document.querySelector("[data-about-carousel]");if(!root)return;const slides=[...root.querySelectorAll(".about-carousel-slide")];if(!slides.length)return;const paths=[null,"assets/about-ubc-reencoded.b64","assets/about-coast-reencoded.b64","assets/about-industry-reencoded.b64","assets/about-fbs-reencoded.b64"];slides.forEach((s,i)=>{const img=s.querySelector("img");if(i&&img&&paths[i])decodeB64Image(img,paths[i])});const dots=root.querySelector(".about-carousel-dots"),counter=root.querySelector(".about-carousel-counter");let current=0,timer;slides.forEach((_,i)=>{const b=document.createElement("button");b.type="button";b.setAttribute("aria-label",`Show photo ${i+1}`);b.addEventListener("click",()=>show(i,true));dots?.appendChild(b)});function show(i,reset=false){current=(i+slides.length)%slides.length;slides.forEach((s,j)=>s.classList.toggle("is-active",j===current));dots?.querySelectorAll("button").forEach((d,j)=>d.classList.toggle("active",j===current));if(counter)counter.textContent=`${String(current+1).padStart(2,"0")} / ${String(slides.length).padStart(2,"0")}`;if(reset)restart()}function restart(){clearInterval(timer);timer=setInterval(()=>show(current+1),5200)}root.querySelector(".prev")?.addEventListener("click",()=>show(current-1,true));root.querySelector(".next")?.addEventListener("click",()=>show(current+1,true));root.addEventListener("mouseenter",()=>clearInterval(timer));root.addEventListener("mouseleave",restart);root.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")show(current-1,true);if(e.key==="ArrowRight")show(current+1,true)});show(0);restart()}
+document.addEventListener("DOMContentLoaded",async()=>{loadInteriorTheme();injectRuntimeStyles();normalizeNavigation();setupAboutCarousel();document.querySelectorAll(".publication-item").forEach(enhancePublicationItem);await movePresentations();const lang=localStorage.getItem("preferredLanguage")||"en";applyLanguage(lang);document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>applyLanguage(b.getAttribute("data-lang"))))});
