@@ -53,6 +53,10 @@ const paperDetails={
   }
 };
 
+if(/\/research\.html$/.test(location.pathname)){
+  location.replace("publications.html");
+}
+
 function applyLanguage(lang){
   const zh=lang==="zh";
   document.documentElement.lang=zh?"zh-CN":"en";
@@ -81,6 +85,55 @@ function injectPublicationDetailStyles(){
     .publication-figure img{display:block;width:100%;max-height:220px;object-fit:contain;background:#fff}
     .publication-detail .detail-copy p{font-size:14px;line-height:1.75;color:#4e4b41;margin:0 0 10px}
     @media(max-width:640px){.publication-detail.has-image{grid-template-columns:1fr!important}}
+  `;
+  document.head.appendChild(style);
+}
+
+function injectSitePolishStyles(){
+  if(document.getElementById("site-polish-runtime-styles"))return;
+  const style=document.createElement("style");
+  style.id="site-polish-runtime-styles";
+  style.textContent=`
+    body:not(.home-vintage) .container{width:min(1180px,92%)}
+    body:not(.home-vintage) .navbar{min-height:72px}
+    body:not(.home-vintage) .site-name{font-family:Georgia,"Times New Roman","Songti SC",serif!important;font-size:20px!important;font-weight:800!important;letter-spacing:.06em!important}
+    body:not(.home-vintage) .nav-links a{font-family:"Arial Narrow",Arial,sans-serif!important;text-transform:uppercase;letter-spacing:.08em;font-size:13px!important;font-weight:600}
+    body:not(.home-vintage) .language-switcher{font-family:"Arial Narrow",Arial,sans-serif!important;font-size:13px;font-weight:700}
+
+    body:not(.home-vintage) .contact-box .chip-link{
+      background:rgba(255,247,232,.35)!important;
+      border:1px solid #7f8854!important;
+      border-radius:0!important;
+      color:#35442f!important;
+      font-family:"Arial Narrow",Arial,sans-serif!important;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      padding:8px 12px!important;
+      box-shadow:none!important;
+    }
+    body:not(.home-vintage) .contact-box .chip-link:hover{
+      background:#35442f!important;
+      border-color:#35442f!important;
+      color:#fff7e8!important;
+    }
+
+    .home-vintage .v-projects{position:relative;overflow:visible}
+    .home-vintage .v-projects:before{
+      content:"";position:absolute;left:0;right:0;top:-11px;height:12px;z-index:4;pointer-events:none;
+      background:linear-gradient(135deg,transparent 74%,#282622 75%) 0 0/16px 12px repeat-x,
+                 linear-gradient(225deg,transparent 74%,#282622 75%) 8px 0/16px 12px repeat-x;
+    }
+    body:not(.home-vintage) .site-footer{position:relative;margin-top:10px}
+    body:not(.home-vintage) .site-footer:before{
+      content:"";position:absolute;left:0;right:0;top:-10px;height:11px;pointer-events:none;
+      background:linear-gradient(135deg,transparent 74%,#282622 75%) 0 0/16px 11px repeat-x,
+                 linear-gradient(225deg,transparent 74%,#282622 75%) 8px 0/16px 11px repeat-x;
+    }
+    .selected-presentations-section{position:relative}
+    .selected-presentations-section .timeline{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .selected-presentations-section .timeline-item{min-height:190px}
+    @media(max-width:920px){.selected-presentations-section .timeline{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.selected-presentations-section .timeline{grid-template-columns:1fr}}
   `;
   document.head.appendChild(style);
 }
@@ -155,14 +208,53 @@ function loadInteriorTheme(){
 }
 
 function normalizeSiteNavigation(){
-  document.querySelectorAll('.nav-links a[href="publications.html"]').forEach(a=>a.remove());
+  document.querySelectorAll(".site-name").forEach(a=>a.textContent="ZHENGHUI LU");
+  document.querySelectorAll(".nav-links").forEach(nav=>{
+    const oldResearch=[...nav.querySelectorAll('a[href="research.html"]')][0];
+    const publications=[...nav.querySelectorAll('a[href="publications.html"]')][0];
+    const researchLink=publications||oldResearch;
+    if(oldResearch&&publications&&oldResearch!==publications)oldResearch.remove();
+    if(researchLink){
+      researchLink.href="publications.html";
+      const en=researchLink.querySelector(".lang-en");
+      const zh=researchLink.querySelector(".lang-zh");
+      if(en)en.textContent="Research";
+      if(zh)zh.textContent="研究";
+      const onResearch=/\/(publications|research)\.html$/.test(location.pathname);
+      researchLink.classList.toggle("active",onResearch);
+    }
+  });
   document.querySelectorAll('[data-lang="zh"]').forEach(b=>b.textContent="中");
+}
+
+function conferenceSectionMarkup(){
+  return `<section class="section section-soft selected-presentations-section"><div class="container"><h2 class="section-title"><span><span class="lang-en">Selected Presentations</span><span class="lang-zh">代表性会议报告</span></span></h2><div class="timeline"><div class="timeline-item"><div class="time">2025 · Norway</div><h3>Personalised Footwear Design Method Based on Machine Learning and Finite Element Analysis</h3><p>The 17th Biennial Footwear Biomechanics Symposium · Oral presentation</p></div><div class="timeline-item"><div class="time">2025 · Budapest</div><h3>Research Status and Development Trends of 3D-Printed Footwear</h3><p>The 3rd Biomechanics in Sport and Ageing Symposium · Invited presentation</p></div><div class="timeline-item"><div class="time">2024 · Glasgow</div><h3>Stepping into the Future: Unveiling Biomechanical Innovations in 3D-Printed Footwear Design</h3><p>29th Annual Congress of the European College of Sport Science · Oral presentation</p></div><div class="timeline-item"><div class="time">2024 · Győr</div><h3>Customized 3D-Printed Insoles for Diabetic Foot Care: Finite Element Analysis and Machine Learning Approach</h3><p>7th International Conference on Material Strength and Applied Mechanics · Oral presentation</p></div></div></div></section>`;
+}
+
+function moveConferencePresentations(){
+  const path=location.pathname;
+  const sections=[...document.querySelectorAll("main > section")];
+  const existingConference=sections.find(sec=>{
+    const t=sec.querySelector("h2")?.textContent||"";
+    return t.includes("Selected Presentations")||t.includes("代表性会议报告");
+  });
+  if(path.endsWith("projects.html")){
+    existingConference?.remove();
+    return;
+  }
+  if(path.endsWith("publications.html")){
+    existingConference?.remove();
+    const main=document.querySelector("main");
+    if(main)main.insertAdjacentHTML("beforeend",conferenceSectionMarkup());
+  }
 }
 
 document.addEventListener("DOMContentLoaded",()=>{
   loadInteriorTheme();
   injectPublicationDetailStyles();
+  injectSitePolishStyles();
   normalizeSiteNavigation();
+  moveConferencePresentations();
   customizeHomeLinks();
   document.querySelectorAll(".publication-item").forEach(enhancePublicationItem);
   const lang=localStorage.getItem("preferredLanguage")||"en";
