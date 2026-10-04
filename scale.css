@@ -202,6 +202,22 @@ body:not(.home-vintage) main>section.section:nth-of-type(odd):not(:last-child)::
   background-position:0 0,12px 0;
 }
 
+/* Interior hero used ::after for an old circle; force it to become the zigzag instead. */
+body:not(.home-vintage) .page-hero::after{
+  width:auto!important;
+  border:0!important;
+  border-radius:0!important;
+  top:auto!important;
+  left:0!important;
+  right:0!important;
+  bottom:calc(-1 * var(--zig-size))!important;
+  height:var(--zig-size)!important;
+  background-image:linear-gradient(135deg,var(--paper-light) 0 50%,transparent 51%),linear-gradient(225deg,var(--paper-light) 0 50%,transparent 51%)!important;
+  background-position:0 0,12px 0!important;
+  background-size:24px var(--zig-size)!important;
+  background-repeat:repeat-x!important;
+}
+
 /* Keep the social-media / project dark transition clean. */
 .home-vintage .v-social-media::after,
 .home-vintage .v-projects::after,
