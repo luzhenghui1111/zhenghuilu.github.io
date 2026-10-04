@@ -149,77 +149,46 @@ body:not(.home-vintage) .highlight-grid .paper-thumb span {
   display: none !important;
 }
 
-/* ===== Alternating paper sections + small triangular paper teeth ===== */
+/* ===== Alternating paper sections + true triangular paper teeth ===== */
 :root{
   --paper-light:#f6edda;
   --paper-tint:#e8ddc4;
-  --zig-size:12px;
-  --zig-width:18px;
+  --paper-dark:#282622;
+  --zig-size:13px;
+  --zig-width:20px;
 }
 
-/* Homepage: light hero -> tinted About -> light Research. */
+/* Alternating paper backgrounds. */
 .home-vintage .v-hero{background:var(--paper-light)!important;}
 .home-vintage #about{background:var(--paper-tint)!important;}
 .home-vintage .v-research{background:var(--paper-light)!important;}
-.home-vintage .v-social-media{background:linear-gradient(to bottom,var(--paper-tint) 0 63%,var(--charcoal) 63% 100%)!important;}
-
-/* Interior pages: alternate each main section after the hero. */
+.home-vintage .v-social-media{background:linear-gradient(to bottom,var(--paper-tint) 0 63%,var(--paper-dark) 63% 100%)!important;}
 body:not(.home-vintage) .page-hero{background:var(--paper-light)!important;}
 body:not(.home-vintage) main>section.section:nth-of-type(even){background:var(--paper-tint)!important;}
 body:not(.home-vintage) main>section.section:nth-of-type(odd){background:var(--paper-light)!important;}
 
-/*
-   Clean triangular separator.
-   The strip itself is a solid section colour; a repeating conic mask cuts it
-   into evenly spaced downward-pointing triangular teeth. This gives the same
-   tidy paper-edge rhythm as the reference site, but with triangles instead
-   of rounded waves.
-*/
-.home-vintage main>section,
-body:not(.home-vintage) main>section{position:relative;}
-
+/* Do not draw the old downward separators anymore. */
 .home-vintage .v-hero::after,
 .home-vintage #about::after,
 .home-vintage .v-research::after,
-body:not(.home-vintage) .page-hero::after,
-body:not(.home-vintage) main>section.section:not(:last-child)::after{
-  content:"";
-  position:absolute!important;
-  left:0!important;
-  right:0!important;
-  width:100%!important;
-  bottom:calc(-1 * var(--zig-size))!important;
-  height:var(--zig-size)!important;
-  z-index:8!important;
-  pointer-events:none!important;
-  border:0!important;
-  border-radius:0!important;
-  background-image:none!important;
-  background-repeat:no-repeat!important;
-  -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/var(--zig-width) 100% repeat-x!important;
-          mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/var(--zig-width) 100% repeat-x!important;
-}
-
-.home-vintage .v-hero::after,
-body:not(.home-vintage) .page-hero::after{
-  background-color:var(--paper-light)!important;
-}
-.home-vintage #about::after,
-body:not(.home-vintage) main>section.section:nth-of-type(even):not(:last-child)::after{
-  background-color:var(--paper-tint)!important;
-}
-.home-vintage .v-research::after,
-body:not(.home-vintage) main>section.section:nth-of-type(odd):not(:last-child)::after{
-  background-color:var(--paper-light)!important;
-}
-
-/* Keep the social-media / project dark transition clean. */
 .home-vintage .v-social-media::after,
 .home-vintage .v-projects::after,
-.home-vintage .v-contact::after{display:none!important;}
+.home-vintage .v-contact::after,
+body:not(.home-vintage) .page-hero::after,
+body:not(.home-vintage) main>section.section::after{
+  display:none!important;
+  content:none!important;
+}
 
-/* Add the same triangular paper edge where the social-media dark area meets Projects. */
-.home-vintage .v-projects::before{
+/* Every following section grows its own colour upward as small triangular teeth. */
+.home-vintage main>section,
+body:not(.home-vintage) main>section,
+body:not(.home-vintage) .site-footer,
+.home-vintage .v-contact{position:relative!important;overflow:visible!important;}
+
+.home-vintage main>section:not(:first-child)::before,
+body:not(.home-vintage) main>section:not(:first-child)::before,
+body:not(.home-vintage) .site-footer::before{
   content:""!important;
   position:absolute!important;
   left:0!important;
@@ -227,13 +196,39 @@ body:not(.home-vintage) main>section.section:nth-of-type(odd):not(:last-child)::
   top:calc(-1 * var(--zig-size))!important;
   width:100%!important;
   height:var(--zig-size)!important;
-  background:#282622!important;
+  z-index:20!important;
+  pointer-events:none!important;
   border:0!important;
   border-radius:0!important;
-  pointer-events:none!important;
-  -webkit-mask:conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) 50%/var(--zig-width) 100% repeat-x!important;
-          mask:conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) 50%/var(--zig-width) 100% repeat-x!important;
+  background-image:none!important;
+  -webkit-mask:linear-gradient(135deg,#000 50%,transparent 51%) 0 0/var(--zig-width) 100% repeat-x,
+               linear-gradient(225deg,#000 50%,transparent 51%) calc(var(--zig-width)/2) 0/var(--zig-width) 100% repeat-x!important;
+          mask:linear-gradient(135deg,#000 50%,transparent 51%) 0 0/var(--zig-width) 100% repeat-x,
+               linear-gradient(225deg,#000 50%,transparent 51%) calc(var(--zig-width)/2) 0/var(--zig-width) 100% repeat-x!important;
 }
+
+/* Homepage section colours for the upward teeth. */
+.home-vintage #about::before{background-color:var(--paper-tint)!important;}
+.home-vintage .v-research::before{background-color:var(--paper-light)!important;}
+.home-vintage .v-social-media::before{background-color:var(--paper-tint)!important;}
+.home-vintage .v-projects::before{background-color:var(--paper-dark)!important;}
+.home-vintage .v-contact::before{background-color:var(--paper-tint)!important;}
+
+/* Interior pages: section colour follows the alternating background. */
+body:not(.home-vintage) main>section.section:nth-of-type(even)::before{background-color:var(--paper-tint)!important;}
+body:not(.home-vintage) main>section.section:nth-of-type(odd)::before{background-color:var(--paper-light)!important;}
+
+/* Interior page footer gets the same triangular top edge. */
+body:not(.home-vintage) .site-footer{
+  background:var(--paper-dark)!important;
+  color:#f6edda!important;
+}
+body:not(.home-vintage) .site-footer::before{background-color:var(--paper-dark)!important;}
+
+/* Homepage bottom contact/footer area also finishes with a triangular edge. */
+.home-vintage .v-contact{background:var(--paper-dark)!important;color:#f6edda!important;}
+.home-vintage .v-contact::before{background-color:var(--paper-dark)!important;}
+.home-vintage .v-contact .v-footer{border-top-color:rgba(246,237,218,.28)!important;}
 
 /* Publications: make each year read as its own alternating paper block. */
 body:not(.home-vintage) .publication-year{
@@ -253,27 +248,21 @@ body:not(.home-vintage) .publication-year + .publication-list{
   margin:0 0 18px!important;
   border-top:0!important;
   position:relative;
+  overflow:visible!important;
 }
-body:not(.home-vintage) .publication-year:nth-of-type(odd) + .publication-list{
-  background:var(--paper-light)!important;
-}
-body:not(.home-vintage) .publication-year:nth-of-type(even) + .publication-list{
-  background:var(--paper-tint)!important;
-}
-body:not(.home-vintage) .publication-year + .publication-list .publication-item{
-  background:transparent!important;
-}
+body:not(.home-vintage) .publication-year:nth-of-type(odd) + .publication-list{background:var(--paper-light)!important;}
+body:not(.home-vintage) .publication-year:nth-of-type(even) + .publication-list{background:var(--paper-tint)!important;}
+body:not(.home-vintage) .publication-year + .publication-list .publication-item{background:transparent!important;}
 body:not(.home-vintage) .publication-year + .publication-list::after{
   content:"";
   position:absolute;
-  left:0;
-  right:0;
-  bottom:calc(-1 * var(--zig-size));
-  height:var(--zig-size);
+  left:0;right:0;bottom:calc(-1 * var(--zig-size));height:var(--zig-size);
   background:currentColor;
   pointer-events:none;
-  -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/var(--zig-width) 100% repeat-x;
-          mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/var(--zig-width) 100% repeat-x;
+  -webkit-mask:linear-gradient(135deg,#000 50%,transparent 51%) 0 0/var(--zig-width) 100% repeat-x,
+               linear-gradient(225deg,#000 50%,transparent 51%) calc(var(--zig-width)/2) 0/var(--zig-width) 100% repeat-x;
+          mask:linear-gradient(135deg,#000 50%,transparent 51%) 0 0/var(--zig-width) 100% repeat-x,
+               linear-gradient(225deg,#000 50%,transparent 51%) calc(var(--zig-width)/2) 0/var(--zig-width) 100% repeat-x;
 }
 body:not(.home-vintage) .publication-year:nth-of-type(odd) + .publication-list::after{color:var(--paper-light);}
 body:not(.home-vintage) .publication-year:nth-of-type(even) + .publication-list::after{color:var(--paper-tint);}
@@ -297,6 +286,7 @@ body:not(.home-vintage) .selected-presentations-section .timeline-item p{
   margin-top:auto!important;
   padding-top:14px!important;
 }
+
 @media(max-width:920px){
   body:not(.home-vintage) .selected-presentations-section .timeline{grid-template-columns:1fr 1fr!important;}
 }
