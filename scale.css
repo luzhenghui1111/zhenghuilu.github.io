@@ -116,12 +116,17 @@
     transform: scale(1.08);
     transform-origin: left center;
   }
+
+  .home-vintage .v-hero {
+    min-height: min(820px, calc(100vh - 84px)) !important;
+  }
 }
 
 @media (min-width: 900px) and (max-width: 1279px) {
   html { font-size: 106%; }
   .container,
   .v-container { width: min(1040px, 90%) !important; }
+  .home-vintage .v-hero { min-height: min(760px, calc(100vh - 78px)) !important; }
 }
 
 /* Research page: use the same three featured-paper PNGs as the homepage. */
@@ -142,4 +147,130 @@ body:not(.home-vintage) .highlight-grid .paper-thumb {
 }
 body:not(.home-vintage) .highlight-grid .paper-thumb span {
   display: none !important;
+}
+
+/* ===== Alternating paper sections + torn-paper zigzag rhythm ===== */
+:root{
+  --paper-light:#f6edda;
+  --paper-tint:#e8ddc4;
+  --zig-size:18px;
+}
+
+/* Homepage: light hero -> tinted About -> light Research. */
+.home-vintage .v-hero{background:var(--paper-light)!important;}
+.home-vintage #about{background:var(--paper-tint)!important;}
+.home-vintage .v-research{background:var(--paper-light)!important;}
+.home-vintage .v-social-media{background:linear-gradient(to bottom,var(--paper-tint) 0 63%,var(--charcoal) 63% 100%)!important;}
+
+/* Interior pages: alternate each main section after the hero. */
+body:not(.home-vintage) .page-hero{background:var(--paper-light)!important;}
+body:not(.home-vintage) main>section.section:nth-of-type(even){background:var(--paper-tint)!important;}
+body:not(.home-vintage) main>section.section:nth-of-type(odd){background:var(--paper-light)!important;}
+
+/* Small triangular saw-tooth separators. */
+.home-vintage main>section,
+body:not(.home-vintage) main>section{position:relative;}
+.home-vintage .v-hero::after,
+.home-vintage #about::after,
+.home-vintage .v-research::after,
+body:not(.home-vintage) .page-hero::after,
+body:not(.home-vintage) main>section.section:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:calc(-1 * var(--zig-size));
+  height:var(--zig-size);
+  z-index:8;
+  pointer-events:none;
+  background-size:24px var(--zig-size);
+  background-repeat:repeat-x;
+}
+.home-vintage .v-hero::after,
+body:not(.home-vintage) .page-hero::after{
+  background-image:linear-gradient(135deg,var(--paper-light) 0 50%,transparent 51%),linear-gradient(225deg,var(--paper-light) 0 50%,transparent 51%);
+  background-position:0 0,12px 0;
+}
+.home-vintage #about::after,
+body:not(.home-vintage) main>section.section:nth-of-type(even):not(:last-child)::after{
+  background-image:linear-gradient(135deg,var(--paper-tint) 0 50%,transparent 51%),linear-gradient(225deg,var(--paper-tint) 0 50%,transparent 51%);
+  background-position:0 0,12px 0;
+}
+.home-vintage .v-research::after,
+body:not(.home-vintage) main>section.section:nth-of-type(odd):not(:last-child)::after{
+  background-image:linear-gradient(135deg,var(--paper-light) 0 50%,transparent 51%),linear-gradient(225deg,var(--paper-light) 0 50%,transparent 51%);
+  background-position:0 0,12px 0;
+}
+
+/* Keep the social-media / project dark transition clean. */
+.home-vintage .v-social-media::after,
+.home-vintage .v-projects::after,
+.home-vintage .v-contact::after{display:none!important;}
+
+/* Publications: make each year read as its own alternating paper block. */
+body:not(.home-vintage) .publication-year{
+  display:block!important;
+  width:100%;
+  margin:54px 0 0!important;
+  padding:15px 22px!important;
+  height:auto!important;
+  min-height:0!important;
+  color:#fff!important;
+  background:var(--forest)!important;
+  position:relative;
+  z-index:2;
+}
+body:not(.home-vintage) .publication-year + .publication-list{
+  padding:16px 22px 28px!important;
+  margin:0 0 18px!important;
+  border-top:0!important;
+  position:relative;
+}
+body:not(.home-vintage) .publication-year:nth-of-type(odd) + .publication-list{
+  background:var(--paper-light)!important;
+}
+body:not(.home-vintage) .publication-year:nth-of-type(even) + .publication-list{
+  background:var(--paper-tint)!important;
+}
+body:not(.home-vintage) .publication-year + .publication-list .publication-item{
+  background:transparent!important;
+}
+body:not(.home-vintage) .publication-year + .publication-list::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-12px;height:12px;
+  background:linear-gradient(135deg,currentColor 0 50%,transparent 51%) 0 0/20px 12px repeat-x,
+             linear-gradient(225deg,currentColor 0 50%,transparent 51%) 10px 0/20px 12px repeat-x;
+  color:inherit;
+  opacity:.95;
+}
+body:not(.home-vintage) .publication-year:nth-of-type(odd) + .publication-list::after{color:var(--paper-light);}
+body:not(.home-vintage) .publication-year:nth-of-type(even) + .publication-list::after{color:var(--paper-tint);}
+
+/* Presentations: a denser 3-column archive that can hold the full list. */
+body:not(.home-vintage) .selected-presentations-section .timeline{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:22px!important;
+}
+body:not(.home-vintage) .selected-presentations-section .timeline-item{
+  min-height:235px!important;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+body:not(.home-vintage) .selected-presentations-section .timeline-item h3{
+  font-size:18px!important;
+  line-height:1.42!important;
+}
+body:not(.home-vintage) .selected-presentations-section .timeline-item p{
+  margin-top:auto!important;
+  padding-top:14px!important;
+}
+@media(max-width:920px){
+  body:not(.home-vintage) .selected-presentations-section .timeline{grid-template-columns:1fr 1fr!important;}
+}
+@media(max-width:640px){
+  :root{--zig-size:12px;}
+  body:not(.home-vintage) .selected-presentations-section .timeline{grid-template-columns:1fr!important;}
+  body:not(.home-vintage) .publication-year + .publication-list{padding-left:12px!important;padding-right:12px!important;}
 }
