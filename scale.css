@@ -149,86 +149,129 @@ body:not(.home-vintage) .highlight-grid .paper-thumb span {
   display: none !important;
 }
 
-/* ===== Alternating paper sections + true triangular paper teeth ===== */
+/* ===== Alternating paper sections + true repeating triangle teeth ===== */
 :root{
   --paper-light:#f6edda;
   --paper-tint:#e8ddc4;
   --paper-dark:#282622;
+  --paper-forest:#35442f;
   --zig-size:13px;
   --zig-width:20px;
 }
 
-/* Alternating paper backgrounds. */
+/* Alternating section backgrounds. */
 .home-vintage .v-hero{background:var(--paper-light)!important;}
 .home-vintage #about{background:var(--paper-tint)!important;}
 .home-vintage .v-research{background:var(--paper-light)!important;}
 .home-vintage .v-social-media{background:linear-gradient(to bottom,var(--paper-tint) 0 63%,var(--paper-dark) 63% 100%)!important;}
+.home-vintage .v-projects{background:var(--paper-dark)!important;}
+.home-vintage .v-contact{background:var(--paper-forest)!important;color:#fff!important;}
+
 body:not(.home-vintage) .page-hero{background:var(--paper-light)!important;}
 body:not(.home-vintage) main>section.section:nth-of-type(even){background:var(--paper-tint)!important;}
 body:not(.home-vintage) main>section.section:nth-of-type(odd){background:var(--paper-light)!important;}
 
-/* Do not draw the old downward separators anymore. */
+/* Remove all older pseudo-element divider attempts. */
+.home-vintage .v-hero::before,
 .home-vintage .v-hero::after,
+.home-vintage #about::before,
 .home-vintage #about::after,
+.home-vintage .v-research::before,
 .home-vintage .v-research::after,
+.home-vintage .v-social-media::before,
 .home-vintage .v-social-media::after,
+.home-vintage .v-projects::before,
 .home-vintage .v-projects::after,
+.home-vintage .v-contact::before,
 .home-vintage .v-contact::after,
+body:not(.home-vintage) .page-hero::before,
 body:not(.home-vintage) .page-hero::after,
-body:not(.home-vintage) main>section.section::after{
-  display:none!important;
+body:not(.home-vintage) main>section.section::before,
+body:not(.home-vintage) main>section.section::after,
+body:not(.home-vintage) .site-footer::before,
+body:not(.home-vintage) .site-footer::after{
   content:none!important;
+  display:none!important;
 }
 
-/* Every following section grows its own colour upward as small triangular teeth. */
+/* Allow teeth to extend beyond section bounds. */
 .home-vintage main>section,
+.home-vintage .v-contact,
 body:not(.home-vintage) main>section,
-body:not(.home-vintage) .site-footer,
-.home-vintage .v-contact{position:relative!important;overflow:visible!important;}
+body:not(.home-vintage) .site-footer{
+  position:relative!important;
+  overflow:visible!important;
+}
 
-.home-vintage main>section:not(:first-child)::before,
-body:not(.home-vintage) main>section:not(:first-child)::before,
+/* Base triangle strip. One SVG tile = one true isosceles triangle. */
+.home-vintage #about::before,
+.home-vintage .v-research::before,
+.home-vintage .v-social-media::before,
+.home-vintage .v-projects::before,
+.home-vintage .v-contact::before,
+body:not(.home-vintage) main>section.section::before,
 body:not(.home-vintage) .site-footer::before{
   content:""!important;
+  display:block!important;
   position:absolute!important;
   left:0!important;
   right:0!important;
   top:calc(-1 * var(--zig-size))!important;
   width:100%!important;
   height:var(--zig-size)!important;
-  z-index:20!important;
+  z-index:30!important;
   pointer-events:none!important;
   border:0!important;
   border-radius:0!important;
-  background-image:none!important;
-  -webkit-mask:linear-gradient(135deg,#000 50%,transparent 51%) 0 0/var(--zig-width) 100% repeat-x,
-               linear-gradient(225deg,#000 50%,transparent 51%) calc(var(--zig-width)/2) 0/var(--zig-width) 100% repeat-x!important;
-          mask:linear-gradient(135deg,#000 50%,transparent 51%) 0 0/var(--zig-width) 100% repeat-x,
-               linear-gradient(225deg,#000 50%,transparent 51%) calc(var(--zig-width)/2) 0/var(--zig-width) 100% repeat-x!important;
+  background-repeat:repeat-x!important;
+  background-position:left bottom!important;
+  background-size:var(--zig-width) var(--zig-size)!important;
 }
 
-/* Homepage section colours for the upward teeth. */
-.home-vintage #about::before{background-color:var(--paper-tint)!important;}
-.home-vintage .v-research::before{background-color:var(--paper-light)!important;}
-.home-vintage .v-social-media::before{background-color:var(--paper-tint)!important;}
-.home-vintage .v-projects::before{background-color:var(--paper-dark)!important;}
-.home-vintage .v-contact::before{background-color:var(--paper-tint)!important;}
+/* Homepage: triangle colour always matches the section below it. */
+.home-vintage #about::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'%3E%3Cpolygon points='0,13 10,0 20,13' fill='%23e8ddc4'/%3E%3C/svg%3E")!important;
+}
+.home-vintage .v-research::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'%3E%3Cpolygon points='0,13 10,0 20,13' fill='%23f6edda'/%3E%3C/svg%3E")!important;
+}
+.home-vintage .v-social-media::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'%3E%3Cpolygon points='0,13 10,0 20,13' fill='%23e8ddc4'/%3E%3C/svg%3E")!important;
+}
+.home-vintage .v-projects::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'%3E%3Cpolygon points='0,13 10,0 20,13' fill='%23282622'/%3E%3C/svg%3E")!important;
+}
+.home-vintage .v-contact::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'%3E%3Cpolygon points='0,13 10,0 20,13' fill='%2335442f'/%3E%3C/svg%3E")!important;
+}
 
-/* Interior pages: section colour follows the alternating background. */
-body:not(.home-vintage) main>section.section:nth-of-type(even)::before{background-color:var(--paper-tint)!important;}
-body:not(.home-vintage) main>section.section:nth-of-type(odd)::before{background-color:var(--paper-light)!important;}
+/* Interior pages: each section grows its own background colour upward. */
+body:not(.home-vintage) main>section.section:nth-of-type(odd)::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'%3E%3Cpolygon points='0,13 10,0 20,13' fill='%23f6edda'/%3E%3C/svg%3E")!important;
+}
+body:not(.home-vintage) main>section.section:nth-of-type(even)::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'%3E%3Cpolygon points='0,13 10,0 20,13' fill='%23e8ddc4'/%3E%3C/svg%3E")!important;
+}
 
-/* Interior page footer gets the same triangular top edge. */
+/* Footer on interior pages: dark footer with the same true triangle edge. */
 body:not(.home-vintage) .site-footer{
   background:var(--paper-dark)!important;
   color:#f6edda!important;
 }
-body:not(.home-vintage) .site-footer::before{background-color:var(--paper-dark)!important;}
+body:not(.home-vintage) .site-footer::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'%3E%3Cpolygon points='0,13 10,0 20,13' fill='%23282622'/%3E%3C/svg%3E")!important;
+}
 
-/* Homepage bottom contact/footer area also finishes with a triangular edge. */
-.home-vintage .v-contact{background:var(--paper-dark)!important;color:#f6edda!important;}
-.home-vintage .v-contact::before{background-color:var(--paper-dark)!important;}
-.home-vintage .v-contact .v-footer{border-top-color:rgba(246,237,218,.28)!important;}
+/* Restore homepage contact styling from the original design. */
+.home-vintage .v-contact h2{color:#fff!important;}
+.home-vintage .v-contact p,
+.home-vintage .v-contact a{color:#eee6d6!important;}
+.home-vintage .v-contact a:hover{color:#e49a33!important;}
+.home-vintage .v-contact-title{color:#e49a33!important;}
+.home-vintage .v-contact .v-footer{
+  border-top-color:rgba(255,255,255,.15)!important;
+  color:#d9d1c1!important;
+}
 
 /* Publications: make each year read as its own alternating paper block. */
 body:not(.home-vintage) .publication-year{
@@ -256,16 +299,22 @@ body:not(.home-vintage) .publication-year + .publication-list .publication-item{
 body:not(.home-vintage) .publication-year + .publication-list::after{
   content:"";
   position:absolute;
-  left:0;right:0;bottom:calc(-1 * var(--zig-size));height:var(--zig-size);
-  background:currentColor;
+  display:block;
+  left:0;
+  right:0;
+  bottom:calc(-1 * var(--zig-size));
+  height:var(--zig-size);
+  background-repeat:repeat-x;
+  background-position:left bottom;
+  background-size:var(--zig-width) var(--zig-size);
   pointer-events:none;
-  -webkit-mask:linear-gradient(135deg,#000 50%,transparent 51%) 0 0/var(--zig-width) 100% repeat-x,
-               linear-gradient(225deg,#000 50%,transparent 51%) calc(var(--zig-width)/2) 0/var(--zig-width) 100% repeat-x;
-          mask:linear-gradient(135deg,#000 50%,transparent 51%) 0 0/var(--zig-width) 100% repeat-x,
-               linear-gradient(225deg,#000 50%,transparent 51%) calc(var(--zig-width)/2) 0/var(--zig-width) 100% repeat-x;
 }
-body:not(.home-vintage) .publication-year:nth-of-type(odd) + .publication-list::after{color:var(--paper-light);}
-body:not(.home-vintage) .publication-year:nth-of-type(even) + .publication-list::after{color:var(--paper-tint);}
+body:not(.home-vintage) .publication-year:nth-of-type(odd) + .publication-list::after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'%3E%3Cpolygon points='0,0 10,13 20,0' fill='%23f6edda'/%3E%3C/svg%3E");
+}
+body:not(.home-vintage) .publication-year:nth-of-type(even) + .publication-list::after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 13'%3E%3Cpolygon points='0,0 10,13 20,0' fill='%23e8ddc4'/%3E%3C/svg%3E");
+}
 
 /* Presentations: a denser 3-column archive that can hold the full list. */
 body:not(.home-vintage) .selected-presentations-section .timeline{
