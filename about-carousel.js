@@ -1,45 +1,49 @@
 document.addEventListener("DOMContentLoaded",()=>{
+  setupAboutCarousel();
+  setupFeaturedFigures();
+  setupBilibiliMedia();
+});
+
+function setupAboutCarousel(){
   const root=document.querySelector("[data-about-carousel]");
-  if(root){
-    const slides=[...root.querySelectorAll(".about-carousel-slide")];
-    const prev=root.querySelector(".about-carousel-btn.prev");
-    const next=root.querySelector(".about-carousel-btn.next");
-    const dotsWrap=root.querySelector(".about-carousel-dots");
-    const counter=root.querySelector(".about-carousel-counter");
-    let index=0,timer=null;
-
-    const dots=slides.map((_,i)=>{
-      const b=document.createElement("button");
-      b.type="button";b.className="about-carousel-dot";
-      b.setAttribute("aria-label",`Show photo ${i+1}`);
-      b.addEventListener("click",()=>{show(i);restart();});
-      dotsWrap.appendChild(b);return b;
-    });
-
-    function show(i){
-      index=(i+slides.length)%slides.length;
-      slides.forEach((slide,j)=>slide.classList.toggle("is-active",j===index));
-      dots.forEach((dot,j)=>dot.classList.toggle("is-active",j===index));
-      if(counter)counter.textContent=`${String(index+1).padStart(2,"0")} / ${String(slides.length).padStart(2,"0")}`;
-    }
-    function start(){stop();timer=setInterval(()=>show(index+1),5200);}
-    function stop(){if(timer){clearInterval(timer);timer=null;}}
-    function restart(){start();}
-
-    prev?.addEventListener("click",()=>{show(index-1);restart();});
-    next?.addEventListener("click",()=>{show(index+1);restart();});
-    root.addEventListener("mouseenter",stop);
-    root.addEventListener("mouseleave",start);
-    root.addEventListener("focusin",stop);
-    root.addEventListener("focusout",start);
-    root.addEventListener("keydown",e=>{
-      if(e.key==="ArrowLeft"){show(index-1);restart();}
-      if(e.key==="ArrowRight"){show(index+1);restart();}
-    });
-    document.addEventListener("visibilitychange",()=>document.hidden?stop():start());
-    show(0);start();
+  if(!root)return;
+  const slides=[...root.querySelectorAll(".about-carousel-slide")];
+  const prev=root.querySelector(".about-carousel-btn.prev");
+  const next=root.querySelector(".about-carousel-btn.next");
+  const dotsWrap=root.querySelector(".about-carousel-dots");
+  const counter=root.querySelector(".about-carousel-counter");
+  let index=0,timer=null;
+  const dots=slides.map((_,i)=>{
+    const b=document.createElement("button");
+    b.type="button";b.className="about-carousel-dot";
+    b.setAttribute("aria-label",`Show photo ${i+1}`);
+    b.addEventListener("click",()=>{show(i);restart();});
+    dotsWrap?.appendChild(b);return b;
+  });
+  function show(i){
+    index=(i+slides.length)%slides.length;
+    slides.forEach((s,j)=>s.classList.toggle("is-active",j===index));
+    dots.forEach((d,j)=>d.classList.toggle("is-active",j===index));
+    if(counter)counter.textContent=`${String(index+1).padStart(2,"0")} / ${String(slides.length).padStart(2,"0")}`;
   }
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function start(){stop();timer=setInterval(()=>show(index+1),5200);}
+  function restart(){start();}
+  prev?.addEventListener("click",()=>{show(index-1);restart();});
+  next?.addEventListener("click",()=>{show(index+1);restart();});
+  root.addEventListener("mouseenter",stop);
+  root.addEventListener("mouseleave",start);
+  root.addEventListener("focusin",stop);
+  root.addEventListener("focusout",start);
+  root.addEventListener("keydown",e=>{
+    if(e.key==="ArrowLeft"){show(index-1);restart();}
+    if(e.key==="ArrowRight"){show(index+1);restart();}
+  });
+  document.addEventListener("visibilitychange",()=>document.hidden?stop():start());
+  show(0);start();
+}
 
+function setupFeaturedFigures(){
   const figures=[
     [".v-round-visual.pressure","assets/research-featured-1.png","Finite element foot model and radiographic reference from the featured study"],
     [".v-round-visual.lattice","assets/research-featured-2.png","Footwear lattice structure and unit-cell design from the featured study"],
@@ -54,14 +58,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     img.src=src;img.alt=alt;img.loading="eager";
     frame.appendChild(img);
   });
-
-  setupBilibiliMedia();
-});
+}
 
 async function setupBilibiliMedia(){
-  const research=document.querySelector("#research");
   const projects=document.querySelector("#projects");
-  if(!research||!projects||document.querySelector("#social-media"))return;
+  const research=document.querySelector("#research");
+  if(!projects||!research||document.querySelector("#social-media"))return;
 
   let config=null;
   try{
@@ -81,9 +83,16 @@ async function setupBilibiliMedia(){
     .v-media-series-tab:hover,.v-media-series-tab.active{background:var(--forest);color:var(--cream)}
     .v-media-wrap{max-width:1040px;margin:0 auto;position:relative;z-index:3;padding-bottom:56px}
     .v-media-stage{position:relative;margin:0 auto;border:1px solid rgba(53,68,47,.28);background:#111;box-shadow:0 18px 45px rgba(20,20,20,.18)}
-    .v-media-player{position:relative;width:100%;aspect-ratio:16/9;background:#111;overflow:hidden}
-    .v-media-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#111;pointer-events:auto}
-    .v-media-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:46px;height:64px;border:0;background:rgba(255,247,232,.82);color:var(--forest);font-size:34px;line-height:1;cursor:pointer;transition:.18s ease}.v-media-arrow:hover{background:var(--orange);color:var(--charcoal)}.v-media-arrow.prev{left:-54px}.v-media-arrow.next{right:-54px}
+    .v-media-player{position:relative;width:100%;aspect-ratio:16/9;background:#181818;overflow:hidden}
+    .v-media-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#111}
+    .v-media-poster{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1c1b18,#2a2822);color:#fff;text-align:center;padding:30px;cursor:pointer}
+    .v-media-poster-inner{max-width:680px}
+    .v-media-poster-kicker{font-family:"Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:#d7cbb2;font-size:12px;margin-bottom:14px}
+    .v-media-poster-title{font-size:clamp(18px,2.2vw,28px);line-height:1.35;margin:0 0 22px;color:#fff}
+    .v-media-play-button{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,247,232,.82);background:rgba(255,247,232,.94);color:var(--forest);padding:13px 22px;border-radius:999px;font-family:"Arial Narrow",Arial,sans-serif;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:.18s ease}
+    .v-media-play-button:hover{background:var(--orange);border-color:var(--orange);color:var(--charcoal)}
+    .v-media-play-icon{font-size:18px;line-height:1}
+    .v-media-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:6;width:46px;height:64px;border:0;background:rgba(255,247,232,.82);color:var(--forest);font-size:34px;line-height:1;cursor:pointer;transition:.18s ease}.v-media-arrow:hover{background:var(--orange);color:var(--charcoal)}.v-media-arrow.prev{left:-54px}.v-media-arrow.next{right:-54px}
     .v-media-info{text-align:center;padding:22px 20px 0;color:var(--cream)}
     .v-media-title{margin:0 auto 8px;max-width:900px;font-size:22px;line-height:1.35;color:var(--cream)}
     .v-media-caption-meta{font-family:"Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:#cfc4ad}
@@ -93,7 +102,7 @@ async function setupBilibiliMedia(){
     .v-media-episode:hover,.v-media-episode.active{background:var(--orange);border-color:var(--orange);color:var(--charcoal);font-weight:800}
     .v-projects{border-top:0!important}
     @media(max-width:1180px){.v-media-arrow.prev{left:8px}.v-media-arrow.next{right:8px}}
-    @media(max-width:700px){.v-social-media{padding-top:70px;background:linear-gradient(to bottom,var(--paper2) 0 58%,var(--charcoal) 58% 100%)}.v-media-wrap{padding-bottom:42px}.v-media-title{font-size:17px}.v-media-arrow{width:38px;height:52px;font-size:28px}.v-media-heading{font-size:36px}.v-media-series-tab{font-size:11px;padding:8px 13px}}
+    @media(max-width:700px){.v-social-media{padding-top:70px;background:linear-gradient(to bottom,var(--paper2) 0 58%,var(--charcoal) 58% 100%)}.v-media-wrap{padding-bottom:42px}.v-media-title{font-size:17px}.v-media-arrow{width:38px;height:52px;font-size:28px}.v-media-heading{font-size:36px}.v-media-series-tab{font-size:11px;padding:8px 13px}.v-media-poster{padding:18px}.v-media-poster-title{font-size:17px}}
   `;
   document.head.appendChild(style);
 
@@ -107,7 +116,7 @@ async function setupBilibiliMedia(){
       <div class="v-media-series-tabs" aria-label="Video series"></div>
       <div class="v-media-wrap">
         <div class="v-media-stage" tabindex="0" aria-label="Bilibili video carousel">
-          <div class="v-media-player"><iframe title="Bilibili video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen scrolling="no" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+          <div class="v-media-player"></div>
           <button class="v-media-arrow prev" type="button" aria-label="Previous video">‹</button>
           <button class="v-media-arrow next" type="button" aria-label="Next video">›</button>
         </div>
@@ -123,7 +132,7 @@ async function setupBilibiliMedia(){
 
   const tabsWrap=section.querySelector(".v-media-series-tabs");
   const stage=section.querySelector(".v-media-stage");
-  const iframe=section.querySelector("iframe");
+  const player=section.querySelector(".v-media-player");
   const title=section.querySelector(".v-media-title");
   const meta=section.querySelector(".v-media-caption-meta");
   const link=section.querySelector(".v-media-link");
@@ -131,17 +140,14 @@ async function setupBilibiliMedia(){
   const next=section.querySelector(".v-media-arrow.next");
   const episodesWrap=section.querySelector(".v-media-episodes");
 
-  let seriesIndex=0;
-  let episodeIndex=0;
+  let seriesIndex=0,episodeIndex=0;
 
   const seriesTabs=config.series.map((series,i)=>{
     const b=document.createElement("button");
-    b.type="button";
-    b.className="v-media-series-tab";
+    b.type="button";b.className="v-media-series-tab";
     b.innerHTML=`<span class="lang-en">${escapeHtml(series.labelEn||series.id)}</span><span class="lang-zh">${escapeHtml(series.labelZh||series.labelEn||series.id)}</span>`;
     b.addEventListener("click",()=>{seriesIndex=i;episodeIndex=0;renderSeries();});
-    tabsWrap.appendChild(b);
-    return b;
+    tabsWrap.appendChild(b);return b;
   });
 
   function renderSeries(){
@@ -150,8 +156,7 @@ async function setupBilibiliMedia(){
     const series=config.series[seriesIndex];
     (series.videos||[]).forEach((video,i)=>{
       const b=document.createElement("button");
-      b.type="button";
-      b.className="v-media-episode";
+      b.type="button";b.className="v-media-episode";
       b.textContent=String(video.episode??i+1).padStart(2,"0");
       b.setAttribute("aria-label",`Episode ${video.episode??i+1}`);
       b.addEventListener("click",()=>{episodeIndex=i;renderVideo();});
@@ -167,12 +172,33 @@ async function setupBilibiliMedia(){
     episodeIndex=(episodeIndex+videos.length)%videos.length;
     const v=videos[episodeIndex];
 
-    iframe.src=`https://www.bilibili.com/blackboard/html5mobileplayer.html?isOutside=true&bvid=${encodeURIComponent(v.bvid)}&p=1&autoplay=0&danmaku=0&hideCoverInfo=1`;
-    iframe.title=v.titleEn||v.titleZh||"Bilibili video";
+    player.innerHTML=`
+      <div class="v-media-poster" role="button" tabindex="0" aria-label="Play video">
+        <div class="v-media-poster-inner">
+          <div class="v-media-poster-kicker"><span class="lang-en">${escapeHtml(series.shortEn||series.labelEn||series.id)} · ${String(episodeIndex+1).padStart(2,"0")} / ${String(videos.length).padStart(2,"0")}</span><span class="lang-zh">${escapeHtml(series.shortZh||series.labelZh||series.id)} · ${String(episodeIndex+1).padStart(2,"0")} / ${String(videos.length).padStart(2,"0")}</span></div>
+          <h4 class="v-media-poster-title"><span class="lang-en">${escapeHtml(v.titleEn||v.titleZh||"Bilibili video")}</span><span class="lang-zh">${escapeHtml(v.titleZh||v.titleEn||"哔哩哔哩视频")}</span></h4>
+          <button class="v-media-play-button" type="button"><span class="v-media-play-icon">▶</span><span class="lang-en">Play video</span><span class="lang-zh">播放视频</span></button>
+        </div>
+      </div>`;
+
+    const poster=player.querySelector(".v-media-poster");
+    const play=()=>{
+      if(player.querySelector("iframe"))return;
+      const iframe=document.createElement("iframe");
+      iframe.title=v.titleEn||v.titleZh||"Bilibili video";
+      iframe.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";
+      iframe.allowFullscreen=true;
+      iframe.scrolling="no";
+      iframe.referrerPolicy="strict-origin-when-cross-origin";
+      iframe.src=`https://www.bilibili.com/blackboard/html5mobileplayer.html?isOutside=true&bvid=${encodeURIComponent(v.bvid)}&p=1&autoplay=1&danmaku=0&hideCoverInfo=1`;
+      player.innerHTML="";
+      player.appendChild(iframe);
+    };
+    poster.addEventListener("click",play);
+    poster.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();play();}});
+
     title.innerHTML=`<span class="lang-en">${escapeHtml(v.titleEn||v.titleZh||"Bilibili video")}</span><span class="lang-zh">${escapeHtml(v.titleZh||v.titleEn||"哔哩哔哩视频")}</span>`;
-    const shortEn=series.shortEn||series.labelEn||series.id;
-    const shortZh=series.shortZh||series.labelZh||series.labelEn||series.id;
-    meta.innerHTML=`<span class="lang-en">${escapeHtml(shortEn)} · ${String(episodeIndex+1).padStart(2,"0")} / ${String(videos.length).padStart(2,"0")}</span><span class="lang-zh">${escapeHtml(shortZh)} · ${String(episodeIndex+1).padStart(2,"0")} / ${String(videos.length).padStart(2,"0")}</span>`;
+    meta.innerHTML=`<span class="lang-en">${escapeHtml(series.shortEn||series.labelEn||series.id)} · ${String(episodeIndex+1).padStart(2,"0")} / ${String(videos.length).padStart(2,"0")}</span><span class="lang-zh">${escapeHtml(series.shortZh||series.labelZh||series.id)} · ${String(episodeIndex+1).padStart(2,"0")} / ${String(videos.length).padStart(2,"0")}</span>`;
     link.href=`https://www.bilibili.com/video/${v.bvid}/`;
     [...episodesWrap.children].forEach((b,i)=>b.classList.toggle("active",i===episodeIndex));
   }
@@ -180,7 +206,6 @@ async function setupBilibiliMedia(){
   prev.addEventListener("click",()=>{episodeIndex--;renderVideo();});
   next.addEventListener("click",()=>{episodeIndex++;renderVideo();});
   stage.addEventListener("keydown",e=>{if(e.key==="ArrowLeft"){episodeIndex--;renderVideo();}if(e.key==="ArrowRight"){episodeIndex++;renderVideo();}});
-
   renderSeries();
 }
 
