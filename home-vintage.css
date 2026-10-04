@@ -4,7 +4,7 @@
 /* Custom transparent hero artwork */
 .v-hero-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0}
 .v-collage{position:relative;height:650px;overflow:visible;z-index:2}
-.v-hero-art{position:absolute;top:47%;left:5%;width:clamp(560px,47vw,710px);max-width:none;height:auto;display:block;transform:translateY(-50%);object-fit:contain;pointer-events:none;user-select:none}
+.v-hero-art{position:absolute;top:47%;left:14%;width:clamp(560px,47vw,710px);max-width:none;height:auto;display:block;transform:translateY(-50%);object-fit:contain;pointer-events:none;user-select:none}
 .v-brand-card h1{-webkit-text-stroke:2px rgba(246,237,218,.72);paint-order:stroke fill;text-shadow:0 0 8px rgba(246,237,218,.2)}
 @media(max-width:900px){.v-hero-grid{grid-template-columns:1fr;gap:10px}.v-collage{height:560px;margin-top:-30px}.v-hero-art{top:50%;left:50%;width:min(760px,108vw);transform:translate(-50%,-50%)}}
 @media(max-width:640px){.v-collage{height:430px;margin-top:-15px}.v-hero-art{width:min(620px,116vw)}}
