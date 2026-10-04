@@ -1,10 +1,66 @@
 {
   "mid": "49579977",
-  "videos": [
+  "series": [
     {
-      "bvid": "BV1WsztB7EQa",
-      "title": "医学（骨科）、运动生物力学有限元分析-01-介绍",
-      "date": ""
+      "id": "fea",
+      "labelEn": "Finite Element Analysis",
+      "labelZh": "有限元分析",
+      "shortEn": "FEA Series",
+      "shortZh": "FEA 系列",
+      "videos": [
+        {
+          "episode": 1,
+          "bvid": "BV1WsztB7EQa",
+          "titleZh": "医学（骨科）、运动生物力学有限元分析-01-介绍",
+          "titleEn": "Medical (Orthopedic) and Sports Biomechanics Finite Element Analysis — 01 Introduction"
+        },
+        {
+          "episode": 2,
+          "bvid": "BV1mf6VBDE1A",
+          "titleZh": "医学（骨科）、运动生物力学有限元分析-02-Mimics医学影像到3D模型",
+          "titleEn": "Medical (Orthopedic) and Sports Biomechanics Finite Element Analysis — 02 From Medical Imaging to 3D Models with Mimics"
+        },
+        {
+          "episode": 3,
+          "bvid": "BV1CS6vBTEV8",
+          "titleZh": "医学（骨科）、运动生物力学有限元分析-03-Geomagic与SolidWorks优化及装配",
+          "titleEn": "Medical (Orthopedic) and Sports Biomechanics Finite Element Analysis — 03 Geometry Processing and Assembly with Geomagic & SolidWorks"
+        },
+        {
+          "episode": 4,
+          "bvid": "BV1PGFKzzEB9",
+          "titleZh": "医学（骨科）、运动生物力学有限元分析-04-Ansys Workbench网格划分和计算",
+          "titleEn": "Medical (Orthopedic) and Sports Biomechanics Finite Element Analysis — 04 Meshing and Simulation with Ansys Workbench"
+        },
+        {
+          "episode": 5,
+          "bvid": "BV1Z3fUBLEbH",
+          "titleZh": "医学（骨科）、运动生物力学有限元分析-05-案例：脊柱、膝关节、足-鞋-地",
+          "titleEn": "Medical (Orthopedic) and Sports Biomechanics Finite Element Analysis — 05 Case Studies: Spine, Knee, and Foot–Shoe–Ground"
+        },
+        {
+          "episode": 6,
+          "bvid": "BV1VgAZzkEdS",
+          "titleZh": "医学（骨科）、运动生物力学有限元分析-06-模型验证",
+          "titleEn": "Medical (Orthopedic) and Sports Biomechanics Finite Element Analysis — 06 Model Validation"
+        }
+      ]
+    },
+    {
+      "id": "opensim",
+      "labelEn": "OpenSim",
+      "labelZh": "OpenSim",
+      "shortEn": "OpenSim Series",
+      "shortZh": "OpenSim 系列",
+      "videos": [
+        {"episode": 1, "bvid": "BV1pa411G7Hw", "titleZh": "OpenSim 系列教程-01", "titleEn": "OpenSim Tutorial — 01"},
+        {"episode": 2, "bvid": "BV1Wt4y1n7uX", "titleZh": "OpenSim 系列教程-02", "titleEn": "OpenSim Tutorial — 02"},
+        {"episode": 3, "bvid": "BV1dW4y1b7nJ", "titleZh": "OpenSim 系列教程-03", "titleEn": "OpenSim Tutorial — 03"},
+        {"episode": 4, "bvid": "BV16a41157Yp", "titleZh": "OpenSim 系列教程-04", "titleEn": "OpenSim Tutorial — 04"},
+        {"episode": 5, "bvid": "BV1Ue4y1o7sW", "titleZh": "OpenSim 系列教程-05", "titleEn": "OpenSim Tutorial — 05"},
+        {"episode": 6, "bvid": "BV1Dg411r7tT", "titleZh": "OpenSim 系列教程-06", "titleEn": "OpenSim Tutorial — 06"},
+        {"episode": 7, "bvid": "BV1894y1T75R", "titleZh": "OpenSim 系列教程-07", "titleEn": "OpenSim Tutorial — 07"}
+      ]
     }
   ]
 }
