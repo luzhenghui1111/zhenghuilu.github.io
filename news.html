@@ -37,17 +37,43 @@
 
   <section class="section section-white">
     <div class="container">
-      <div class="news-archive"><article class="news-entry news-featured" id="note-grad-to-postdoc">
-  <div class="news-entry-meta"><span>2026.10.05</span><span class="lang-en">Personal note · WeChat</span><span class="lang-zh">个人随记 · 公众号</span></div>
-  <div class="news-entry-image"><img src="assets/about-gallery/01_fengmian.jpg" alt="Zhenghui Lu"></div>
-  <h2><span class="lang-en">From Graduate School to a Postdoc: Why I Started Documenting My Research Journey</span><span class="lang-zh">从读研到博后，我想开始记录科研</span></h2>
-  <p class="lang-en">From graduate school to doctoral training and now postdoctoral research, much of the journey has been made up of ordinary, repetitive work: learning methods, running experiments, debugging models, revising papers, presenting unfinished ideas, and gradually figuring out what kind of research I want to do. Looking back, I realized that many of the most useful parts of that process never appear in a CV or publication list.</p>
-  <p class="lang-zh">从读研、读博到现在做博士后，科研经历里其实有很多并不会出现在 CV 和论文列表中的部分：学方法、做实验、调模型、改论文、参加会议，也包括很多走弯路和重新想清楚问题的过程。回头看，这些过程本身反而有不少值得留下来的东西。</p>
-  <p class="lang-en">That is why I want to start documenting more of the process itself: research methods I have learned, tools that proved useful, ideas that did or did not work, and occasional thoughts about academic life. The goal is not to turn every update into a polished conclusion, but to leave a record that may be useful to myself and to others working on similar problems.</p>
-  <p class="lang-zh">所以我想开始多记录一些科研过程本身，包括学过的方法、用过的工具、做过但未必成功的尝试，以及偶尔对科研和学术生活的一些想法。这里不一定每一篇都需要有一个非常完整的结论，更重要的是把过程留下来，也希望其中有些内容能对做类似工作的朋友有用。</p>
-  <p><a class="news-source-link" href="https://mp.weixin.qq.com/s/J3EVO5sBz65nALd9LvF8Lw" target="_blank" rel="noopener noreferrer"><span class="lang-en">Read the original article on WeChat →</span><span class="lang-zh">阅读微信公众号原文 →</span></a></p>
-  <div class="news-entry-footer"><span class="lang-en">Personal note · research journey</span><span class="lang-zh">个人随记 · 科研经历</span></div>
-</article>
+      <div class="news-archive">
+        <article class="news-entry news-featured" id="note-open-datasets">
+          <div class="news-entry-meta"><span>2026.10.06</span><span class="lang-en">Open data · Papers</span><span class="lang-zh">开源数据 · 论文</span></div>
+          <h2><span class="lang-en">Open Datasets and Papers</span><span class="lang-zh">开源数据集和论文</span></h2>
+
+          <p class="lang-zh">之前在 B 站分享 OpenSim 和 FEA 视频的时候，有人问是否可以分享一些数据用于测试或者研究。我总是回答说目前很多研究都会开源自己的数据，如果想用只需要引用一下或者满足原作者的一些条件，非常方便，比如这份发表在 <em>Scientific Data</em> 上的数据：</p>
+          <p class="lang-en">When I previously shared OpenSim and FEA videos on Bilibili, some people asked whether I could share data for testing or research. My usual answer is that many studies now make their datasets openly available. In many cases, you only need to cite the source or meet certain conditions specified by the original authors, which makes them very convenient to use. One example is this dataset published in <em>Scientific Data</em>:</p>
+
+          <p><strong>A multimodal gait dataset with ultrasound, EMG, and motion capture from young adults at various walking speeds</strong></p>
+
+          <p class="lang-zh">据作者描述，他们采集了 26 名健康成年人（13 名男性，13 名女性）在多种条件下的步态数据，三个自选速度：（自选快、自选慢、自选慢）和八种听觉提示的步速（60–130 次/分钟，以 10 次/分钟为增量）。数据包括三维运动捕捉（也就是 markers 的空间位置数据）、力台数据、肌电数据以及超声。具体可以自己下载看一下，我只是举个例子。</p>
+          <p class="lang-en">According to the authors, the dataset includes gait data from 26 healthy adults, with 13 men and 13 women, collected under multiple conditions. These included three self-selected speeds (self-selected fast, self-selected slow, and self-selected slow) and eight auditory-cued cadences ranging from 60 to 130 steps per minute in increments of 10. The dataset contains three-dimensional motion-capture data, meaning the spatial positions of markers, along with force-plate data, EMG, and ultrasound. You can download it and explore the details yourself; I am only using it here as an example.</p>
+
+          <p><a class="news-source-link" href="https://www.nature.com/articles/s41597-026-08156-5" target="_blank" rel="noopener noreferrer"><span class="lang-en">Open the dataset paper →</span><span class="lang-zh">查看数据集论文 →</span></a></p>
+
+          <p class="lang-zh">比如这一篇，也是发表在 <em>Scientific Data</em> 上的数据集：</p>
+          <p class="lang-en">Another example, also published in <em>Scientific Data</em>, is:</p>
+
+          <p><strong>A Wearable Motion Capture Dataset for Gait Analysis Using IMUs and Shank-Mounted Egocentric Cameras</strong></p>
+
+          <p class="lang-zh">该数据集主要是 IMU 相关的，具体就不说了。</p>
+          <p class="lang-en">This dataset mainly focuses on IMU-related measurements, so I will not go into the details here.</p>
+
+          <p class="lang-zh">另外，今天主要是想分享一下这篇发表在 <em>Computer Methods in Biomechanics and Biomedical Engineering</em> 的文章：</p>
+          <p class="lang-en">The main paper I wanted to share today, however, is this article published in <em>Computer Methods in Biomechanics and Biomedical Engineering</em>:</p>
+
+          <p><strong>Population-scale modeling of the natural knee: automated segmentation, finite element simulation, and machine learning prediction of time-series joint mechanics</strong></p>
+
+          <p class="lang-zh"><strong>摘要：</strong>本研究结合了自动医学图像分割、六面体网格划分和动态有限元站立相步态模拟，以及统计形状建模和监督学习，对来自骨关节炎倡议（OAI）的 483 个自然膝关节进行了分析。研究人员训练了岭回归和循环神经网络，以根据解剖特征预测 38 个时间序列的运动学、负荷、接触和软组织输出。最佳模型为双向长短期记忆网络（LSTM），其平均 1σ 归一化均方根误差（RMSE）为 0.45，推理时间仅需几秒。这种基于人群规模的框架能够仅通过影像数据快速、个体化地估计膝关节力学参数，为未来的临床转化提供了支持。</p>
+          <p class="lang-en"><strong>Summary:</strong> This study combined automated medical-image segmentation, hexahedral meshing, dynamic finite element simulation of the stance phase of gait, statistical shape modeling, and supervised learning to analyze 483 natural knees from the Osteoarthritis Initiative (OAI). The researchers trained ridge-regression and recurrent neural-network models to predict 38 time-series outputs related to kinematics, loading, contact, and soft-tissue mechanics from anatomical features. The best-performing model was a bidirectional long short-term memory network (LSTM), with a mean 1σ-normalized root mean square error (RMSE) of 0.45 and inference requiring only a few seconds. This population-scale framework enables rapid and individualized estimation of knee-joint mechanics using imaging data alone and provides support for future clinical translation.</p>
+
+          <p class="lang-zh">这项研究中，他们就用到了所谓的开源数据集，当然有些数据集使用是需要申请的，这个可以自己摸索。在最近几年 AI 发展这么迅猛的情况下，人人都有做机器学习的能力，像我们作为非计算机专业的科研相关人员，还是需要尝试把这种潮流转换为自己的优势。</p>
+          <p class="lang-en">This study is also an example of how openly available datasets can be used in research, although some datasets still require an application before access is granted. That is something worth exploring on your own. With the rapid development of AI in recent years, machine learning has become accessible to almost everyone. For researchers like us who are not trained primarily in computer science, it is still important to think about how to turn this broader trend into an advantage within our own research fields.</p>
+
+          <p><a class="news-source-link" href="https://mp.weixin.qq.com/s/J3EVO5sBz65nALd9LvF8Lw" target="_blank" rel="noopener noreferrer"><span class="lang-en">Read the original WeChat article →</span><span class="lang-zh">阅读微信公众号原文 →</span></a></p>
+          <div class="news-entry-footer"><span class="lang-en">Open data · biomechanics · machine learning</span><span class="lang-zh">开源数据 · 生物力学 · 机器学习</span></div>
+        </article>
 
         <article class="news-entry news-featured" id="note-website">
           <div class="news-entry-meta"><span>2026.10.04</span><span class="lang-en">Website</span><span class="lang-zh">网站</span></div>
