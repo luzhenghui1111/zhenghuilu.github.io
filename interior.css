@@ -92,3 +92,17 @@ body:not(.home-vintage) .contact-qr-card img{display:block;width:min(150px,100%)
 body:not(.home-vintage) .contact-qr-card strong{display:block;font-size:12px;line-height:1.3;color:var(--forest)}
 body:not(.home-vintage) .contact-qr-card small{display:block;font-size:10px;color:#77705e;margin-top:4px}
 @media(max-width:640px){body:not(.home-vintage) .contact-qr-grid{grid-template-columns:1fr 1fr}}
+
+/* News archive */
+body:not(.home-vintage) .news-archive{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+body:not(.home-vintage) .news-entry{position:relative;border:1px solid var(--line);background:rgba(255,247,232,.38);padding:30px;min-height:300px}
+body:not(.home-vintage) .news-entry:nth-child(4n+2),body:not(.home-vintage) .news-entry:nth-child(4n+3){background:#e8ddc4}
+body:not(.home-vintage) .news-entry.news-featured{grid-column:1/3;min-height:260px;background:var(--forest);color:#f6edda;border-color:var(--forest)}
+body:not(.home-vintage) .news-entry-meta{display:flex;gap:12px;flex-wrap:wrap;font-family:"Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:10px;color:var(--orange);font-weight:800}
+body:not(.home-vintage) .news-entry h2{font-size:27px;line-height:1.3;color:var(--forest);margin:34px 0 14px}
+body:not(.home-vintage) .news-entry.news-featured h2{color:#fff7e8}
+body:not(.home-vintage) .news-entry p{font-size:15px;line-height:1.78;color:#595548;margin:0 0 18px}
+body:not(.home-vintage) .news-entry.news-featured p{color:#e7dfce;max-width:900px}
+body:not(.home-vintage) .news-entry-footer{position:absolute;left:30px;right:30px;bottom:22px;padding-top:12px;border-top:1px solid rgba(127,136,84,.28);font-family:"Arial Narrow",Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:9px;color:#8a825f}
+body:not(.home-vintage) .news-entry.news-featured .news-entry-footer{border-top-color:rgba(255,255,255,.2);color:#d7cbb2}
+@media(max-width:760px){body:not(.home-vintage) .news-archive{grid-template-columns:1fr}body:not(.home-vintage) .news-entry.news-featured{grid-column:auto}body:not(.home-vintage) .news-entry{min-height:320px}}
