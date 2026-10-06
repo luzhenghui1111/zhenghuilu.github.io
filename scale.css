@@ -163,7 +163,7 @@ body:not(.home-vintage) .highlight-grid .paper-thumb span {
 .home-vintage .v-hero{background:var(--paper-light)!important;}
 .home-vintage #about{background:var(--paper-tint)!important;}
 .home-vintage .v-research{background:var(--paper-light)!important;}
-.home-vintage .v-social-media{background:linear-gradient(to bottom,var(--paper-tint) 0 63%,var(--paper-dark) 63% 100%)!important;}
+.home-vintage .v-news{background:var(--paper-tint)!important;}\n.home-vintage .v-social-media{background:linear-gradient(to bottom,var(--paper-light) 0 63%,var(--paper-dark) 63% 100%)!important;}
 .home-vintage .v-projects{background:var(--paper-dark)!important;}
 .home-vintage .v-contact{background:var(--paper-forest)!important;color:#fff!important;}
 
