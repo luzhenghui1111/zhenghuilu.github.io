@@ -344,3 +344,25 @@ body:not(.home-vintage) .selected-presentations-section .timeline-item p{
   body:not(.home-vintage) .selected-presentations-section .timeline{grid-template-columns:1fr!important;}
   body:not(.home-vintage) .publication-year + .publication-list{padding-left:12px!important;padding-right:12px!important;}
 }
+/* Explicit News / Social triangular transitions */
+.home-vintage .v-news,
+.home-vintage .v-social-media{position:relative!important;overflow:visible!important}
+.home-vintage .v-news::before,
+.home-vintage .v-social-media::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:0!important;right:0!important;top:calc(-1 * var(--zig-size))!important;
+  width:100%!important;height:var(--zig-size)!important;z-index:30!important;
+  pointer-events:none!important;border:0!important;
+  background-repeat:repeat-x!important;background-position:left top!important;
+  background-size:var(--zig-width) var(--zig-size)!important;
+}
+.home-vintage .v-news::before{
+  background-color:transparent!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='13' viewBox='0 0 20 13'%3E%3Cpolygon points='0,13 10,0 20,13' fill='%23e8ddc4'/%3E%3C/svg%3E")!important;
+}
+.home-vintage .v-social-media::before{
+  background-color:transparent!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='13' viewBox='0 0 20 13'%3E%3Cpolygon points='0,13 10,0 20,13' fill='%23f6edda'/%3E%3C/svg%3E")!important;
+}
