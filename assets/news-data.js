@@ -1,5 +1,59 @@
 window.NEWS_DATA = [
   {
+    id: "note-buaa-pressure-insole",
+    date: "2026.10.07",
+    categoryEn: "Paper sharing · Flexible sensors",
+    categoryZh: "论文分享 · 柔性传感",
+    titleEn: "Beihang University School of Materials Science and Engineering: A biomechanics-guided flexible pressure insole for high-fidelity spatiotemporal gait tracking and proactive fall prediction",
+    titleZh: "北航材料科学与工程学院：A biomechanics-guided flexible pressure insole for high-fidelity spatiotemporal gait tracking and proactive fall prediction",
+    summaryEn: "A paper-sharing note on a 105-sensor flexible pressure insole that uses biomechanics-guided sensor placement for gait tracking and fall-direction prediction, with some thoughts on how a small change in design logic can create a new research angle.",
+    summaryZh: "分享一篇今年发表在 Chemical Engineering Journal 的柔性压力鞋垫研究。文章通过生物力学引导的传感器布局，实现步态监测和跌倒方向预测，也让我想到很多时候只需要简单转变一个思路，就可能出现新的研究点。",
+    featured: true,
+    sourceUrl: "https://www.sciencedirect.com/science/article/pii/S1385894726079374?via%3Dihub",
+    sourceLabelEn: "Read the original paper →",
+    sourceLabelZh: "阅读原文 →",
+    footerEn: "Paper sharing · plantar pressure · gait · fall prediction",
+    footerZh: "论文分享 · 足底压力 · 步态 · 跌倒预测",
+    body: [
+      {
+        en: "This is a paper published this year in <em>Chemical Engineering Journal</em>, titled:",
+        zh: "这是今年刚发表在 <em>Chemical Engineering Journal</em> 的文章，标题："
+      },
+      {
+        en: "<strong>A biomechanics-guided flexible pressure insole for high-fidelity spatiotemporal gait tracking and proactive fall prediction</strong>",
+        zh: "<strong>A biomechanics-guided flexible pressure insole for high-fidelity spatiotemporal gait tracking and proactive fall prediction</strong>"
+      },
+      {
+        en: "The paper is essentially about developing a high-density flexible pressure insole for gait monitoring and fall-direction prediction. The whole insole contains 105 pressure-sensing units, allowing continuous recording of how plantar pressure changes over time across different regions of the foot.",
+        zh: "这篇文章大概是说做了一双高密度柔性压力鞋垫，用于步态监测和跌倒方向预测。整个鞋垫有 105 个压力感知单元，可以连续记录足底压力在不同区域随时间的变化。"
+      },
+      {
+        en: "High-density plantar-pressure measurement itself is not a new concept. There are already many pressure insoles and plantar-pressure platforms on the market that can provide high spatial resolution. Most people working in biomechanics have probably used these systems or are at least familiar with them.",
+        zh: "高密度足底压力测量早就不是一个新的概念，市面上已经有很多压力鞋垫和足底压力板，早就可以提供很高的空间分辨率。大家平时应该接触或者至少对这方面有些了解。"
+      },
+      {
+        en: "But during everyday movements such as walking, running, or jumping, plantar pressure is not distributed uniformly. The heel is important during landing, while the forefoot becomes important during push-off. Many pressure-insoles, however, still distribute sensors more or less uniformly. The main idea in this paper is to first consider which plantar regions actually carry the major loads during daily activities and which regions are more informative for gait recognition, and then arrange the sensors according to those biomechanical characteristics.",
+        zh: "但我们知道，进行走路、跑步或者跳跃这些日常动作的时候，足底压力主要分布在足跟（落地）、前掌（蹬离）。但大多数压力鞋垫的传感器都是均匀分布，这篇文章的创新主要是<strong>先考虑日常活动中哪些区域主要承担负荷，哪些区域对步态识别来说更加重要，然后根据这些特点和区域去安排传感器</strong>。"
+      },
+      {
+        en: "Although this paper is relatively engineering-oriented, I think it offers a useful reminder. At first glance, flexible plantar-pressure insoles seem like an area where a huge amount of engineering design work has already been published, and it may feel difficult to find something new. But sometimes a relatively simple shift in design logic is enough to create an idea that feels fresh.",
+        zh: "这篇文章虽然偏工程，但能给我们一些启发。乍一看类似足底压力鞋垫工程设计这类文章，已经发表太多，似乎很难找到新的点子，但很多时候往往只需要<strong>简单转变一个新思路</strong>，就能有让人眼前一亮的想法。"
+      },
+      {
+        en: "That said, if the goal is to publish a strong Q1 paper, simply designing a device and validating it is still far from enough. The amount of engineering work and the depth of the application also matter. This paper therefore extends the insole beyond basic sensing and explores additional applications related to abnormal-gait prediction, including fall-related scenarios and joint-loading-related tasks. That is another part of the work that I think is worth learning from.",
+        zh: "但想发表一篇一区的文章，如果只是停留在设计和验证上，还远远不够，<strong>工程量也是很重要的一点</strong>。这篇文章还进行了一定的拓展应用，尝试了一些异常步态预测，比如跌倒、手上、关节负荷之类的。这点也可以给我们一定的启发。"
+      },
+      {
+        en: "In our own research, it may also be worth asking whether an existing idea, dataset, or experimental setup can be pushed one step further to solve a more complete problem rather than stopping at a single technical component.",
+        zh: "在我们自己的研究中，也可以思考，能不能根据我们现有的思路或实验数据，进一步尝试去解决一个完整的问题。"
+      },
+      {
+        en: "My paper-sharing posts will probably continue in this style: a mixture of the paper itself and quite a lot of my own subjective thoughts, basically following whatever comes to mind while reading. If you are interested, you can always go back to the original paper for the full details.",
+        zh: "文章分享主要会以这种形式进行，结合大量我的主观想法，属于是想到哪说到哪。如果有兴趣大家可以自己阅读原文。"
+      }
+    ]
+  },
+  {
     id: "note-open-datasets",
     date: "2026.10.06",
     categoryEn: "Open data · Papers",
