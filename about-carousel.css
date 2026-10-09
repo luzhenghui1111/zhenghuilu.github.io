@@ -1,6 +1,6 @@
-.v-about-grid{grid-template-columns:.82fr 1.18fr!important;gap:52px!important;align-items:start!important}
-.v-about-gallery{width:100%;max-width:480px;margin:132px auto 0;position:relative}
-.about-carousel-frame{position:relative;aspect-ratio:3/2;overflow:hidden;border:1px solid var(--orange);background:#d8ccb2;box-shadow:0 16px 34px rgba(53,68,47,.12)}
+.v-about-grid{grid-template-columns:.82fr 1.18fr!important;gap:52px!important;align-items:stretch!important}
+.v-about-gallery{width:100%;max-width:480px;margin:0 auto;position:relative;display:flex;flex-direction:column;height:100%;min-height:0}
+.about-carousel-frame{position:relative;flex:1 1 auto;min-height:0;aspect-ratio:auto;overflow:hidden;border:1px solid var(--orange);background:#d8ccb2;box-shadow:0 16px 34px rgba(53,68,47,.12)}
 .about-carousel-track{position:absolute;inset:0}
 .about-carousel-slide{position:absolute;inset:0;margin:0;opacity:0;transform:translateX(5%);transition:opacity .55s ease,transform .55s ease;pointer-events:none}
 .about-carousel-slide.is-active{opacity:1;transform:translateX(0);pointer-events:auto}
@@ -13,11 +13,11 @@
 .about-carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border:1px solid rgba(255,247,232,.8);border-radius:50%;background:rgba(40,38,34,.72);color:#fff7e8;font:700 25px/1 Georgia,"Times New Roman",serif;display:grid;place-items:center;cursor:pointer;z-index:4;transition:background .2s ease,transform .2s ease}
 .about-carousel-btn:hover{background:var(--brick);transform:translateY(-50%) scale(1.05)}
 .about-carousel-btn.prev{left:12px}.about-carousel-btn.next{right:12px}
-.about-carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
+.about-carousel-dots{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);display:flex;justify-content:center;gap:8px;margin:0;z-index:6;padding:5px 8px;border-radius:999px;background:rgba(239,228,199,.72);backdrop-filter:blur(3px)}
 .about-carousel-dot{width:8px;height:8px;border:0;border-radius:50%;background:#b8aa82;padding:0;cursor:pointer;transition:transform .2s ease,background .2s ease}
 .about-carousel-dot.is-active{background:var(--orange);transform:scale(1.35)}
-.about-carousel-counter{text-align:center;margin-top:8px;font-family:"Arial Narrow",Arial,sans-serif;font-size:10px;letter-spacing:.12em;color:var(--olive);text-transform:uppercase}
-.about-evolution-art{display:block;width:100%;height:auto;margin:18px 0 -12px;object-fit:contain;opacity:.8;pointer-events:none;user-select:none}
+.about-carousel-counter{position:absolute;left:50%;bottom:9px;transform:translateX(-50%);text-align:center;margin:0;font-family:"Arial Narrow",Arial,sans-serif;font-size:10px;letter-spacing:.12em;color:var(--cream);text-transform:uppercase;z-index:6;text-shadow:0 1px 3px rgba(0,0,0,.55)}
+.about-evolution-art{display:none!important}
 
 /* Transparent PNG article figures in the circular featured-research frames. */
 .home-vintage .v-round-visual.paper-figure{
@@ -78,3 +78,12 @@
 @media(max-width:900px){.v-about-grid{grid-template-columns:1fr!important}.v-about-gallery{max-width:470px;margin:0 auto 12px}.home-vintage .v-research-grid{gap:18px!important}}
 @media(max-width:700px){.home-vintage .v-research-grid{display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important}.home-vintage .v-research-grid>.v-research-card{width:100%!important;flex:0 0 auto!important}.home-vintage .v-research-grid>:not(.v-research-card){position:absolute!important}}
 @media(max-width:640px){.v-about-gallery{max-width:100%}.about-carousel-btn{width:34px;height:34px;font-size:22px}.about-evolution-art{width:100%;margin:18px 0 -4px}}
+
+/* Strict About Me vertical alignment */
+@media(min-width:901px){
+  .home-vintage #about .v-about-grid{align-items:stretch!important}
+  .home-vintage #about .v-about-copy{display:flex;flex-direction:column;height:100%}
+  .home-vintage #about .v-keywords{margin-top:auto;padding-top:26px}
+  .home-vintage #about .v-about-gallery{align-self:stretch!important}
+  .home-vintage #about .about-carousel-frame{height:100%!important}
+}
