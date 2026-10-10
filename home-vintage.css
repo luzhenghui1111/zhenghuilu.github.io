@@ -113,3 +113,92 @@
   .home-vintage .v-media-divider{width:180px!important;height:20px!important}
   .home-vintage .v-down{width:44px!important;height:56px!important}
 }
+
+/* FINAL micro-UI: minimal line + endpoint dots, replacing muscle-fiber motif */
+.home-vintage .v-divider,
+.home-vintage .v-media-divider{
+  position:relative!important;
+  width:230px!important;
+  height:14px!important;
+  margin:16px 0 30px!important;
+  display:block!important;
+  background:none!important;
+  color:var(--forest)!important;
+}
+.home-vintage .v-divider::before,
+.home-vintage .v-media-divider::before{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  top:50%!important;
+  height:1px!important;
+  transform:translateY(-50%)!important;
+  background:currentColor!important;
+  display:block!important;
+}
+.home-vintage .v-divider::after,
+.home-vintage .v-media-divider::after{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  top:50%!important;
+  width:7px!important;
+  height:7px!important;
+  border-radius:50%!important;
+  transform:translate(-50%,-50%)!important;
+  background:currentColor!important;
+  box-shadow:230px 0 0 currentColor!important;
+  display:block!important;
+}
+.home-vintage .v-divider i,
+.home-vintage .v-media-divider i{display:none!important}
+
+/* Match divider colour to each module title */
+.home-vintage #about .v-divider,
+.home-vintage .v-research .v-divider,
+.home-vintage .v-news .v-divider{color:var(--forest)!important}
+.home-vintage .v-projects .v-divider{color:var(--orange)!important}
+.home-vintage .v-social-media .v-media-divider{color:var(--olive)!important}
+
+/* FINAL scroll cue: two burnt-orange dots + V */
+.home-vintage .v-down{
+  position:absolute!important;
+  width:46px!important;
+  height:58px!important;
+  bottom:10px!important;
+  font-size:0!important;
+  color:transparent!important;
+  background:none!important;
+}
+.home-vintage .v-down::before{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:7px!important;
+  width:7px!important;
+  height:7px!important;
+  border-radius:50%!important;
+  background:#b76822!important;
+  transform:translateX(-50%)!important;
+  box-shadow:0 16px 0 #b76822!important;
+}
+.home-vintage .v-down::after{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  bottom:4px!important;
+  width:20px!important;
+  height:20px!important;
+  border-right:2px solid #b76822!important;
+  border-bottom:2px solid #b76822!important;
+  transform:translateX(-50%) rotate(45deg)!important;
+}
+.home-vintage .v-down:hover{transform:translateX(-50%) translateY(2px)!important}
+
+@media(max-width:640px){
+  .home-vintage .v-divider,
+  .home-vintage .v-media-divider{width:180px!important;height:12px!important}
+  .home-vintage .v-divider::after,
+  .home-vintage .v-media-divider::after{box-shadow:180px 0 0 currentColor!important}
+}
