@@ -142,3 +142,47 @@ body:not(.home-vintage) .page-hero h1::after{
   body:not(.home-vintage) .section-title::after{flex-basis:150px!important;width:150px!important;height:20px!important}
   body:not(.home-vintage) .page-hero h1::after{width:180px;height:20px}
 }
+
+/* FINAL interior-page micro-UI: line + endpoint dots matching title colour */
+body:not(.home-vintage) .section-title{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:22px!important;
+}
+body:not(.home-vintage) .section-title::after{
+  content:""!important;
+  flex:0 0 220px!important;
+  width:220px!important;
+  height:14px!important;
+  margin-left:0!important;
+  display:block!important;
+  background:
+    radial-gradient(circle at left center,currentColor 0 3px,transparent 3.5px),
+    radial-gradient(circle at right center,currentColor 0 3px,transparent 3.5px),
+    linear-gradient(currentColor,currentColor) center/100% 1px no-repeat!important;
+  color:inherit!important;
+}
+body:not(.home-vintage) .page-hero h1::after{
+  content:""!important;
+  display:block!important;
+  width:240px!important;
+  height:14px!important;
+  margin-top:18px!important;
+  background:
+    radial-gradient(circle at left center,currentColor 0 3px,transparent 3.5px),
+    radial-gradient(circle at right center,currentColor 0 3px,transparent 3.5px),
+    linear-gradient(currentColor,currentColor) center/100% 1px no-repeat!important;
+  color:inherit!important;
+}
+@media(max-width:700px){
+  body:not(.home-vintage) .section-title::after{
+    flex-basis:150px!important;
+    width:150px!important;
+    height:12px!important;
+  }
+  body:not(.home-vintage) .page-hero h1::after{
+    width:180px!important;
+    height:12px!important;
+  }
+}
