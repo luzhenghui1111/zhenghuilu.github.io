@@ -186,3 +186,43 @@ body:not(.home-vintage) .page-hero h1::after{
     height:12px!important;
   }
 }
+
+/* FINAL FIX: Bhamla-style line–diamond–line accents for interior-page headings */
+body:not(.home-vintage) .section-title{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:20px!important;
+}
+body:not(.home-vintage) .section-title::after{
+  content:""!important;
+  display:block!important;
+  flex:1 1 auto!important;
+  width:auto!important;
+  min-width:120px!important;
+  height:13px!important;
+  margin-left:0!important;
+  color:inherit!important;
+  background:
+    linear-gradient(currentColor,currentColor) left center/52px 1px no-repeat,
+    linear-gradient(currentColor,currentColor) 72px center/52px 1px no-repeat,
+    linear-gradient(45deg,transparent 43%,currentColor 44% 56%,transparent 57%) 60px center/9px 9px no-repeat!important;
+}
+
+body:not(.home-vintage) .page-hero h1::after{
+  content:""!important;
+  display:block!important;
+  width:133px!important;
+  height:13px!important;
+  margin-top:18px!important;
+  color:inherit!important;
+  background:
+    linear-gradient(currentColor,currentColor) left center/52px 1px no-repeat,
+    linear-gradient(currentColor,currentColor) 81px center/52px 1px no-repeat,
+    linear-gradient(45deg,transparent 43%,currentColor 44% 56%,transparent 57%) 62px center/9px 9px no-repeat!important;
+}
+
+@media(max-width:700px){
+  body:not(.home-vintage) .section-title::after{min-width:100px!important}
+  body:not(.home-vintage) .page-hero h1::after{width:118px!important}
+}
