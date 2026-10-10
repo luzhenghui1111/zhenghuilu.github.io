@@ -376,3 +376,11 @@ body:not(.home-vintage) .section-title{border-bottom:0!important}
 .home-vintage .v-divider,
 .home-vintage .v-media-divider{border:0!important}
 body:not(.home-vintage) .section-title{border-bottom:0!important}
+
+/* Ensure final Bhamla-style divider rules win over previous experimental styles */
+.home-vintage .v-divider,
+.home-vintage .v-media-divider{
+  background-image:none!important;
+  border:0!important;
+}
+body:not(.home-vintage) .section-title{border-bottom:0!important}
