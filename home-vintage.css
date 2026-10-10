@@ -202,3 +202,70 @@
   .home-vintage .v-divider::after,
   .home-vintage .v-media-divider::after{box-shadow:180px 0 0 currentColor!important}
 }
+
+/* FINAL FIX: Bhamla-style line–diamond–line dividers, colored to match each section title */
+.home-vintage .v-divider,
+.home-vintage .v-media-divider{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:10px!important;
+  width:140px!important;
+  height:14px!important;
+  margin:16px 0 30px!important;
+  background:none!important;
+  color:var(--forest)!important;
+}
+.home-vintage .v-divider::before,
+.home-vintage .v-divider::after,
+.home-vintage .v-media-divider::before,
+.home-vintage .v-media-divider::after{
+  content:""!important;
+  display:block!important;
+  position:static!important;
+  width:52px!important;
+  height:1px!important;
+  flex:0 0 52px!important;
+  background:currentColor!important;
+  border:0!important;
+  border-radius:0!important;
+  transform:none!important;
+  box-shadow:none!important;
+}
+.home-vintage .v-divider i,
+.home-vintage .v-media-divider i{
+  display:block!important;
+  width:7px!important;
+  height:7px!important;
+  flex:0 0 7px!important;
+  background:currentColor!important;
+  transform:rotate(45deg)!important;
+  border-radius:0!important;
+}
+
+/* section-specific title matching */
+.home-vintage #about .v-divider,
+.home-vintage .v-research .v-divider,
+.home-vintage .v-news .v-divider{color:var(--forest)!important}
+.home-vintage .v-social-media .v-media-divider{color:var(--olive)!important}
+.home-vintage .v-projects .v-divider{color:var(--orange)!important}
+
+/* centered social-media version */
+.home-vintage .v-social-media .v-media-divider{
+  margin-left:auto!important;
+  margin-right:auto!important;
+  justify-content:center!important;
+}
+
+@media(max-width:640px){
+  .home-vintage .v-divider,
+  .home-vintage .v-media-divider{width:116px!important}
+  .home-vintage .v-divider::before,
+  .home-vintage .v-divider::after,
+  .home-vintage .v-media-divider::before,
+  .home-vintage .v-media-divider::after{
+    width:40px!important;
+    flex-basis:40px!important;
+  }
+}
