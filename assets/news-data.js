@@ -1,5 +1,125 @@
 window.NEWS_DATA = [
   {
+  "id": "note-oa-year-review-2026-biomechanics",
+  "date": "2026.10.21",
+  "categoryEn": "Paper sharing · Osteoarthritis · Biomechanics",
+  "categoryZh": "论文分享 · 骨关节炎 · 生物力学",
+  "titleEn": "Paper Notes | Osteoarthritis Year in Review 2026: Biomechanics",
+  "titleZh": "文章分享：2026年骨关节炎年度回顾——生物力学",
+  "summaryEn": "A look at the 2026 OARSI biomechanics year in review, from predicting osteoarthritis progression to real-world wearable measurements, meaningful movement phenotypes, and personalized interventions.",
+  "summaryZh": "分享《Osteoarthritis and Cartilage》最新年度回顾，聊聊从描述步态差异到预测疾病进展、真实环境运动测量以及个体化干预，我觉得值得关注的几个问题。",
+  "featured": true,
+  "sourceUrl": "https://www.oarsijournal.com/article/S1063-4584(26)01080-0/fulltext",
+  "sourceLabelEn": "Read the open-access article →",
+  "sourceLabelZh": "阅读开放获取论文原文 →",
+  "footerEn": "Osteoarthritis · Gait · Longitudinal research · Personalized interventions",
+  "footerZh": "骨关节炎 · 步态 · 纵向研究 · 个体化干预",
+  "body": [
+    {
+      "en": "This is a recent article in <em>Osteoarthritis and Cartilage</em>, and I found it genuinely enjoyable to read. The content is well organized, the discussion is thoughtful, and some of the original English phrasing is particularly good. I would especially recommend looking at the Discussion and Conclusion.",
+      "zh": "这是一篇发表在 <em>Osteoarthritis and Cartilage</em> 的文章。我读完感觉写得很好，不论是内容、结构，还是原英文的遣词造句都值得学习。尤其是 Discussion 和 Conclusion 中的一些表述，我很推荐大家仔细看看。"
+    },
+    {
+      "en": "<strong>Osteoarthritis year in review 2026: Biomechanics</strong>",
+      "zh": "<strong>Osteoarthritis year in review 2026: Biomechanics</strong>"
+    },
+    {
+      "en": "The work was led by researchers at La Trobe University in Australia, together with colleagues at East Carolina University and Michigan State University in the United States. It was published online on <strong>October 9, 2026</strong>, so it is very recent. This is part of OARSI's longstanding Year in Review series, focusing on developments in osteoarthritis biomechanics over the previous year.",
+      "zh": "这篇文章由澳大利亚拉筹伯大学（La Trobe University）牵头，联合美国东卡罗来纳大学（East Carolina University）和密歇根州立大学（Michigan State University）的研究人员完成，<strong>2026 年 10 月 9 日</strong>在线发表，非常新。这是一篇骨关节炎生物力学领域的年度研究回顾，也是 OARSI 长期开展的 Year in Review 系列之一。"
+    },
+    {
+      "headingEn": "1. What progressed in osteoarthritis biomechanics over the past year?",
+      "headingZh": "一、过去一年，骨关节炎生物力学研究有哪些进展？"
+    },
+    {
+      "en": "I will skip the details of the literature search and go straight to the findings. The review included 176 studies published during its search period, 169 involving humans and seven involving animals.",
+      "zh": "检索流程就不啰嗦，直接看结果。这篇综述最终纳入 176 项研究，其中 169 项为人体研究，7 项为动物研究。"
+    },
+    {
+      "image": "https://mmbiz.qpic.cn/mmbiz_png/pWz61m8hibxa6iacpTgm3OgRwX6IaNpIb8iaRbxsvQt4oUFpgiaNt0LQOibSYkl04jxVmIo1Nt7a9vUswLW8DpDVYPHJRNayOM4VsgGeUS2QIiaRg/0?wx_fmt=png&from=appmsg",
+      "altEn": "Overview of the geographical distribution and study designs in the year-in-review",
+      "altZh": "年度回顾纳入研究的地区分布和研究设计概况",
+      "captionEn": "Overview of included studies. Source: figures shared with this post.",
+      "captionZh": "纳入研究概况。图片来自本次分享所用的论文图示。"
+    },
+    {
+      "en": "The knee remains the most frequently studied joint, walking the most common movement task, and cross-sectional studies still account for a large share of the literature. Even with new motion-analysis systems, musculoskeletal models, and AI methods, many studies still focus on <strong>comparing gait in people with osteoarthritis against healthy controls</strong>.",
+      "zh": "从最终纳入的研究来看，<strong>膝关节</strong>仍然是最主要的研究对象，步行是最常见的运动任务，而横断面研究依然占据较大比例。尽管现在已经有很多新的运动分析设备、肌肉骨骼模型和人工智能方法，但相当一部分研究仍然是在<strong>比较骨关节炎患者和健康人之间的步态差异</strong>。"
+    },
+    {
+      "en": "Such comparisons help us describe the kinematic and kinetic features of a patient population. But for the disease itself, I think we want to know more. Does an abnormal gait pattern observed today mean a greater risk of cartilage deterioration in the future? Can a change in a biomechanical variable really predict pain or function? And if we modify that variable through intervention, what happens to the patient's longer-term outcomes?",
+      "zh": "这样的研究可以帮助我们了解疾病患者表现出哪些运动学或动力学特征。<strong>但对于疾病本身，我们可能还想知道更多。</strong>比如，今天观察到的步态异常，是否意味着这个人未来更容易出现软骨退变？某个生物力学指标的改变，是否真的能够预测疼痛和功能的变化？如果我们通过干预改变了这些指标，患者的长期结局又会怎样？"
+    },
+    {
+      "image": "https://mmbiz.qpic.cn/mmbiz_png/pWz61m8hibxZj0XzzcnVa3QF5965ia1zsAKOz2jVcctDcM9rYCSTTTdvyZ7IJdXCEYQdNBssiceASj6RicxtO4VASyIBw0qszZ5JVhZctMZCX5w/0?wx_fmt=png&from=appmsg",
+      "altEn": "Breakdown of joints and movement tasks studied in human osteoarthritis biomechanics research",
+      "altZh": "骨关节炎人体生物力学研究中涉及的关节与运动任务",
+      "captionEn": "Joints and movement tasks covered by the human studies. Source: figures shared with this post.",
+      "captionZh": "人体研究所涉及的关节与运动任务。图片来自本次分享所用的论文图示。"
+    },
+    {
+      "headingEn": "2. From describing gait differences to predicting disease progression",
+      "headingZh": "二、从描述步态差异，到预测疾病进展"
+    },
+    {
+      "en": "More studies are now trying to connect movement characteristics with the long-term course of osteoarthritis. This review highlights two large studies from the Multicenter Osteoarthritis Study, involving <strong>1,322 and 1,703 participants</strong>, respectively.",
+      "zh": "目前，越来越多研究开始<strong>尝试将人体运动特征与骨关节炎的长期进展</strong>联系起来。这篇综述中特别介绍了两项来自 Multicenter Osteoarthritis Study 的大样本研究，样本量分别达到<strong>1,322 人和 1,703 人</strong>。"
+    },
+    {
+      "en": "One study found that a higher <strong>impact peak in vertical ground reaction force during walking</strong> was associated with worsening bone marrow lesions and cartilage damage in specific knee regions two years later. Another used wearable sensors to measure step length, finding that <strong>longer steps</strong> were associated with greater cartilage deterioration over two years, particularly in people who already had more extensive cartilage damage at baseline.",
+      "zh": "其中一项研究发现，步行过程中较高的<strong>垂直地面反作用力冲击峰值</strong>，与<strong>两年后特定膝关节区域的骨髓病变及软骨损伤加重</strong>有关。另一项研究则利用可穿戴传感器测量步长，发现<strong>较长的步长</strong>与<strong>两年后的软骨结构恶化</strong>存在关联，尤其是在基线软骨已经存在较明显损伤的人群中。"
+    },
+    {
+      "en": "The review also discusses a study we shared previously: <em>Immediate reductions in compressive and shear forces in the knee from gait retraining are associated with slowed cartilage degeneration after 1 year in medial knee osteoarthritis</em>. Using musculoskeletal modeling and MRI follow-up over one year, that work linked changes in <strong>medial knee compressive force and anterior-posterior shear force</strong> after gait retraining with later <strong>cartilage microstructural changes</strong>.",
+      "zh": "综述还提到了我们之前分享过的一篇研究：<em>Immediate reductions in compressive and shear forces in the knee from gait retraining are associated with slowed cartilage degeneration after 1 year in medial knee osteoarthritis</em>。这项研究利用肌肉骨骼建模和一年期 MRI 随访发现，步态调整引起的<strong>膝关节内侧压缩力和前后向剪切力</strong>变化，与后续<strong>软骨微结构变化</strong>存在关联。"
+    },
+    {
+      "en": "These studies connect internal joint loading with longer-term imaging outcomes and offer new evidence for identifying biomechanical markers with clinical relevance. Still, much of the evidence remains observational. <strong>An association does not establish causation.</strong>",
+      "zh": "这类工作把关节内部负荷与长期影像学结果联系起来，为寻找更有临床意义的生物力学指标提供了新的证据。<strong>不过，目前很多证据仍然来自观察性研究，相关性并不能直接说明因果关系。</strong>"
+    },
+    {
+      "headingEn": "3. Wearable sensors and markerless motion capture",
+      "headingZh": "三、可穿戴传感器和无标记运动捕捉技术"
+    },
+    {
+      "en": "These approaches are already familiar to many of us. Their biggest advantage is that they expand where and how movement can be measured. Laboratory motion capture is precise, but it is not particularly efficient for following people over long periods or observing what they do outside the lab.",
+      "zh": "这套方法已经非常成熟，大家肯定看过不少了。它们主要的优势是可以拓展数据采集的渠道和范围，毕竟实验室内运动捕捉的采集效率不高，也很难长期追踪日常活动。"
+    },
+    {
+      "en": "Markerless systems and IMUs still have limitations. Accuracy varies across devices, and estimating joint moments or internal contact forces from kinematics requires additional steps, particularly external-load estimation and musculoskeletal modeling. These challenges are not trivial.",
+      "zh": "当然，无标记运动捕捉和 IMU 目前仍然存在一些限制。不同设备的测量精度并不完全一致，而且从运动学数据进一步估计关节力矩或内部接触力，还需要解决外部载荷估计和肌肉骨骼建模等问题。"
+    },
+    {
+      "en": "For understanding long-term disease progression, however, sustained measurement in everyday environments may be just as valuable. <strong>A dozen gait cycles collected in the laboratory cannot fully represent how someone moves throughout a normal day.</strong> Combining high-fidelity biomechanical modeling in the lab with wearable measurements in real life may allow us to study how a person's mechanical loading changes over months or years.",
+      "zh": "不过，对于研究疾病长期进展来说，能够在日常生活中持续获得人体运动信息，也许同样重要。<strong>毕竟患者在实验室里走十几个步态周期，与他们每天在真实环境中的运动状态不同。</strong>如果未来能够将实验室中的高精度生物力学建模与真实环境下的可穿戴测量结合起来，我们可能就有机会研究一个人在较长时间内的机械负荷变化。"
+    },
+    {
+      "headingEn": "4. Personalized interventions",
+      "headingZh": "四、个性化干预"
+    },
+    {
+      "en": "<strong>Why can people with the same diagnosis of knee osteoarthritis show very different biomechanical patterns?</strong> Even when imaging findings look similar, movement strategies may differ substantially. The review brings together studies on sex, obesity, knee alignment, disease stage, and psychological factors related to pain, all of which may influence how people move.",
+      "zh": "<strong>同样是膝骨关节炎，为什么每个人的生物力学表现可能完全不同？</strong>即使具有相似的影像学诊断，不同患者的运动表现也可能存在明显差异。文章总结了过去一年有关性别、肥胖、膝关节排列、疾病阶段以及疼痛相关心理因素的研究。这些因素都可能影响患者的运动策略。"
+    },
+    {
+      "en": "For example, one study found that some people with knee osteoarthritis lacked the typical <strong>first peak of knee contact force during walking</strong>. They showed distinctive kinematic and kinetic patterns and reported worse symptoms. Other studies suggest that people with different levels of fear of movement may adopt different gait strategies.",
+      "zh": "一项研究发现，<strong>部分膝骨关节炎患者在行走时缺少典型的膝关节接触力第一峰值</strong>，这类患者表现出不同的运动学和动力学特征，同时报告了更严重的症状。还有研究发现，运动恐惧程度不同的 KOA 患者，也可能采用不同的步态策略。"
+    },
+    {
+      "en": "And here is another question: <strong>is reducing joint load always beneficial?</strong> For patients with substantially elevated loading in the medial compartment, unloading may be a reasonable goal. But studies in early knee OA, especially post-traumatic OA following anterior cruciate ligament injury or reconstruction, have found that some patients already walk with lower knee contact forces. Mechanical loading therefore differs across disease stages, and a single unloading strategy is unlikely to suit everyone.",
+      "zh": "并且，<strong>关节负荷降低一定是好事吗？</strong>在已经形成明显内侧间室负荷异常的 KOA 患者中，降低过高的机械负荷可能是一种合理的干预策略。但一些研究发现，<strong>在早期膝骨关节炎，尤其是前交叉韧带损伤或重建后的创伤后骨关节炎人群中，部分患者反而表现出较低的膝关节接触力</strong>。不同疾病阶段可能存在不同的机械负荷特征。我们不能简单地认为所有 KOA 患者都需要采用相同的减负策略。"
+    },
+    {
+      "en": "Machine learning and clustering are now widely used to identify patient subgroups. But simply dividing a population into several clusters has limited practical value unless those clusters are shown to relate to disease progression, clinical outcomes, or treatment response.",
+      "zh": "目前机器学习和聚类方法已经被广泛用于识别不同患者亚组，但如果最后只是把一组患者分成几个类别，没有进一步证明这些类别与疾病进展、临床表现或者治疗反应有什么关系，那么这种分型的实际价值仍然有限。"
+    },
+    {
+      "en": "A genuinely useful biomechanical phenotype should help us answer three questions: <strong>what characterizes this group of patients, what risks might they face, and which intervention is more appropriate for them?</strong> For personalized biomechanics to translate into meaningful clinical benefits, future work also needs to identify <strong>which variable to target, in whom, and by how much</strong>.",
+      "zh": "一个真正有意义的生物力学表型，应该能够帮助我们回答：<strong>一类患者有什么特点？未来可能面临什么风险？哪一种干预更适合他们？</strong>未来的个体化生物力学干预还需要考虑，<strong>应该选择什么指标、针对什么患者，以及需要改变到什么程度</strong>，才能产生真正有意义的临床效果。"
+    }
+  ]
+},
+  {
     id: "note-buaa-pressure-insole",
     date: "2026.10.07",
     categoryEn: "Paper sharing · Flexible sensors",
