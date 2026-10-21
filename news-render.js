@@ -25,6 +25,19 @@
 
   function bodyBlocks(note){
     return (note.body || []).map(block => {
+      if(block.headingEn || block.headingZh){
+        return `<h3 class="news-entry-subheading"><span class="lang-en">${block.headingEn || ""}</span><span class="lang-zh">${block.headingZh || ""}</span></h3>`;
+      }
+      if(block.image){
+        const src=esc(block.image);
+        return `<figure class="news-inline-figure">
+          <a class="news-figure-link" href="${src}" target="_blank" rel="noopener noreferrer" title="Open original image">
+            <img src="${src}" alt="${esc(block.altEn || block.altZh || "Paper figure")}" referrerpolicy="no-referrer" loading="lazy" decoding="async">
+          </a>
+          <div class="news-image-fallback"><span class="lang-en">The image could not be loaded here. Open the original image ↗</span><span class="lang-zh">图片暂时无法加载，点击查看原图 ↗</span></div>
+          <figcaption><span class="lang-en">${esc(block.captionEn || "")}</span><span class="lang-zh">${esc(block.captionZh || "")}</span></figcaption>
+        </figure>`;
+      }
       if(block.link){
         return `<p><a class="news-source-link" href="${esc(block.link)}" target="_blank" rel="noopener noreferrer"><span class="lang-en">${block.linkEn || "Open link →"}</span><span class="lang-zh">${block.linkZh || "打开链接 →"}</span></a></p>`;
       }
@@ -44,6 +57,9 @@
         <div class="news-entry-footer"><span class="lang-en">${note.footerEn || ""}</span><span class="lang-zh">${note.footerZh || ""}</span></div>
       </article>`
     ).join("");
+    root.querySelectorAll(".news-inline-figure img").forEach(img => {
+      img.addEventListener("error",() => img.closest(".news-inline-figure")?.classList.add("image-unavailable"));
+    });
   }
 
   function init(){
