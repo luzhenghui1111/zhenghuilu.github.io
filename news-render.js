@@ -34,7 +34,7 @@
           <a class="news-figure-link" href="${src}" target="_blank" rel="noopener noreferrer" title="Open original image">
             <img src="${src}" alt="${esc(block.altEn || block.altZh || "Paper figure")}" referrerpolicy="no-referrer" loading="lazy" decoding="async">
           </a>
-          <div class="news-image-fallback"><span class="lang-en">The image could not be loaded here. Open the original image ↗</span><span class="lang-zh">图片暂时无法加载，点击查看原图 ↗</span></div>
+          <a class="news-image-fallback" href="${src}" target="_blank" rel="noopener noreferrer"><span class="lang-en">The image could not be loaded here. Open the original image ↗</span><span class="lang-zh">图片暂时无法加载，点击查看原图 ↗</span></a>
           <figcaption><span class="lang-en">${esc(block.captionEn || "")}</span><span class="lang-zh">${esc(block.captionZh || "")}</span></figcaption>
         </figure>`;
       }
